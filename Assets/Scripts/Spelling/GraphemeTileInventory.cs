@@ -13,6 +13,7 @@ public class GraphemeTileInventory : MonoBehaviour, ISpellingController
     public Vector3 stagedTilePosition;
 
     const int rowCount = 4;
+    const float transitionSpeed = 0.5f;
     GameObject[,] tileTable = new GameObject[rowCount, rowCount];
     const float stagedTileSpacing = 1.125f;
     List<GameObject> stagedTiles = new List<GameObject>();
@@ -24,6 +25,7 @@ public class GraphemeTileInventory : MonoBehaviour, ISpellingController
                 var tile = Instantiate(graphemeTilePrefab, transform.position, Quaternion.identity);
                 tile.GetComponent<GraphemeTile>().spellingController = this;
                 tileTable[y, x] = tile;
+                tile.transform.position = transform.position;
             }
         }
 
@@ -50,15 +52,17 @@ public class GraphemeTileInventory : MonoBehaviour, ISpellingController
         for (int y = 0; y < rowCount; ++y) {
             for (int x = 0; x < rowCount; ++x) {
                 Vector3 position = tableBottomLeft + spacing * new Vector3(x, y, 0.0f);
-                tileTable[y, x].transform.position = position;
+                GameObject tile = tileTable[y, x];
+                tile.GetComponent<GraphemeTile>().targetPosition = position;
             }
         }
 
         float stagedWidth = spacing * (stagedTiles.Count - 1);
         Vector3 stagedLeft = stagedTilePosition - new Vector3(stagedWidth * 0.5f, 0.0f, 0.0f);
         for (int i = 0; i < stagedTiles.Count; ++i) {
+            Vector3 position = stagedLeft + spacing * new Vector3(i, 0.0f, 0.0f);
             GameObject tile = stagedTiles[i];
-            tile.transform.position = stagedLeft + spacing * new Vector3(i, 0.0f, 0.0f);
+            tile.GetComponent<GraphemeTile>().targetPosition = position;
         }
     }
 }
