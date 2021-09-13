@@ -251,7 +251,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   graphemeTilePrefab: {fileID: 7373158387132895689, guid: 726d3958a64fd3a4295a66153f02bf21, type: 3}
-  graphemeTileStagingPosition: {x: 0, y: 0, z: 0}
+  graphemeTileStagingPosition: {x: 0, y: 2, z: 0}
 --- !u!212 &1812529465
 SpriteRenderer:
   m_ObjectHideFlags: 0

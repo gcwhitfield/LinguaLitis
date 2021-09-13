@@ -33,5 +33,6 @@ public class GraphemeTileInventory : MonoBehaviour, ISpellingController
     public void ActivateTile(GraphemeTile tile)
     {
         Debug.Log("Tile activated");
+        tile.transform.position = graphemeTileStagingPosition;
     }
 }
