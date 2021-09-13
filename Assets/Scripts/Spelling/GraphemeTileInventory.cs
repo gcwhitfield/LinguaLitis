@@ -22,14 +22,17 @@ public class GraphemeTileInventory : MonoBehaviour, ISpellingController
     {
         for (int y = 0; y < rowCount; ++y) {
             for (int x = 0; x < rowCount; ++x) {
-                var tile = Instantiate(graphemeTilePrefab, transform.position, Quaternion.identity);
+                var tile = Instantiate(graphemeTilePrefab, Vector3.zero, Quaternion.identity);
                 tile.GetComponent<GraphemeTile>().spellingController = this;
                 tileTable[y, x] = tile;
-                tile.transform.position = transform.position;
             }
         }
 
         PositionTiles();
+
+        foreach (GameObject tile in tileTable) {
+            tile.GetComponent<GraphemeTile>().animable = true;
+        }
     }
 
     public void ActivateTile(GameObject tile)
@@ -53,7 +56,7 @@ public class GraphemeTileInventory : MonoBehaviour, ISpellingController
             for (int x = 0; x < rowCount; ++x) {
                 Vector3 position = tableBottomLeft + spacing * new Vector3(x, y, 0.0f);
                 GameObject tile = tileTable[y, x];
-                tile.GetComponent<GraphemeTile>().targetPosition = position;
+                tile.GetComponent<GraphemeTile>().Position(position);
             }
         }
 
@@ -62,7 +65,7 @@ public class GraphemeTileInventory : MonoBehaviour, ISpellingController
         for (int i = 0; i < stagedTiles.Count; ++i) {
             Vector3 position = stagedLeft + spacing * new Vector3(i, 0.0f, 0.0f);
             GameObject tile = stagedTiles[i];
-            tile.GetComponent<GraphemeTile>().targetPosition = position;
+            tile.GetComponent<GraphemeTile>().Position(position);
         }
     }
 }
