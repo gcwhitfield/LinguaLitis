@@ -19,33 +19,46 @@ public class GraphemeTileInventory : MonoBehaviour, ISpellingController
 
     void Start()
     {
-        float width = transform.localScale.x;
-        float spacing = width / (rowCount - 1);
-        Vector3 bottomLeft = transform.position - new Vector3(width, width, 0.0f) * 0.5f;
         for (int y = 0; y < rowCount; ++y) {
             for (int x = 0; x < rowCount; ++x) {
-                Vector3 position = bottomLeft + spacing * new Vector3(x, y, 0.0f);
-                var tile = Instantiate(graphemeTilePrefab, position, Quaternion.identity);
+                var tile = Instantiate(graphemeTilePrefab, transform.position, Quaternion.identity);
                 tile.GetComponent<GraphemeTile>().spellingController = this;
                 tileTable[y, x] = tile;
             }
         }
+
+        PositionTiles();
     }
 
     public void ActivateTile(GameObject tile)
     {
-        stagedTiles.Add(tile);
-        ArrangeStagedTiles();
+        int index = stagedTiles.IndexOf(tile);
+        if (index == -1) {
+            stagedTiles.Add(tile);
+        } else {
+            stagedTiles.RemoveAt(index);
+        }
+
+        PositionTiles();
     }
 
-    void ArrangeStagedTiles()
+    void PositionTiles()
     {
-        float width = stagedTileSpacing * (stagedTiles.Count - 1);
-        Vector3 left = stagedTilePosition - new Vector3(width * 0.5f, 0.0f, 0.0f);
+        float width = transform.localScale.x;
+        float spacing = width / (rowCount - 1);
+        Vector3 tableBottomLeft = transform.position - new Vector3(width, width, 0.0f) * 0.5f;
+        for (int y = 0; y < rowCount; ++y) {
+            for (int x = 0; x < rowCount; ++x) {
+                Vector3 position = tableBottomLeft + spacing * new Vector3(x, y, 0.0f);
+                tileTable[y, x].transform.position = position;
+            }
+        }
 
+        float stagedWidth = spacing * (stagedTiles.Count - 1);
+        Vector3 stagedLeft = stagedTilePosition - new Vector3(stagedWidth * 0.5f, 0.0f, 0.0f);
         for (int i = 0; i < stagedTiles.Count; ++i) {
             GameObject tile = stagedTiles[i];
-            tile.transform.position = left + stagedTileSpacing * new Vector3(i, 0.0f, 0.0f);
+            tile.transform.position = stagedLeft + spacing * new Vector3(i, 0.0f, 0.0f);
         }
     }
 }
