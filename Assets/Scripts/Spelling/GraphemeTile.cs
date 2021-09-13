@@ -8,6 +8,6 @@ public class GraphemeTile : MonoBehaviour
 
     void OnMouseDown()
     {
-        spellingController.ActivateTile(this);
+        spellingController.ActivateTile(gameObject);
     }
 }
