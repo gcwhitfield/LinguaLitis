@@ -10,7 +10,7 @@ public class Lexicon : MonoBehaviour
 
     void Start()
     {
-        string[] separators = { "\r\n" };
+        string[] separators = { "\r\n", "\n" };
         wordSet = new HashSet<string>(wordListText.text.Split(separators, System.StringSplitOptions.RemoveEmptyEntries));
         Debug.Log("Loaded " + wordSet.Count + " words into vocabulary");
 
