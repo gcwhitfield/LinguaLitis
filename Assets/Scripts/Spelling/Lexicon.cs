@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Vocabulary : MonoBehaviour
+public class Lexicon : MonoBehaviour
 {
     public TextAsset wordListText;
 
@@ -14,9 +14,9 @@ public class Vocabulary : MonoBehaviour
         wordSet = new HashSet<string>(wordListText.text.Split(separators, System.StringSplitOptions.RemoveEmptyEntries));
         Debug.Log("Loaded " + wordSet.Count + " words into vocabulary");
 
-        Debug.Log("Does the set contain ''? " + Includes(""));
-        Debug.Log("Does the set contain 'apples'? " + Includes("apples"));
-        Debug.Log("Does the set contain 'wertwe'? " + Includes("wertwe"));
+        Debug.Log("Does the set contain ''? " + Includes("") + " (should be False)");
+        Debug.Log("Does the set contain 'apples'? " + Includes("apples") + " (should be True)");
+        Debug.Log("Does the set contain 'wertwe'? " + Includes("wertwe") + " (should be False)");
     }
 
     public bool Includes(string word)
