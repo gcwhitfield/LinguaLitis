@@ -12,6 +12,7 @@ public class GraphemeTileInventory : MonoBehaviour, ISpellingController
     public GameObject graphemeTilePrefab;
     public Vector3 stagedTilePosition;
 
+    List<string> graphemes = new List<string> {"a", "b", "c"};
     const int rowCount = 4;
     const float transitionSpeed = 0.5f;
     GameObject[,] tileTable = new GameObject[rowCount, rowCount];
@@ -23,7 +24,7 @@ public class GraphemeTileInventory : MonoBehaviour, ISpellingController
         for (int y = 0; y < rowCount; ++y) {
             for (int x = 0; x < rowCount; ++x) {
                 var tile = Instantiate(graphemeTilePrefab, Vector3.zero, Quaternion.identity);
-                tile.GetComponent<GraphemeTile>().spellingController = this;
+                tile.GetComponent<GraphemeTile>().Initialize(this, graphemes[Random.Range(0, graphemes.Count)]);
                 tileTable[y, x] = tile;
             }
         }
