@@ -16,6 +16,13 @@ public class GraphemeTileInventory : MonoBehaviour, ISpellingController
         "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m",
         "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z",
     };
+    Dictionary<string, int> graphemeRatings = new Dictionary<string, int> {
+        { "a", 1 }, { "b", 3 }, { "c", 2 }, { "d", 2 }, { "e", 1 }, { "f", 2 },
+        { "g", 3 }, { "h", 2 }, { "i", 1 }, { "j", 4 }, { "k", 3 }, { "l", 2 },
+        { "m", 2 }, { "n", 1 }, { "o", 1 }, { "p", 3 }, { "q", 4 }, { "r", 1 },
+        { "s", 1 }, { "t", 1 }, { "u", 2 }, { "v", 3 }, { "w", 3 }, { "x", 4 },
+        { "y", 3 }, { "z", 4 },
+    };
     const int rowCount = 4;
     const float transitionSpeed = 0.5f;
     GameObject[,] tileTable = new GameObject[rowCount, rowCount];
@@ -50,13 +57,14 @@ public class GraphemeTileInventory : MonoBehaviour, ISpellingController
 
         PositionTiles();
 
-        string spelledString = "";
+        var spelledGraphemes = new List<string>();
         foreach (GameObject staged in stagedTiles) {
-            spelledString += staged.GetComponent<GraphemeTile>().GetGrapheme();
+            spelledGraphemes.Add(staged.GetComponent<GraphemeTile>().GetGrapheme());
         }
+        var spelledString = string.Join("", spelledGraphemes);
 
         if (GetComponent<Lexicon>().Includes(spelledString)) {
-            Debug.Log("Spelled a valid word: " + spelledString);
+            Debug.Log("Score of '" + spelledString + "' is " + ScoreWord(spelledGraphemes));
         }
     }
 
@@ -80,5 +88,14 @@ public class GraphemeTileInventory : MonoBehaviour, ISpellingController
             GameObject tile = stagedTiles[i];
             tile.GetComponent<GraphemeTile>().Position(position);
         }
+    }
+
+    int ScoreWord(List<string> graphemeList)
+    {
+        int rating = 0;
+        foreach (string grapheme in graphemeList) {
+            rating += graphemeRatings[grapheme];
+        }
+        return rating;
     }
 }
