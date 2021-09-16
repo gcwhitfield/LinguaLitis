@@ -16,16 +16,29 @@ public class GraphemicInventory
         { "s", 1 }, { "t", 1 }, { "u", 2 }, { "v", 3 }, { "w", 3 }, { "x", 4 },
         { "y", 3 }, { "z", 4 },
     };
+    Dictionary<string, int> graphemeFrequencies = new Dictionary<string, int> {
+        { "a", 10 }, { "b", 6 }, { "c", 7 }, { "d", 7 }, { "e", 10 }, { "f", 5 },
+        { "g", 5 }, { "h", 4 }, { "i", 10 }, { "j", 1 }, { "k", 5 }, { "l", 4 },
+        { "m", 5 }, { "n", 7 }, { "o", 8 }, { "p", 4 }, { "q", 1 }, { "r", 6 },
+        { "s", 2 }, { "t", 10 }, { "u", 8 }, { "v", 3 }, { "w", 1 }, { "x", 1 },
+        { "y", 2 }, { "z", 3 },
+    };
     List<string> graphemeList;
+    List<string> weightedGraphemeList = new List<string>();
 
     public GraphemicInventory()
     {
         graphemeList = new List<string>(graphemePoints.Keys);
+        foreach (var ele in graphemeFrequencies) {
+            for (int i = 0; i < ele.Value; ++i) {
+                weightedGraphemeList.Add(ele.Key);
+            }
+        }
     }
 
     public string GetRandomGrapheme()
     {
-        return graphemeList[Random.Range(0, graphemeList.Count)];
+        return weightedGraphemeList[Random.Range(0, weightedGraphemeList.Count)];
     }
 
     public int ScoreWord(List<string> graphemeList)
