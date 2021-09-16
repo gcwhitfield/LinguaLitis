@@ -5,14 +5,14 @@ using TMPro;
 
 public class GraphemeTile : MonoBehaviour
 {
-    public ISpellingController spellingController;
     public GameObject textObject;
     public bool animable = false;
 
+    ISpellingController spellingController;
+    string grapheme;
     const float transitionSpeed = 0.1f;
     Vector3 targetPosition;
     Vector3 velocity = Vector3.zero;
-    string grapheme;
 
     public void Initialize(ISpellingController setSpellingController, string setGrapheme)
     {
@@ -32,6 +32,11 @@ public class GraphemeTile : MonoBehaviour
         if (!animable) {
             transform.position = position;
         }
+    }
+
+    public string GetGrapheme()
+    {
+        return grapheme;
     }
 
     void Update()

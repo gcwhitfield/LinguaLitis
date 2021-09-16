@@ -12,7 +12,10 @@ public class GraphemeTileInventory : MonoBehaviour, ISpellingController
     public GameObject graphemeTilePrefab;
     public Vector3 stagedTilePosition;
 
-    List<string> graphemes = new List<string> {"a", "b", "c"};
+    List<string> graphemes = new List<string> {
+        "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m",
+        "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z",
+    };
     const int rowCount = 4;
     const float transitionSpeed = 0.5f;
     GameObject[,] tileTable = new GameObject[rowCount, rowCount];
@@ -46,6 +49,15 @@ public class GraphemeTileInventory : MonoBehaviour, ISpellingController
         }
 
         PositionTiles();
+
+        string spelledString = "";
+        foreach (GameObject staged in stagedTiles) {
+            spelledString += staged.GetComponent<GraphemeTile>().GetGrapheme();
+        }
+
+        if (GetComponent<Lexicon>().Includes(spelledString)) {
+            Debug.Log("Spelled a valid word: " + spelledString);
+        }
     }
 
     void PositionTiles()
