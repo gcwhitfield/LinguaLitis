@@ -14,12 +14,14 @@ public class Singleton<T> : MonoBehaviour where T : Component
                 instance = GameObject.FindObjectOfType<T>();
                 if (instance == null)
                 {
-                    instance = Instantiate(new GameObject()).AddComponent<T>();
+                    GameObject g = new GameObject();
                     instance.hideFlags = HideFlags.HideAndDontSave;
+                    instance = g.AddComponent<T>();
                 }
             }
             return instance;
         }
+        set { }
     }
 }
 
