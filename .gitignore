@@ -40,7 +40,7 @@ ExportedObj/
 *.svd
 *.pdb
 *.mdb
-*.opendb
+*.opendbs
 *.VC.db
 
 # Unity3D generated meta files
@@ -59,3 +59,4 @@ sysinfo.txt
 crashlytics-build.properties
 
 **/.DS_Store
+./UserSettings/*
