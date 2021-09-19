@@ -39,4 +39,9 @@ public class Health : MonoBehaviour
 
     	healthbar.value = curHp;
     }
+
+    public bool IsDead()
+    {
+        return curHp == 0;
+    }
 }

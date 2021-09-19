@@ -8,4 +8,12 @@ public class GameManager : UnitySingletonPersistant<GameManager>
     {
         Application.Quit();
     }
+
+    public enum Player
+    {
+        P1,
+        P2
+    };
+
+
 }
