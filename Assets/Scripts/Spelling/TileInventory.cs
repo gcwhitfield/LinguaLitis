@@ -7,56 +7,13 @@ public interface ISpellingController
     void ActivateTile(GameObject tile);
 }
 
-public class LetterPool
-{
-    Dictionary<string, int> letterPoints = new Dictionary<string, int> {
-        { "a", 1 }, { "b", 3 }, { "c", 2 }, { "d", 2 }, { "e", 1 }, { "f", 2 },
-        { "g", 3 }, { "h", 2 }, { "i", 1 }, { "j", 4 }, { "k", 3 }, { "l", 2 },
-        { "m", 2 }, { "n", 1 }, { "o", 1 }, { "p", 3 }, { "q", 4 }, { "r", 1 },
-        { "s", 1 }, { "t", 1 }, { "u", 2 }, { "v", 3 }, { "w", 3 }, { "x", 4 },
-        { "y", 3 }, { "z", 4 },
-    };
-    Dictionary<string, int> letterFrequencies = new Dictionary<string, int> {
-        { "a", 10 }, { "b", 6 }, { "c", 7 }, { "d", 7 }, { "e", 10 }, { "f", 5 },
-        { "g", 5 }, { "h", 4 }, { "i", 10 }, { "j", 1 }, { "k", 5 }, { "l", 4 },
-        { "m", 5 }, { "n", 7 }, { "o", 8 }, { "p", 4 }, { "q", 1 }, { "r", 6 },
-        { "s", 2 }, { "t", 10 }, { "u", 8 }, { "v", 3 }, { "w", 1 }, { "x", 1 },
-        { "y", 2 }, { "z", 3 },
-    };
-    List<string> letterList;
-    List<string> weightedLetterList = new List<string>();
-
-    public LetterPool()
-    {
-        letterList = new List<string>(letterPoints.Keys);
-        foreach (var ele in letterFrequencies) {
-            for (int i = 0; i < ele.Value; ++i) {
-                weightedLetterList.Add(ele.Key);
-            }
-        }
-    }
-
-    public string GetRandomLetter()
-    {
-        return weightedLetterList[Random.Range(0, weightedLetterList.Count)];
-    }
-
-    public int ScoreWord(List<string> letterList)
-    {
-        int score = 0;
-        foreach (string letter in letterList) {
-            score += letterPoints[letter];
-        }
-        return score;
-    }
-}
-
 public class TileInventory : MonoBehaviour, ISpellingController
 {
     public GameObject tilePrefab;
     public Vector3 stagedTilePosition;
+    public TextAsset wordList;
 
-    LetterPool graphemicInventory = new LetterPool();
+    Lexicon lexicon;
     const int columnCount = 3;
     const int rowCount = 5;
     const float transitionSpeed = 0.5f;
@@ -66,11 +23,13 @@ public class TileInventory : MonoBehaviour, ISpellingController
 
     void Start()
     {
+        this.lexicon = new Lexicon(wordList);
+
         for (int y = 0; y < columnCount; ++y) {
             for (int x = 0; x < rowCount; ++x) {
                 var tile = Instantiate(tilePrefab, Vector3.zero, Quaternion.identity);
                 tile.transform.SetParent(gameObject.transform);
-                tile.GetComponent<Tile>().Initialize(this, graphemicInventory.GetRandomLetter());
+                tile.GetComponent<Tile>().Initialize(this, lexicon.GetRandomLetter());
                 tileTable[y, x] = tile;
             }
         }
@@ -99,8 +58,9 @@ public class TileInventory : MonoBehaviour, ISpellingController
         }
         var spelledString = string.Join("", spelledLetters);
 
-        if (GetComponent<Lexicon>().Includes(spelledString)) {
-            Debug.Log("Score of '" + spelledString + "' is " + graphemicInventory.ScoreWord(spelledLetters));
+        var score = lexicon.ScoreWord(spelledLetters);
+        if (score >= 0) {
+            Debug.Log("Score of '" + spelledString + "' is " + lexicon.ScoreWord(spelledLetters));
         }
     }
 
