@@ -13,7 +13,6 @@ public class TileInventory : MonoBehaviour, ISpellingController
     public Vector3 stagedTilePosition;
     public TextAsset wordList;
 
-    Lexicon lexicon;
     const int columnCount = 3;
     const int rowCount = 5;
     GameObject[,] tileTable = new GameObject[columnCount, rowCount];
@@ -21,13 +20,14 @@ public class TileInventory : MonoBehaviour, ISpellingController
 
     void Start()
     {
-        this.lexicon = new Lexicon(wordList);
+        var lexicon = this.gameObject.AddComponent<Lexicon>();
+        lexicon.Initialize(this.wordList);
 
         for (int y = 0; y < TileInventory.columnCount; ++y) {
             for (int x = 0; x < TileInventory.rowCount; ++x) {
                 var tile = Instantiate(this.tilePrefab, Vector3.zero, Quaternion.identity);
                 tile.transform.SetParent(this.gameObject.transform);
-                tile.GetComponent<Tile>().Initialize(this, this.lexicon.GetRandomLetter());
+                tile.GetComponent<Tile>().Initialize(this, lexicon.GetRandomLetter());
                 this.tileTable[y, x] = tile;
             }
         }
@@ -56,9 +56,10 @@ public class TileInventory : MonoBehaviour, ISpellingController
         }
         var spelledString = string.Join("", spelledLetters);
 
-        var score = this.lexicon.ScoreWord(spelledLetters);
+        var lexicon = this.gameObject.GetComponent<Lexicon>();
+        var score = lexicon.ScoreWord(spelledLetters);
         if (score >= 0) {
-            Debug.Log("Score of '" + spelledString + "' is " + this.lexicon.ScoreWord(spelledLetters));
+            Debug.Log("Score of '" + spelledString + "' is " + lexicon.ScoreWord(spelledLetters));
         }
     }
 

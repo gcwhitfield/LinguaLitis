@@ -15,7 +15,7 @@ public class Lexicon : MonoBehaviour
     string[] wordList;
     HashSet<string> wordSet;
 
-    public Lexicon(TextAsset wordListTextAsset)
+    public void Initialize(TextAsset wordListTextAsset)
     {
         string[] separators = { "\r\n", "\n" };
         this.wordList = wordListTextAsset.text.Split(separators, System.StringSplitOptions.RemoveEmptyEntries);
