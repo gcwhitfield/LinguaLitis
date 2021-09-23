@@ -69,6 +69,7 @@ public class GraphemeTileInventory : MonoBehaviour, ISpellingController
         for (int y = 0; y < columnCount; ++y) {
             for (int x = 0; x < rowCount; ++x) {
                 var tile = Instantiate(graphemeTilePrefab, Vector3.zero, Quaternion.identity);
+                tile.transform.SetParent(gameObject.transform);
                 tile.GetComponent<GraphemeTile>().Initialize(this, graphemicInventory.GetRandomGrapheme());
                 tileTable[y, x] = tile;
             }
