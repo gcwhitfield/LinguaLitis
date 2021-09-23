@@ -3,22 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class GraphemeTile : MonoBehaviour
+public class Tile : MonoBehaviour
 {
     public GameObject textObject;
     public bool animable = false;
 
     ISpellingController spellingController;
-    string grapheme;
+    string letter;
     const float transitionSpeed = 0.1f;
     Vector3 targetPosition;
     Vector3 velocity = Vector3.zero;
 
-    public void Initialize(ISpellingController setSpellingController, string setGrapheme)
+    public void Initialize(ISpellingController setSpellingController, string setLetter)
     {
         spellingController = setSpellingController;
-        grapheme = setGrapheme;
-        textObject.GetComponent<TextMeshProUGUI>().text = grapheme.ToUpper();
+        letter = setLetter;
+        textObject.GetComponent<TextMeshProUGUI>().text = letter.ToUpper();
     }
 
     void OnMouseDown()
@@ -34,9 +34,9 @@ public class GraphemeTile : MonoBehaviour
         }
     }
 
-    public string GetGrapheme()
+    public string GetLetter()
     {
-        return grapheme;
+        return letter;
     }
 
     void Update()

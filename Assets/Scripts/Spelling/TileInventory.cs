@@ -7,56 +7,56 @@ public interface ISpellingController
     void ActivateTile(GameObject tile);
 }
 
-public class GraphemicInventory
+public class LetterPool
 {
-    Dictionary<string, int> graphemePoints = new Dictionary<string, int> {
+    Dictionary<string, int> letterPoints = new Dictionary<string, int> {
         { "a", 1 }, { "b", 3 }, { "c", 2 }, { "d", 2 }, { "e", 1 }, { "f", 2 },
         { "g", 3 }, { "h", 2 }, { "i", 1 }, { "j", 4 }, { "k", 3 }, { "l", 2 },
         { "m", 2 }, { "n", 1 }, { "o", 1 }, { "p", 3 }, { "q", 4 }, { "r", 1 },
         { "s", 1 }, { "t", 1 }, { "u", 2 }, { "v", 3 }, { "w", 3 }, { "x", 4 },
         { "y", 3 }, { "z", 4 },
     };
-    Dictionary<string, int> graphemeFrequencies = new Dictionary<string, int> {
+    Dictionary<string, int> letterFrequencies = new Dictionary<string, int> {
         { "a", 10 }, { "b", 6 }, { "c", 7 }, { "d", 7 }, { "e", 10 }, { "f", 5 },
         { "g", 5 }, { "h", 4 }, { "i", 10 }, { "j", 1 }, { "k", 5 }, { "l", 4 },
         { "m", 5 }, { "n", 7 }, { "o", 8 }, { "p", 4 }, { "q", 1 }, { "r", 6 },
         { "s", 2 }, { "t", 10 }, { "u", 8 }, { "v", 3 }, { "w", 1 }, { "x", 1 },
         { "y", 2 }, { "z", 3 },
     };
-    List<string> graphemeList;
-    List<string> weightedGraphemeList = new List<string>();
+    List<string> letterList;
+    List<string> weightedLetterList = new List<string>();
 
-    public GraphemicInventory()
+    public LetterPool()
     {
-        graphemeList = new List<string>(graphemePoints.Keys);
-        foreach (var ele in graphemeFrequencies) {
+        letterList = new List<string>(letterPoints.Keys);
+        foreach (var ele in letterFrequencies) {
             for (int i = 0; i < ele.Value; ++i) {
-                weightedGraphemeList.Add(ele.Key);
+                weightedLetterList.Add(ele.Key);
             }
         }
     }
 
-    public string GetRandomGrapheme()
+    public string GetRandomLetter()
     {
-        return weightedGraphemeList[Random.Range(0, weightedGraphemeList.Count)];
+        return weightedLetterList[Random.Range(0, weightedLetterList.Count)];
     }
 
-    public int ScoreWord(List<string> graphemeList)
+    public int ScoreWord(List<string> letterList)
     {
         int score = 0;
-        foreach (string grapheme in graphemeList) {
-            score += graphemePoints[grapheme];
+        foreach (string letter in letterList) {
+            score += letterPoints[letter];
         }
         return score;
     }
 }
 
-public class GraphemeTileInventory : MonoBehaviour, ISpellingController
+public class TileInventory : MonoBehaviour, ISpellingController
 {
-    public GameObject graphemeTilePrefab;
+    public GameObject tilePrefab;
     public Vector3 stagedTilePosition;
 
-    GraphemicInventory graphemicInventory = new GraphemicInventory();
+    LetterPool graphemicInventory = new LetterPool();
     const int columnCount = 3;
     const int rowCount = 5;
     const float transitionSpeed = 0.5f;
@@ -68,9 +68,9 @@ public class GraphemeTileInventory : MonoBehaviour, ISpellingController
     {
         for (int y = 0; y < columnCount; ++y) {
             for (int x = 0; x < rowCount; ++x) {
-                var tile = Instantiate(graphemeTilePrefab, Vector3.zero, Quaternion.identity);
+                var tile = Instantiate(tilePrefab, Vector3.zero, Quaternion.identity);
                 tile.transform.SetParent(gameObject.transform);
-                tile.GetComponent<GraphemeTile>().Initialize(this, graphemicInventory.GetRandomGrapheme());
+                tile.GetComponent<Tile>().Initialize(this, graphemicInventory.GetRandomLetter());
                 tileTable[y, x] = tile;
             }
         }
@@ -78,7 +78,7 @@ public class GraphemeTileInventory : MonoBehaviour, ISpellingController
         PositionTiles();
 
         foreach (GameObject tile in tileTable) {
-            tile.GetComponent<GraphemeTile>().animable = true;
+            tile.GetComponent<Tile>().animable = true;
         }
     }
 
@@ -93,14 +93,14 @@ public class GraphemeTileInventory : MonoBehaviour, ISpellingController
 
         PositionTiles();
 
-        var spelledGraphemes = new List<string>();
+        var spelledLetters = new List<string>();
         foreach (GameObject staged in stagedTiles) {
-            spelledGraphemes.Add(staged.GetComponent<GraphemeTile>().GetGrapheme());
+            spelledLetters.Add(staged.GetComponent<Tile>().GetLetter());
         }
-        var spelledString = string.Join("", spelledGraphemes);
+        var spelledString = string.Join("", spelledLetters);
 
         if (GetComponent<Lexicon>().Includes(spelledString)) {
-            Debug.Log("Score of '" + spelledString + "' is " + graphemicInventory.ScoreWord(spelledGraphemes));
+            Debug.Log("Score of '" + spelledString + "' is " + graphemicInventory.ScoreWord(spelledLetters));
         }
     }
 
@@ -115,7 +115,7 @@ public class GraphemeTileInventory : MonoBehaviour, ISpellingController
             for (int x = 0; x < rowCount; ++x) {
                 Vector3 position = tableBottomLeft + new Vector3(horizontalSpacing * x, verticalSpacing * y, 0.0f);
                 GameObject tile = tileTable[y, x];
-                tile.GetComponent<GraphemeTile>().Position(position);
+                tile.GetComponent<Tile>().Position(position);
             }
         }
 
@@ -124,7 +124,7 @@ public class GraphemeTileInventory : MonoBehaviour, ISpellingController
         for (int i = 0; i < stagedTiles.Count; ++i) {
             Vector3 position = stagedLeft + horizontalSpacing * new Vector3(i, 0.0f, 0.0f);
             GameObject tile = stagedTiles[i];
-            tile.GetComponent<GraphemeTile>().Position(position);
+            tile.GetComponent<Tile>().Position(position);
         }
     }
 }
