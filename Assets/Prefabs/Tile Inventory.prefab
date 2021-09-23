@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4443912452209125616}
   - component: {fileID: 4443912452209125619}
   m_Layer: 0
-  m_Name: Grapheme Tile Inventory
+  m_Name: Tile Inventory
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -96,7 +96,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 918b4d5757735fa4db59b62b1bc783c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  graphemeTilePrefab: {fileID: 8241657807343246512, guid: bd3e360138dd83f458cc7c5736dab70e, type: 3}
+  tilePrefab: {fileID: 8241657807343246512, guid: bd3e360138dd83f458cc7c5736dab70e, type: 3}
   stagedTilePosition: {x: 0, y: 2, z: 0}
 --- !u!114 &4443912452209125619
 MonoBehaviour:
