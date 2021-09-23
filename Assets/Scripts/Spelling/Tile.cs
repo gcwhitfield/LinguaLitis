@@ -14,33 +14,33 @@ public class Tile : MonoBehaviour
     Vector3 targetPosition;
     Vector3 velocity = Vector3.zero;
 
-    public void Initialize(ISpellingController setSpellingController, string setLetter)
+    public void Initialize(ISpellingController spellingController, string letter)
     {
-        spellingController = setSpellingController;
-        letter = setLetter;
-        textObject.GetComponent<TextMeshProUGUI>().text = letter.ToUpper();
+        this.spellingController = spellingController;
+        this.letter = letter;
+        this.textObject.GetComponent<TextMeshProUGUI>().text = this.letter.ToUpper();
     }
 
     void OnMouseDown()
     {
-        spellingController.ActivateTile(gameObject);
+        this.spellingController.ActivateTile(this.gameObject);
     }
 
     public void Position(Vector3 position)
     {
-        targetPosition = position;
-        if (!animable) {
-            transform.position = position;
+        this.targetPosition = position;
+        if (!this.animable) {
+            this.transform.position = position;
         }
     }
 
     public string GetLetter()
     {
-        return letter;
+        return this.letter;
     }
 
     void Update()
     {
-        transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref velocity, transitionSpeed);
+        this.transform.position = Vector3.SmoothDamp(this.transform.position, this.targetPosition, ref this.velocity, Tile.transitionSpeed);
     }
 }
