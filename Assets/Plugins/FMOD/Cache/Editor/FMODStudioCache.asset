@@ -15,10 +15,10 @@ MonoBehaviour:
   Path: Assets/LinguaLitisFMOD/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 637682673790000000
+  lastModified: 637682711710000000
   FileSizes:
   - Name: Desktop
-    Value: 954
+    Value: 1006
   Exists: 1
 --- !u!114 &-4312473635079007307
 MonoBehaviour:
@@ -58,10 +58,10 @@ MonoBehaviour:
   Path: Assets/LinguaLitisFMOD/Build/Desktop/Battle.bank
   Name: Battle
   StudioPath: bank:/Battle
-  lastModified: 637682673790000000
+  lastModified: 637682711710000000
   FileSizes:
   - Name: Desktop
-    Value: 3099328
+    Value: 3104096
   Exists: 1
 --- !u!114 &-2413430593825237122
 MonoBehaviour:
@@ -130,12 +130,13 @@ MonoBehaviour:
   - {fileID: -2413430593825237122}
   - {fileID: -4312473635079007307}
   - {fileID: -2081109669188752931}
+  - {fileID: 8157738114233961690}
   EditorParameters: []
   MasterBanks:
   - {fileID: 3353996925350185795}
   StringsBanks:
   - {fileID: -7309435533564481708}
-  stringsBankWriteTime: 637682673790000000
+  stringsBankWriteTime: 637682711710000000
   cacheVersion: 8
 --- !u!114 &2237382151393601525
 MonoBehaviour:
@@ -152,7 +153,7 @@ MonoBehaviour:
   Path: Assets/LinguaLitisFMOD/Build/Desktop/Main Menu.bank
   Name: Main Menu
   StudioPath: bank:/Main Menu
-  lastModified: 637682673790000000
+  lastModified: 637682711710000000
   FileSizes:
   - Name: Desktop
     Value: 23633216
@@ -172,8 +173,31 @@ MonoBehaviour:
   Path: Assets/LinguaLitisFMOD/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 637682673790000000
+  lastModified: 637682711710000000
   FileSizes:
   - Name: Desktop
     Value: 1012
   Exists: 1
+--- !u!114 &8157738114233961690
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/floattemp
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/floattemp
+  guid: 5bc1bddf4d92264f9614d4ef9f1f0b40
+  Banks:
+  - {fileID: -2443285621549976924}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 422

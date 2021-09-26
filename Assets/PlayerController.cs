@@ -1,3 +1,18 @@
+/* SFX Guide
+
+To play a oneshot, call
+
+FMODUnity.RuntimeManager.PlayOneShot("event:PATHTOEVENT", GetComponent<Transform>().position);
+
+where you replace PATHTOEVENT with the path to the event.
+
+
+Current SFX:
+event:/SFX/wilhelm -- placeholder SFX
+
+
+*/
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
