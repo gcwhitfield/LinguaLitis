@@ -9,7 +9,8 @@ public class LevelController : UnitySingleton<LevelController>
     public GameManager.Player currPlayer { get; private set; }
     public GameObject player1G;
     public GameObject player2G;
-
+    public GameObject player1Inventory;
+    public GameObject player2Inventory;
     // while the game is waiting for the player to type a word, this is set to true.
     // Otherwise, set to false
     private bool _waitForWord = false;
