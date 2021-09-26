@@ -12,7 +12,7 @@ public class TileInventory : MonoBehaviour, ISpellingController
     public GameObject tilePrefab;
     public Vector3 stagedTilePosition;
     public TextAsset wordList;
-    public bool isDisabled = false;
+    public bool isDisabled = true;
 
     Lexicon lexicon;
     const int columnCount = 3;
@@ -46,7 +46,7 @@ public class TileInventory : MonoBehaviour, ISpellingController
         if (this.isDisabled) {
             return;
         }
-        
+
         int index = this.stagedTiles.IndexOf(tile);
         if (index == -1) {
             this.stagedTiles.Add(tile);

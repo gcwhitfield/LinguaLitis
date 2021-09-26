@@ -19,7 +19,8 @@ public class LevelController : UnitySingleton<LevelController>
 
     private void Start()
     {
-        currPlayer = GameManager.Player.P1;    
+        currPlayer = GameManager.Player.P1;
+        OnPlayerBeginTurn();
     }
 
     public void OnPlayerEndTurn()
@@ -31,30 +32,24 @@ public class LevelController : UnitySingleton<LevelController>
 
     public void OnPlayerBeginTurn()
     {
-        //EnablePlayerControl()
+        EnablePlayerControl();
     }
 
     public void DisablePlayerControl()
     {
-        GameObject playerG;
         if (this.currPlayer == GameManager.Player.P1) {
-            playerG = player1G;
-            this.player2Inventory.GetComponent<TileInventory>().isDisabled = true;
-        } else {
-            playerG = player2G;
             this.player1Inventory.GetComponent<TileInventory>().isDisabled = true;
+        } else {
+            this.player2Inventory.GetComponent<TileInventory>().isDisabled = true;
         }
     }
 
     public void EnablePlayerControl()
     {
-        GameObject playerG;
         if (this.currPlayer == GameManager.Player.P1) {
-            playerG = player1G;
             this.player1Inventory.GetComponent<TileInventory>().isDisabled = false;
         } else {
             this.player2Inventory.GetComponent<TileInventory>().isDisabled = false;
-            playerG = player2G;
         }
     }
 
