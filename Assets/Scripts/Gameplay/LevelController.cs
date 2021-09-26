@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class LevelController : UnitySingleton<LevelController>
 {
-
+    public int turnNumber = 1;
     // the player whose turn is currently active
     public GameManager.Player currPlayer { get; private set; }
     public GameObject player1G;
@@ -81,6 +81,7 @@ public class LevelController : UnitySingleton<LevelController>
 
     public void ChangeTurn()
     {
+        this.turnNumber += 1;
         OnPlayerEndTurn();
 
         if (currPlayer == GameManager.Player.P1) currPlayer = GameManager.Player.P2;

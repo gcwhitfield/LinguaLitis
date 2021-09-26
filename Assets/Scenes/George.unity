@@ -221,8 +221,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7abf2f9ca0b34d34800d557e4c01837, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LevelController: {fileID: 1331699542}
-  turnNumber: 1
 --- !u!4 &189353092
 Transform:
   m_ObjectHideFlags: 0
@@ -330,9 +328,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 189353091}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: NextTurn
+      - m_Target: {fileID: 1331699543}
+        m_TargetAssemblyTypeName: LevelController, Assembly-CSharp
+        m_MethodName: ChangeTurn
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -693,6 +691,10 @@ PrefabInstance:
       propertyPath: wordList
       value: 
       objectReference: {fileID: 4900000, guid: a1b5e3fed4c53cc42a2c0e8c4ed27d3e, type: 3}
+    - target: {fileID: 4443912452209125616, guid: e226916d010594db6ad7ab5b026e3ca0, type: 3}
+      propertyPath: isDisabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4443912452209125618, guid: e226916d010594db6ad7ab5b026e3ca0, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -758,6 +760,10 @@ PrefabInstance:
       propertyPath: wordList
       value: 
       objectReference: {fileID: 4900000, guid: a1b5e3fed4c53cc42a2c0e8c4ed27d3e, type: 3}
+    - target: {fileID: 4443912452209125616, guid: e226916d010594db6ad7ab5b026e3ca0, type: 3}
+      propertyPath: isDisabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4443912452209125618, guid: e226916d010594db6ad7ab5b026e3ca0, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -924,6 +930,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7b96751904b7429484dad1a5407e3ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  turnNumber: 1
   player1G: {fileID: 0}
   player2G: {fileID: 0}
   player1Inventory: {fileID: 268979021}
