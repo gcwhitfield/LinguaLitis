@@ -296,6 +296,7 @@ MonoBehaviour:
   MasterBanks:
   - Master
   Banks:
+  - Battle
   - Main Menu
   BanksToLoad: []
   LiveUpdatePort: 9264

@@ -15,10 +15,53 @@ MonoBehaviour:
   Path: Assets/LinguaLitisFMOD/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 637676641280000000
+  lastModified: 637682673790000000
   FileSizes:
   - Name: Desktop
-    Value: 802
+    Value: 954
+  Exists: 1
+--- !u!114 &-4312473635079007307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Music/Battle
+  m_EditorClassIdentifier: 
+  Path: event:/Music/Battle
+  guid: 95eb595564aa414db1c158ec9ac9436b
+  Banks:
+  - {fileID: -2443285621549976924}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 221074
+--- !u!114 &-2443285621549976924
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Battle.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/LinguaLitisFMOD/Build/Desktop/Battle.bank
+  Name: Battle
+  StudioPath: bank:/Battle
+  lastModified: 637682673790000000
+  FileSizes:
+  - Name: Desktop
+    Value: 3099328
   Exists: 1
 --- !u!114 &-2413430593825237122
 MonoBehaviour:
@@ -43,6 +86,29 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 123076
+--- !u!114 &-2081109669188752931
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/wilhelm
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/wilhelm
+  guid: be7973fb3b838b4b8fd38a572ab23eaa
+  Banks:
+  - {fileID: -2443285621549976924}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 1116
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -59,14 +125,17 @@ MonoBehaviour:
   - {fileID: -7309435533564481708}
   - {fileID: 2237382151393601525}
   - {fileID: 3353996925350185795}
+  - {fileID: -2443285621549976924}
   EditorEvents:
   - {fileID: -2413430593825237122}
+  - {fileID: -4312473635079007307}
+  - {fileID: -2081109669188752931}
   EditorParameters: []
   MasterBanks:
   - {fileID: 3353996925350185795}
   StringsBanks:
   - {fileID: -7309435533564481708}
-  stringsBankWriteTime: 637676641280000000
+  stringsBankWriteTime: 637682673790000000
   cacheVersion: 8
 --- !u!114 &2237382151393601525
 MonoBehaviour:
@@ -83,10 +152,10 @@ MonoBehaviour:
   Path: Assets/LinguaLitisFMOD/Build/Desktop/Main Menu.bank
   Name: Main Menu
   StudioPath: bank:/Main Menu
-  lastModified: 637676641280000000
+  lastModified: 637682673790000000
   FileSizes:
   - Name: Desktop
-    Value: 1757120
+    Value: 23633216
   Exists: 1
 --- !u!114 &3353996925350185795
 MonoBehaviour:
@@ -103,7 +172,7 @@ MonoBehaviour:
   Path: Assets/LinguaLitisFMOD/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 637676641280000000
+  lastModified: 637682673790000000
   FileSizes:
   - Name: Desktop
     Value: 1012
