@@ -221,6 +221,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7abf2f9ca0b34d34800d557e4c01837, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  LevelController: {fileID: 1331699542}
+  turnNumber: 1
 --- !u!4 &189353092
 Transform:
   m_ObjectHideFlags: 0
@@ -235,6 +237,16 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &268979021 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4443912452209125631, guid: e226916d010594db6ad7ab5b026e3ca0, type: 3}
+  m_PrefabInstance: {fileID: 1209053991}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &451000577 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4443912452209125631, guid: e226916d010594db6ad7ab5b026e3ca0, type: 3}
+  m_PrefabInstance: {fileID: 1272682807}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &717053523
 GameObject:
   m_ObjectHideFlags: 0
@@ -317,7 +329,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 717053526}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 189353091}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: NextTurn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &717053526
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -719,7 +743,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4443912452209125631, guid: e226916d010594db6ad7ab5b026e3ca0, type: 3}
       propertyPath: m_Name
-      value: Grapheme Tile Inventory
+      value: Player 1 Inventory
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e226916d010594db6ad7ab5b026e3ca0, type: 3}
@@ -784,7 +808,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4443912452209125631, guid: e226916d010594db6ad7ab5b026e3ca0, type: 3}
       propertyPath: m_Name
-      value: Grapheme Tile Inventory (1)
+      value: Player 2 Inventory
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e226916d010594db6ad7ab5b026e3ca0, type: 3}
@@ -902,6 +926,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player1G: {fileID: 0}
   player2G: {fileID: 0}
+  player1Inventory: {fileID: 268979021}
+  player2Inventory: {fileID: 451000577}
 --- !u!4 &1331699544
 Transform:
   m_ObjectHideFlags: 0

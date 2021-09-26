@@ -26,33 +26,36 @@ public class LevelController : UnitySingleton<LevelController>
     {
         // disable control for the opposite player
         print("Current Turn: " + currPlayer.ToString());
+        DisablePlayerControl();
     }
 
     public void OnPlayerBeginTurn()
     {
-
+        //EnablePlayerControl()
     }
 
-    public void DisablePlayerControl(GameManager.Player player)
+    public void DisablePlayerControl()
     {
         GameObject playerG;
-        if (player == GameManager.Player.P1)
+        if (this.currPlayer == GameManager.Player.P1) {
             playerG = player1G;
-        else
+            this.player2Inventory.GetComponent<TileInventory>().isDisabled = true;
+        } else {
             playerG = player2G;
-
-        // TODO: disable control
+            this.player1Inventory.GetComponent<TileInventory>().isDisabled = true;
+        }
     }
 
-    public void EnablePlayerControl(GameManager.Player player)
+    public void EnablePlayerControl()
     {
         GameObject playerG;
-        if (player == GameManager.Player.P1)
+        if (this.currPlayer == GameManager.Player.P1) {
             playerG = player1G;
-        else
+            this.player1Inventory.GetComponent<TileInventory>().isDisabled = false;
+        } else {
+            this.player2Inventory.GetComponent<TileInventory>().isDisabled = false;
             playerG = player2G;
-
-        // TODO: enable control
+        }
     }
 
     IEnumerator WaitForWord()
