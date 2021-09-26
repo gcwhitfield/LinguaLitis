@@ -23,13 +23,31 @@ public class LevelController : UnitySingleton<LevelController>
 
     public void OnPlayerEndTurn()
     {
-        // disable control for the opposite player
-        print("Current Turn: " + currPlayer.ToString());
+        // TODO: re-enable control for the opposite player
+
+        // TODO: remove the staged tiles for currPlayer, give currPlayer new tiles
     }
 
     public void OnPlayerBeginTurn()
     {
 
+        // disable control for the opposite player
+        print("Current Turn: " + currPlayer.ToString());
+
+        StartCoroutine("WaitForWord");
+    }
+
+    public void OnPlayerDied(GameObject deadPlayer)
+    {
+        if (deadPlayer == player1G)
+        {
+            print("Player 1 has died!");
+        } else
+        {
+            print("Player 2 has died!");
+        }
+
+        // TODO: transition to the win scene using LevelTransitionManager
     }
 
     public void DisablePlayerControl(GameManager.Player player)
@@ -56,27 +74,37 @@ public class LevelController : UnitySingleton<LevelController>
 
     IEnumerator WaitForWord()
     {
+        // _waitForWord will be set to false when SubmitWord is called
+        _waitForWord = true;
         while (_waitForWord)
             yield return null;
     }
 
     // called when the player submits their word
-    public void SubmitWord(GameManager.Player player)
+    public void SubmitWord()
     {
+   
         GameObject currPlayerG; // the player whose turn it currently is
         GameObject oppPlayerG; // the opposite players
 
-        if (player == GameManager.Player.P1) { currPlayerG = player1G; oppPlayerG = player2G; }
+        if (currPlayer == GameManager.Player.P1) { currPlayerG = player1G; oppPlayerG = player2G; }
         else { currPlayerG = player2G; oppPlayerG = player1G; }
 
         // TODO: add damage calculation to word
-        int wordDmgAmt = 1;
+        int wordDmgAmt = 10;
 
         // TODO: player the attack animation here
 
         // damage the opposite player
-        oppPlayerG.GetComponent<Health>().BumpHp(wordDmgAmt);
+        Health oppHealth = oppPlayerG.GetComponent<Health>(); 
+        oppHealth.BumpHp(-wordDmgAmt);
+        if (oppHealth.IsDead())
+        {
+            OnPlayerDied(oppPlayerG);
+            return; // break out of gameplay loop
+        }
 
+        _waitForWord = false;
         ChangeTurn();
     }
 
@@ -86,7 +114,6 @@ public class LevelController : UnitySingleton<LevelController>
 
         if (currPlayer == GameManager.Player.P1) currPlayer = GameManager.Player.P2;
         else currPlayer = GameManager.Player.P1;
-        _waitForWord = false;
 
         OnPlayerBeginTurn();
     }
