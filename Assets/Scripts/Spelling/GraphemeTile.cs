@@ -17,6 +17,8 @@ public class GraphemeTile : MonoBehaviour
     public void Initialize(ISpellingController setSpellingController, string setGrapheme)
     {
         spellingController = setSpellingController;
+        gameObject.velocity.x = 0;
+        gameObject.
         grapheme = setGrapheme;
         textObject.GetComponent<TextMeshProUGUI>().text = grapheme.ToUpper();
     }
