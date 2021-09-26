@@ -4,23 +4,43 @@ using UnityEngine;
 
 public class Lexicon : MonoBehaviour
 {
-    public TextAsset wordListText;
+    Dictionary<string, int> letterPoints = new Dictionary<string, int> {
+        { "a", 1 }, { "b", 3 }, { "c", 2 }, { "d", 2 }, { "e", 1 }, { "f", 2 },
+        { "g", 3 }, { "h", 2 }, { "i", 1 }, { "j", 4 }, { "k", 3 }, { "l", 2 },
+        { "m", 2 }, { "n", 1 }, { "o", 1 }, { "p", 3 }, { "q", 4 }, { "r", 1 },
+        { "s", 1 }, { "t", 1 }, { "u", 2 }, { "v", 3 }, { "w", 3 }, { "x", 4 },
+        { "y", 3 }, { "z", 4 },
+    };
 
+    string[] wordList;
     HashSet<string> wordSet;
 
-    void Start()
+    public void Initialize(TextAsset wordListTextAsset)
     {
         string[] separators = { "\r\n", "\n" };
-        wordSet = new HashSet<string>(wordListText.text.Split(separators, System.StringSplitOptions.RemoveEmptyEntries));
-        Debug.Log("Loaded " + wordSet.Count + " words into vocabulary");
-
-        Debug.Log("Does the set contain ''? " + Includes("") + " (should be False)");
-        Debug.Log("Does the set contain 'apples'? " + Includes("apples") + " (should be True)");
-        Debug.Log("Does the set contain 'wertwe'? " + Includes("wertwe") + " (should be False)");
+        this.wordList = wordListTextAsset.text.Split(separators, System.StringSplitOptions.RemoveEmptyEntries);
+        this.wordSet = new HashSet<string>(this.wordList);
+        Debug.Log("Loaded " + this.wordSet.Count + " words into vocabulary");
     }
 
-    public bool Includes(string word)
+    public string GetRandomLetter()
     {
-        return wordSet.Contains(word);
+        var randomWord = this.wordList[Random.Range(0, this.wordList.Length)];
+        var randomLetter = randomWord[Random.Range(0, randomWord.Length)];
+        return randomLetter.ToString();
+    }
+
+    // Returns -1 if the input is not a valid word, or otherwise a nonnegative number equal to the score.
+    public int ScoreWord(List<string> word)
+    {
+        if (!this.wordSet.Contains(string.Join("", word))) {
+            return -1;
+        }
+
+        int score = 0;
+        foreach (string letter in word) {
+            score += this.letterPoints[letter];
+        }
+        return score;
     }
 }
