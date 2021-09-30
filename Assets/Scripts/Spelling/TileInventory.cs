@@ -13,6 +13,7 @@ public class TileInventory : MonoBehaviour, ISpellingController
     public Vector3 stagedTilePosition;
     public TextAsset wordList;
     public bool isDisabled = true;
+    public int wordScore = 0;
 
     Lexicon lexicon;
     const int columnCount = 3;
@@ -64,6 +65,7 @@ public class TileInventory : MonoBehaviour, ISpellingController
 
         var score = this.lexicon.ScoreWord(spelledLetters);
         if (score >= 0) {
+            wordScore = score;
             Debug.Log("Score of '" + spelledString + "' is " + this.lexicon.ScoreWord(spelledLetters));
         }
     }
