@@ -91,4 +91,29 @@ public class TileInventory : MonoBehaviour, ISpellingController
             tile.GetComponent<Tile>().Position(position);
         }
     }
+
+    public void ClearTiles() 
+    {
+        for(int t = 0; t < this.stagedTiles.Count; t++) {
+            for(int row = 0; row < 5; row++) {
+                for(int col = 0; col < 3; col++) {
+                    if (this.tileTable[col, row].GetInstanceID() == this.stagedTiles[t].GetInstanceID()) {
+                        Destroy(this.tileTable[col, row]);
+                        this.tileTable[col, row] = Instantiate(this.tilePrefab, Vector3.zero, Quaternion.identity);
+                        this.tileTable[col, row].transform.SetParent(this.gameObject.transform);
+                        this.tileTable[col, row].GetComponent<Tile>().Initialize(this, this.lexicon.GetRandomLetter());
+                    }
+                }
+            }
+            Destroy(this.stagedTiles[t]);
+            this.stagedTiles[t] = null;
+        }
+            for (int i = this.stagedTiles.Count - 1; i >= 0; i--) {
+                if (this.stagedTiles[i] == null) {
+                    this.stagedTiles.RemoveAt(i);
+                }
+            }
+            PositionTiles();
+    }
+
 }
