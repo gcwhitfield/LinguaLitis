@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class GameManager : UnitySingletonPersistant<GameManager>
 {
+    public void Start() {
+
+    }
+
     public void QuitGame()
     {
         Application.Quit();
@@ -14,6 +18,5 @@ public class GameManager : UnitySingletonPersistant<GameManager>
         P1,
         P2
     };
-
 
 }

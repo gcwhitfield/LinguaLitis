@@ -12,6 +12,8 @@ public class TileInventory : MonoBehaviour, ISpellingController
     public GameObject tilePrefab;
     public Vector3 stagedTilePosition;
     public TextAsset wordList;
+    public bool isDisabled = true;
+    public int wordScore = 0;
 
     Lexicon lexicon;
     const int columnCount = 3;
@@ -42,6 +44,10 @@ public class TileInventory : MonoBehaviour, ISpellingController
 
     public void ActivateTile(GameObject tile)
     {
+        if (this.isDisabled) {
+            return;
+        }
+
         int index = this.stagedTiles.IndexOf(tile);
         if (index == -1) {
             this.stagedTiles.Add(tile);
@@ -59,6 +65,7 @@ public class TileInventory : MonoBehaviour, ISpellingController
 
         var score = this.lexicon.ScoreWord(spelledLetters);
         if (score >= 0) {
+            wordScore = score;
             Debug.Log("Score of '" + spelledString + "' is " + this.lexicon.ScoreWord(spelledLetters));
         }
     }
@@ -86,4 +93,33 @@ public class TileInventory : MonoBehaviour, ISpellingController
             tile.GetComponent<Tile>().Position(position);
         }
     }
+
+    public void ClearTiles() 
+    {
+        for(int t = 0; t < this.stagedTiles.Count; t++) {
+            for(int row = 0; row < 5; row++) {
+                for(int col = 0; col < 3; col++) {
+                    if (this.tileTable[col, row].GetInstanceID() == this.stagedTiles[t].GetInstanceID()) {
+                        Destroy(this.tileTable[col, row]);
+                        this.tileTable[col, row] = Instantiate(this.tilePrefab, Vector3.zero, Quaternion.identity);
+                        this.tileTable[col, row].transform.SetParent(this.gameObject.transform);
+                        this.tileTable[col, row].GetComponent<Tile>().Initialize(this, this.lexicon.GetRandomLetter());
+                    }
+                }
+            }
+            Destroy(this.stagedTiles[t]);
+            this.stagedTiles[t] = null;
+        }
+            for (int i = this.stagedTiles.Count - 1; i >= 0; i--) {
+                if (this.stagedTiles[i] == null) {
+                    this.stagedTiles.RemoveAt(i);
+                }
+            }
+            foreach (GameObject tile in this.tileTable) {
+                tile.GetComponent<Tile>().animable = true; 
+                }
+            PositionTiles();
+
+    }
+
 }
