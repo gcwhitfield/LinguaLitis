@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.01.00">
+	<object class="EncodableAsset" id="{fffdc250-910c-469c-bcbf-892604ef2890}">
+		<property name="assetPath">
+			<value>SFX/Battle/HealthChange/</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{effef780-ca89-455f-ae27-d03fbd6a7364}</destination>
+		</relationship>
+	</object>
+</objects>
