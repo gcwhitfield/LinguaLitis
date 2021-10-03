@@ -115,7 +115,11 @@ public class TileInventory : MonoBehaviour, ISpellingController
                     this.stagedTiles.RemoveAt(i);
                 }
             }
+            foreach (GameObject tile in this.tileTable) {
+                tile.GetComponent<Tile>().animable = true; 
+                }
             PositionTiles();
+
     }
 
 }
