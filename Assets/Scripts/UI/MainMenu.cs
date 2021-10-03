@@ -5,11 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    public Scene gameplayScene;
+    public string gameplaySceneName;
     // Start is called before the first frame update
     public void goToGameplayScene()
     {
-        SceneTransitionManager.Instance.TransitionToScene(gameplayScene);
+        SceneTransitionManager.Instance.TransitionToSceneInstant(gameplaySceneName);
     }
 
     // Update is called once per frame

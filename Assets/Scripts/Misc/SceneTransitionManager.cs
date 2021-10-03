@@ -11,6 +11,11 @@ public class SceneTransitionManager : UnitySingletonPersistant<SceneTransitionMa
     {
         StartCoroutine("PlaySceneTransitionAnimation", scene);
     }
+    
+    public void TransitionToSceneInstant(string SceneName)
+    {
+        SceneManager.LoadScene(SceneName);
+    }
 
     IEnumerator PlaySceneTransitionAnimation(Scene s)
     {

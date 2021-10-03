@@ -15,7 +15,7 @@ MonoBehaviour:
   Path: Assets/LinguaLitisFMOD/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 637682673790000000
+  lastModified: 637688753560000000
   FileSizes:
   - Name: Desktop
     Value: 954
@@ -58,7 +58,7 @@ MonoBehaviour:
   Path: Assets/LinguaLitisFMOD/Build/Desktop/Battle.bank
   Name: Battle
   StudioPath: bank:/Battle
-  lastModified: 637682673790000000
+  lastModified: 637688753560000000
   FileSizes:
   - Name: Desktop
     Value: 3099328
@@ -135,7 +135,7 @@ MonoBehaviour:
   - {fileID: 3353996925350185795}
   StringsBanks:
   - {fileID: -7309435533564481708}
-  stringsBankWriteTime: 637682673790000000
+  stringsBankWriteTime: 637688753560000000
   cacheVersion: 8
 --- !u!114 &2237382151393601525
 MonoBehaviour:
@@ -152,7 +152,7 @@ MonoBehaviour:
   Path: Assets/LinguaLitisFMOD/Build/Desktop/Main Menu.bank
   Name: Main Menu
   StudioPath: bank:/Main Menu
-  lastModified: 637682673790000000
+  lastModified: 637688742280000000
   FileSizes:
   - Name: Desktop
     Value: 23633216
@@ -172,7 +172,7 @@ MonoBehaviour:
   Path: Assets/LinguaLitisFMOD/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 637682673790000000
+  lastModified: 637688742290000000
   FileSizes:
   - Name: Desktop
     Value: 1012
