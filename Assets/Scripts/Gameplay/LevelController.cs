@@ -15,8 +15,6 @@ public class LevelController : UnitySingleton<LevelController>
     // Otherwise, set to false
     private bool _waitForWord = false;
 
-
-
     private void Start()
     {
         currPlayer = GameManager.Player.P1;
@@ -80,12 +78,24 @@ public class LevelController : UnitySingleton<LevelController>
    
         GameObject currPlayerG; // the player whose turn it currently is
         GameObject oppPlayerG; // the opposite players
+        int wordDmgAmt = 0;
 
-        if (currPlayer == GameManager.Player.P1) { currPlayerG = player1G; oppPlayerG = player2G; }
-        else { currPlayerG = player2G; oppPlayerG = player1G; }
+        if (currPlayer == GameManager.Player.P1)
+        {
+            currPlayerG = player1G;
+            oppPlayerG = player2G;
+            wordDmgAmt = player1Inventory.GetComponent<TileInventory>().wordScore;
+        }
+        else
+        {
+            currPlayerG = player2G;
+            oppPlayerG = player1G;
+            wordDmgAmt = player2Inventory.GetComponent<TileInventory>().wordScore;
+        }
+
 
         // TODO: add damage calculation to word
-        int wordDmgAmt = 10;
+        
 
         // TODO: player the attack animation here
 
@@ -96,6 +106,16 @@ public class LevelController : UnitySingleton<LevelController>
         {
             OnPlayerDied(oppPlayerG);
             return; // break out of gameplay loop
+        }
+
+        // Clearing the tiles
+        if (currPlayer == GameManager.Player.P1)
+        {
+            player1Inventory.GetComponent<TileInventory>().ClearTiles();
+        } 
+        else 
+        {
+            player2Inventory.GetComponent<TileInventory>().ClearTiles();
         }
 
         _waitForWord = false;
