@@ -28,8 +28,15 @@ public class Health : MonoBehaviour
     // }
 
     // bumpHp(5) will add 5 to health. bumpHp(-5) will subtract 5 from health
-    public void BumpHp( int offset ) {
-    	curHp += offset;
+    public void BumpHp( int healthDelta ) {
+    	curHp += healthDelta;
+        
+        FMOD.Studio.EventInstance HealthChange;
+        HealthChange = FMODUnity.RuntimeManager.CreateInstance("event:/SFX/Battle/HealthChange");
+        Debug.Log("Health Delta is " + healthDelta);
+        HealthChange.setParameterByName("healthDelta", healthDelta);
+        HealthChange.start();
+        HealthChange.release();
 
     	if (curHp < 0) {
     		curHp = 0;

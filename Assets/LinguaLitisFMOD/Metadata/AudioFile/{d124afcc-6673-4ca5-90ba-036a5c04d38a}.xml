@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.01.00">
 	<object class="AudioFile" id="{d124afcc-6673-4ca5-90ba-036a5c04d38a}">
 		<property name="assetPath">
-			<value>floattemp.wav</value>
+			<value>SFX/Battle/floattemp.wav</value>
 		</property>
 		<property name="frequencyInKHz">
 			<value>48</value>

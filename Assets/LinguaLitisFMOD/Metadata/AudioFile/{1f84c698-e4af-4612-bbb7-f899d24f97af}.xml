@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.01.00">
+	<object class="AudioFile" id="{1f84c698-e4af-4612-bbb7-f899d24f97af}">
+		<property name="assetPath">
+			<value>SFX/Battle/LetterStaging/LetterStagingHAHA-00.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>2.0036734693877549</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{effef780-ca89-455f-ae27-d03fbd6a7364}</destination>
+		</relationship>
+	</object>
+</objects>
