@@ -112,6 +112,20 @@ public class TileInventory : MonoBehaviour, ISpellingController
         }
     }
 
+    public void ScrambleTiles()
+    {
+        for (int y = 0; y < columnCount; ++y) {
+            for (int x = 0; x < rowCount; ++x) {
+                var tile1 = this.tileTable[y, x];
+                int randY = Random.Range(0, columnCount);
+                int randX = Random.Range(0, rowCount);
+                this.tileTable[y, x] = tileTable[randY, randX];
+                this.tileTable[randY, randX] = tile1;
+            }
+        }
+        this.PositionTiles();
+    }
+
     public void ClearTiles() 
     {
         for(int t = 0; t < this.stagedTiles.Count; t++) {
@@ -136,7 +150,8 @@ public class TileInventory : MonoBehaviour, ISpellingController
             foreach (GameObject tile in this.tileTable) {
                 tile.GetComponent<Tile>().animable = true; 
                 }
-            PositionTiles();
+            // PositionTiles();
+            ScrambleTiles();
 
     }
 
