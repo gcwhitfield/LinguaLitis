@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.01.00">
 	<object class="AudioFile" id="{ca595078-b9d4-4f9c-ae43-17e8df6487f2}">
 		<property name="assetPath">
-			<value>lingua menu tk2.wav</value>
+			<value>Music/lingua menu tk2.wav</value>
 		</property>
 		<property name="isStreaming">
 			<value>true</value>

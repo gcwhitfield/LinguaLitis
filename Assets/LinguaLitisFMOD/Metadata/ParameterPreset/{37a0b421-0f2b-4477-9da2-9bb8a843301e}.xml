@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.01.00">
+	<object class="ParameterPreset" id="{37a0b421-0f2b-4477-9da2-9bb8a843301e}">
+		<property name="name">
+			<value>WordPower</value>
+		</property>
+		<relationship name="folder">
+			<destination>{918546dc-765a-4afe-b764-cf7bc485c3f4}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{f199b63a-fe21-478e-80d2-61726efc1349}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{f199b63a-fe21-478e-80d2-61726efc1349}">
+		<property name="parameterType">
+			<value>1</value>
+		</property>
+		<property name="maximum">
+			<value>16</value>
+		</property>
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+	</object>
+</objects>

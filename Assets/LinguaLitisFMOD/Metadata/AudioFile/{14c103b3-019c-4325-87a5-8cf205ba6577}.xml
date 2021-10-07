@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.01.00">
 	<object class="AudioFile" id="{14c103b3-019c-4325-87a5-8cf205ba6577}">
 		<property name="assetPath">
-			<value>VOXScrm_Wilhelm scream (ID 0477)_BSB.wav</value>
+			<value>SFX/Battle/VOXScrm_Wilhelm scream (ID 0477)_BSB.wav</value>
 		</property>
 		<property name="frequencyInKHz">
 			<value>44.0999985</value>

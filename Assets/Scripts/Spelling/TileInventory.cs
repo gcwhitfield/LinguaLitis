@@ -20,7 +20,7 @@ public class TileInventory : MonoBehaviour, ISpellingController
     const int rowCount = 5;
     GameObject[,] tileTable = new GameObject[columnCount, rowCount];
     List<GameObject> stagedTiles = new List<GameObject>();
-
+    
     void Start()
     {
         this.lexicon = this.gameObject.AddComponent<Lexicon>();
@@ -40,6 +40,7 @@ public class TileInventory : MonoBehaviour, ISpellingController
         foreach (GameObject tile in this.tileTable) {
             tile.GetComponent<Tile>().animable = true;
         }
+        
     }
 
     public void ActivateTile(GameObject tile)
@@ -49,11 +50,28 @@ public class TileInventory : MonoBehaviour, ISpellingController
         }
 
         int index = this.stagedTiles.IndexOf(tile);
+        int WordPower = this.stagedTiles.Count;
+        
+        // Add tile from inventory to stage
         if (index == -1) {
             this.stagedTiles.Add(tile);
-        } else {
-            this.stagedTiles.RemoveAt(index);
+            WordPower++;
         }
+        // Return tile from stage to inventory
+        else {
+            this.stagedTiles.RemoveAt(index);
+            WordPower--;
+        }
+        
+        if (WordPower < 0) {WordPower = 0;}
+        else if (WordPower > 15) {WordPower = 15;}
+        Debug.Log("Word Power is " + WordPower);
+        
+        FMOD.Studio.EventInstance LetterStaging;
+        LetterStaging = FMODUnity.RuntimeManager.CreateInstance("event:/SFX/Battle/LetterStaging");
+        LetterStaging.setParameterByName("WordPower", WordPower);
+        LetterStaging.start();
+        LetterStaging.release();
 
         this.PositionTiles();
 
