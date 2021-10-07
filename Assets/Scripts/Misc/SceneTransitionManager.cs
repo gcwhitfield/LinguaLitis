@@ -7,16 +7,17 @@ public class SceneTransitionManager : UnitySingletonPersistant<SceneTransitionMa
 {
     public Animator sceneTransitionAnimator;
 
-    public void TransitionToScene(Scene scene)
+
+    public void TransitionToScene(string sceneName)
     {
-        StartCoroutine("PlaySceneTransitionAnimation", scene);
+        StartCoroutine("PlaySceneTransitionAnimation", sceneName);
     }
 
-    IEnumerator PlaySceneTransitionAnimation(Scene s)
+    IEnumerator PlaySceneTransitionAnimation(string s)
     {
         if (sceneTransitionAnimator == null)
         {
-            SceneManager.LoadScene(s.name);
+            SceneManager.LoadScene(s);
         } else
         {
             sceneTransitionAnimator.SetTrigger("Play");
@@ -27,7 +28,7 @@ public class SceneTransitionManager : UnitySingletonPersistant<SceneTransitionMa
                 t += Time.deltaTime;
                 yield return null;
             }
-            SceneManager.LoadScene(s.name);
+            SceneManager.LoadScene(s);
         }
     }
 }
