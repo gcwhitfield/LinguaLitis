@@ -1,0 +1,25 @@
+fileFormatVersion: 2
+guid: 5aecfed2677174b20b685f7409b00a84
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Nobile
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 644d1a052844c40d8a84a2afef9dda0b, type: 3}
+  - {fileID: 12800000, guid: 727632dc1322a4a7c9a3ab7165f84e70, type: 3}
+  - {fileID: 12800000, guid: 91dfcef4c967f4aee8fa2b09c66c8ab6, type: 3}
+  - {fileID: 12800000, guid: b95e292f20e86424cafa41c3978fc941, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
