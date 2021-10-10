@@ -12,11 +12,12 @@ public class LevelController : UnitySingleton<LevelController>
     public GameObject player1Inventory;
     public GameObject player2Inventory;
     public GameObject pauseMenu;
+    public GameObject FMOD;
     // while the game is waiting for the player to type a word, this is set to true.
     // Otherwise, set to false
     private bool _waitForWord = false;
     public bool _isPaused = false;
-    string pauseKey = "space";
+    public KeyCode pauseKey;
 
     private void Start()
     {
@@ -27,25 +28,7 @@ public class LevelController : UnitySingleton<LevelController>
 
     private void Update()
     {
-
-        if (_isPaused) {
-
-                if (Input.GetKeyDown(this.pauseKey)) {
-                Time.timeScale = 1;
-                this._isPaused = false;
-                this.pauseMenu.SetActive(false);
-                AudioListener.volume = 100;
-            }
-
-        } else {
-            
-            if (Input.GetKeyDown(this.pauseKey)) {
-                Time.timeScale = 0;
-                this._isPaused = true;
-                this.pauseMenu.SetActive(true);
-                AudioListener.volume = 0;
-            }
-        }
+        this.PauseHandler();
     }
 
     public void OnPlayerEndTurn()
@@ -88,6 +71,30 @@ public class LevelController : UnitySingleton<LevelController>
             this.player1Inventory.GetComponent<TileInventory>().isDisabled = false;
         } else {
             this.player2Inventory.GetComponent<TileInventory>().isDisabled = false;
+        }
+    }
+
+    void PauseHandler()
+    {
+        if (this._isPaused) {
+
+                if (Input.GetKeyDown(this.pauseKey)) {
+                Time.timeScale = 1;
+                this._isPaused = false;
+                this.pauseMenu.SetActive(false);
+                this.FMOD.GetComponent<FMODMusicBattle>().Resume();
+                EnablePlayerControl();
+            }
+
+        } else {
+            
+            if (Input.GetKeyDown(this.pauseKey)) {
+                Time.timeScale = 0;
+                this._isPaused = true;
+                this.pauseMenu.SetActive(true);
+                this.FMOD.GetComponent<FMODMusicBattle>().Pause();
+                DisablePlayerControl();
+            }
         }
     }
 
