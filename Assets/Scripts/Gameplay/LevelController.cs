@@ -11,6 +11,7 @@ public class LevelController : UnitySingleton<LevelController>
     public GameObject player2G;
     public GameObject player1Inventory;
     public GameObject player2Inventory;
+    public Animator WinGraphicAnimtor;
     // while the game is waiting for the player to type a word, this is set to true.
     // Otherwise, set to false
     private bool _waitForWord = false;
@@ -43,7 +44,11 @@ public class LevelController : UnitySingleton<LevelController>
             print("Player 2 has died!");
         }
 
-        // TODO: transition to the win scene using LevelTransitionManager
+        // play the win animation
+        if (WinGraphicAnimtor)
+            WinGraphicAnimtor.SetTrigger("Show");
+        else
+            Debug.LogWarning("WinGraphicAnimtor of LevelController is equal to NULL. Did you forget to set it?");
     }
 
     public void DisablePlayerControl()
@@ -93,7 +98,7 @@ public class LevelController : UnitySingleton<LevelController>
             wordDmgAmt = player2Inventory.GetComponent<TileInventory>().wordScore;
         }
 
-
+        OnPlayerDied(player1G);
         // TODO: add damage calculation to word
         
 
