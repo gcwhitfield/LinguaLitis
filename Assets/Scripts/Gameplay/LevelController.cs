@@ -91,6 +91,17 @@ public class LevelController : UnitySingleton<LevelController>
             currPlayerG = player2G;
             oppPlayerG = player1G;
             wordDmgAmt = player2Inventory.GetComponent<TileInventory>().wordScore;
+            if(wordDmgAmt > 0)
+            {
+
+            }
+        }
+
+        //Triggers attack animation on successful attack
+        if(wordDmgAmt > 0)
+        {
+                currPlayerG.GetComponent<Animator>().ResetTrigger("Attack");
+                currPlayerG.GetComponent<Animator>().SetTrigger("Attack");
         }
 
 
