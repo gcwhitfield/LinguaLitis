@@ -11,15 +11,42 @@ public class LevelController : UnitySingleton<LevelController>
     public GameObject player2G;
     public GameObject player1Inventory;
     public GameObject player2Inventory;
+    public GameObject pauseMenu;
     public Animator WinGraphicAnimtor;
     // while the game is waiting for the player to type a word, this is set to true.
     // Otherwise, set to false
     private bool _waitForWord = false;
+    public bool _isPaused = false;
+    string pauseKey = "space";
 
     private void Start()
     {
         currPlayer = GameManager.Player.P1;
         OnPlayerBeginTurn();
+        this.pauseMenu.SetActive(false);
+    }
+
+    private void Update()
+    {
+
+        if (_isPaused) {
+
+                if (Input.GetKeyDown(this.pauseKey)) {
+                Time.timeScale = 1;
+                this._isPaused = false;
+                this.pauseMenu.SetActive(false);
+                AudioListener.volume = 100;
+            }
+
+        } else {
+            
+            if (Input.GetKeyDown(this.pauseKey)) {
+                Time.timeScale = 0;
+                this._isPaused = true;
+                this.pauseMenu.SetActive(true);
+                AudioListener.volume = 0;
+            }
+        }
     }
 
     public void OnPlayerEndTurn()
