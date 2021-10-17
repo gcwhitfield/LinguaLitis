@@ -17,4 +17,14 @@ public class FMODMusicBattle : MonoBehaviour
     {
         Music.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
     }
+
+    public void Pause()
+    {
+        Music.setPaused(true);
+    }
+
+    public void Resume()
+    {
+        Music.setPaused(false);
+    }
 }
