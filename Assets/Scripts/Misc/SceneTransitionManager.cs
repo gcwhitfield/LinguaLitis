@@ -25,7 +25,16 @@ public class SceneTransitionManager : UnitySingletonPersistant<SceneTransitionMa
             SceneManager.LoadScene(s);
         } else
         {
+            // play the animation
             sceneTransitionAnimator.SetTrigger("Play");
+
+            // wait for the animatino clip info to be ready
+            while (sceneTransitionAnimator.GetCurrentAnimatorClipInfo(0).Length == 0)
+            {
+                yield return null;
+            }
+
+            // wait for the clip to complete before transitioning to the next scene
             float animTime = sceneTransitionAnimator.GetCurrentAnimatorClipInfo(0)[0].clip.length;
             float t = 0;
             while (t < animTime)

@@ -1134,6 +1134,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pause Menu
       objectReference: {fileID: 0}
+    - target: {fileID: 5102569637192788858, guid: 8aed030c7ee9c4fc898b0be0e5da0ad7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8aed030c7ee9c4fc898b0be0e5da0ad7, type: 3}
 --- !u!1 &1503464487 stripped
@@ -1182,9 +1186,9 @@ MonoBehaviour:
   player2Inventory: {fileID: 596256336}
   pauseMenu: {fileID: 1503464487}
   FMOD: {fileID: 1848463911}
+  WinGraphicAnimtor: {fileID: 426555932}
   _isPaused: 0
   pauseKey: 9
-  WinGraphicAnimtor: {fileID: 426555932}
 --- !u!4 &1605532760
 Transform:
   m_ObjectHideFlags: 0
@@ -1459,7 +1463,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8255946663116588364, guid: e338a5001ee6e46329b392e7ddf65d35, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8255946663116588364, guid: e338a5001ee6e46329b392e7ddf65d35, type: 3}
       propertyPath: m_AnchorMax.x
