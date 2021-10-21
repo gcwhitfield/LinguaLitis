@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class SceneTransitionManager : UnitySingletonPersistant<SceneTransitionManager>
+public class SceneTransitionManager : UnitySingleton<SceneTransitionManager>
 {
     public Animator sceneTransitionAnimator;
 
@@ -26,7 +26,7 @@ public class SceneTransitionManager : UnitySingletonPersistant<SceneTransitionMa
         } else
         {
             // play the animation
-            sceneTransitionAnimator.SetTrigger("Play");
+            sceneTransitionAnimator.SetTrigger("Close");
 
             // wait for the animatino clip info to be ready
             while (sceneTransitionAnimator.GetCurrentAnimatorClipInfo(0).Length == 0)
