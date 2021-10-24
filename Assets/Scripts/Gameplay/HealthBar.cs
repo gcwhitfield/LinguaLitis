@@ -13,7 +13,7 @@ public class HealthBar : MonoBehaviour
         this.mask = this.transform.Find("Mask").gameObject;
         this.maskInitialPosition = this.mask.transform.position;
 
-        this.SetHealth(0.01f);
+        this.SetHealth(1.0f);
     }
 
     public void SetHealth(float proportion)
