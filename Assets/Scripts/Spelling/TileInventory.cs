@@ -88,6 +88,32 @@ public class TileInventory : MonoBehaviour, ISpellingController
         }
     }
 
+    private GameObject SearchTileValues(string key) 
+    {
+        for (int y = 0; y < columnCount; ++y) {
+            for (int x = 0; x < rowCount; ++x) {
+                GameObject tile = this.tileTable[y, x];
+                if (tile.GetComponent<Tile>().GetLetter().ToUpper() == key && !this.stagedTiles.Contains(tile)) {
+                    return tile;
+                }
+            }
+        }
+        return null;
+    }
+
+    public void TypeKey(string key)
+    {
+        GameObject selectedTile;
+        if ((key == "Backspace" || key == "Delete") && this.stagedTiles.Count > 0) {
+            selectedTile = this.stagedTiles[this.stagedTiles.Count - 1];
+        } else {
+            selectedTile = this.SearchTileValues(key);
+        }
+        if (!(selectedTile is null)) {
+            this.ActivateTile(selectedTile);
+        }
+    }
+
     void PositionTiles()
     {
         float width = this.transform.localScale.x;
@@ -152,7 +178,8 @@ public class TileInventory : MonoBehaviour, ISpellingController
                 }
             // PositionTiles();
             ScrambleTiles();
-
     }
+
+
 
 }
