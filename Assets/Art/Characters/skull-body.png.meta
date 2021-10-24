@@ -1,0 +1,210 @@
+fileFormatVersion: 2
+guid: a831cb14c16594637bc2545e7e951a75
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 4500894115577119512
+    second: skull-body_0
+  - first:
+      213: -3880447353314994348
+    second: skull-body_1
+  - first:
+      213: 3840330387559579561
+    second: skull-body_2
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 203, y: 91, z: 2157, w: 224}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: 0
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: skull-body_0
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 97
+        width: 340
+        height: 354
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 813ce92f953667e30800000000000000
+      internalID: 4500894115577119512
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skull-body_1
+      rect:
+        serializedVersion: 2
+        x: 1042
+        y: 98
+        width: 452
+        height: 314
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4571e0011b1e52ac0800000000000000
+      internalID: -3880447353314994348
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skull-body_2
+      rect:
+        serializedVersion: 2
+        x: 2020
+        y: 96
+        width: 658
+        height: 329
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9af70aaf3289b4530800000000000000
+      internalID: 3840330387559579561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline:
+    - - {x: 1030.957, y: 86.976746}
+      - {x: 1005.9082, y: 81.70543}
+      - {x: 668.4082, y: -205.5814}
+      - {x: 668.4082, y: -239.84497}
+      - {x: 725.09766, y: -246.43411}
+      - {x: 1074.4629, y: -246.43411}
+      - {x: 1330.2246, y: -85.65891}
+      - {x: 1330.2246, y: 3.9534883}
+      - {x: 1110.0586, y: 86.976746}
+    - - {x: -1015.1367, y: 113.333336}
+      - {x: -1056.0059, y: 81.70543}
+      - {x: -1144.3359, y: -166.04651}
+      - {x: -1144.3359, y: -227.9845}
+      - {x: -1087.6465, y: -245.11629}
+      - {x: -835.83984, y: -245.11629}
+      - {x: -800.24414, y: -235.89148}
+      - {x: -800.24414, y: -150.23256}
+      - {x: -826.6113, y: -51.39535}
+      - {x: -871.43555, y: 112.0155}
+      - {x: -881.9824, y: 113.333336}
+    - - {x: 68.55469, y: 43.488373}
+      - {x: -17.138672, y: 73.798454}
+      - {x: -275.5371, y: 73.798454}
+      - {x: -309.81445, y: 48.75969}
+      - {x: -309.81445, y: -243.79846}
+      - {x: 98.87695, y: -243.79846}
+      - {x: 125.24414, y: -241.1628}
+      - {x: 146.33789, y: -159.45737}
+      - {x: 146.33789, y: -115.968994}
+      - {x: 138.42773, y: -94.88372}
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
