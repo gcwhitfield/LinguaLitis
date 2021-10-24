@@ -19,6 +19,9 @@ public class LevelController : UnitySingleton<LevelController>
     private bool _waitForWord = false;
     public bool _isPaused = false;
     public KeyCode pauseKey;
+    private KeyCode[] validKeys = {KeyCode.A, KeyCode.B, KeyCode.C, KeyCode.D, KeyCode.E, KeyCode.F, KeyCode.G, KeyCode.H, 
+    KeyCode.I, KeyCode.J, KeyCode.K, KeyCode.L, KeyCode.M, KeyCode.N, KeyCode.O, KeyCode.P, KeyCode.Q, KeyCode.R, KeyCode.S, 
+    KeyCode.T, KeyCode.U, KeyCode.V, KeyCode.W, KeyCode.X, KeyCode.Y, KeyCode.Z, KeyCode.Delete, KeyCode.Backspace, KeyCode.Space, KeyCode.Return};
 
     private void Start()
     {
@@ -30,6 +33,7 @@ public class LevelController : UnitySingleton<LevelController>
     private void Update()
     {
         this.PauseHandler();
+        this.TypingHandler();
     }
 
     public void OnPlayerEndTurn()
@@ -99,6 +103,32 @@ public class LevelController : UnitySingleton<LevelController>
                 this.pauseMenu.SetActive(true);
                 this.FMOD.GetComponent<FMODMusicBattle>().Pause();
                 DisablePlayerControl();
+            }
+        }
+    }
+
+    void TypingHandler()
+    {
+        // if game gets laggy we can use an event handler to only check for this when a keydown event happens
+        foreach(var key in this.validKeys){
+            if(Input.GetKeyDown(key)) {
+                if (key == KeyCode.Space) {
+                    if (this.currPlayer == GameManager.Player.P1) {
+                        player1Inventory.GetComponent<TileInventory>().ScrambleTiles();
+                    } else if (this.currPlayer == GameManager.Player.P2) {
+                        player2Inventory.GetComponent<TileInventory>().ScrambleTiles();
+                    }
+                } else if (key == KeyCode.Return) {
+                    this.SubmitWord();
+                } else {
+                    string keyValue = key.ToString();
+                    if (this.currPlayer == GameManager.Player.P1) {
+                        player1Inventory.GetComponent<TileInventory>().TypeKey(keyValue);
+                    }
+                    else if (this.currPlayer == GameManager.Player.P2) {
+                        player2Inventory.GetComponent<TileInventory>().TypeKey(keyValue);
+                    }
+                }
             }
         }
     }
