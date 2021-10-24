@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class HealthBar : MonoBehaviour
 {
+    public bool flipped = false;
+
     private GameObject mask;
     private Vector3 maskInitialPosition;
 
@@ -19,6 +21,7 @@ public class HealthBar : MonoBehaviour
     public void SetHealth(float proportion)
     {
         var healthBarWidth = 3.0625f;
-        this.mask.transform.position = this.maskInitialPosition + Vector3.left * (1.0f - proportion) * healthBarWidth;
+        var dir = this.flipped ? Vector3.right : Vector3.left;
+        this.mask.transform.position = this.maskInitialPosition + dir * (1.0f - proportion) * healthBarWidth;
     }
 }
