@@ -143,7 +143,6 @@ public class LevelController : UnitySingleton<LevelController>
                 currPlayerG.GetComponent<Animator>().SetTrigger("Attack");
         }
 
-        OnPlayerDied(player1G);
         // TODO: add damage calculation to word
         
 
