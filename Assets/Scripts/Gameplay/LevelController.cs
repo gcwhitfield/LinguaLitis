@@ -86,7 +86,6 @@ public class LevelController : UnitySingleton<LevelController>
     void PauseHandler()
     {
         if (this._isPaused) {
-
                 if (Input.GetKeyDown(this.pauseKey)) {
                 Time.timeScale = 1;
                 this._isPaused = false;
@@ -94,9 +93,7 @@ public class LevelController : UnitySingleton<LevelController>
                 this.FMOD.GetComponent<FMODMusicBattle>().Resume();
                 EnablePlayerControl();
             }
-
         } else {
-            
             if (Input.GetKeyDown(this.pauseKey)) {
                 Time.timeScale = 0;
                 this._isPaused = true;
@@ -144,39 +141,33 @@ public class LevelController : UnitySingleton<LevelController>
     // called when the player submits their word
     public void SubmitWord()
     {
-   
         GameObject currPlayerG; // the player whose turn it currently is
         GameObject oppPlayerG; // the opposite players
-        int wordDmgAmt = 0;
+        int wordDmgAmt;
 
         if (currPlayer == GameManager.Player.P1)
         {
             currPlayerG = player1G;
             oppPlayerG = player2G;
-            wordDmgAmt = player1Inventory.GetComponent<TileInventory>().wordScore;
+            wordDmgAmt = player1Inventory.GetComponent<TileInventory>().ScoreWord();
         }
         else
         {
             currPlayerG = player2G;
             oppPlayerG = player1G;
-            wordDmgAmt = player2Inventory.GetComponent<TileInventory>().wordScore;
-            if(wordDmgAmt > 0)
-            {
+            wordDmgAmt = player2Inventory.GetComponent<TileInventory>().ScoreWord();
+        }
 
-            }
+        // If no valid word was spelled, then don't do anything at all.  Player must try again.
+        if (wordDmgAmt == -1) {
+            // TODO: It would be a good idea to have a visual + auditory indicator that it failed.
+            // Otherwise it would feel like the button isn't detecting a click.
+            return;
         }
 
         //Triggers attack animation on successful attack
-        if(wordDmgAmt > 0)
-        {
-                currPlayerG.GetComponent<Animator>().ResetTrigger("Attack");
-                currPlayerG.GetComponent<Animator>().SetTrigger("Attack");
-        }
-
-        // TODO: add damage calculation to word
-        
-
-        // TODO: player the attack animation here
+        currPlayerG.GetComponent<Animator>().ResetTrigger("Attack");
+        currPlayerG.GetComponent<Animator>().SetTrigger("Attack");
 
         // damage the opposite player
         Health oppHealth = oppPlayerG.GetComponent<Health>(); 
@@ -191,8 +182,8 @@ public class LevelController : UnitySingleton<LevelController>
         if (currPlayer == GameManager.Player.P1)
         {
             player1Inventory.GetComponent<TileInventory>().ClearTiles();
-        } 
-        else 
+        }
+        else
         {
             player2Inventory.GetComponent<TileInventory>().ClearTiles();
         }
