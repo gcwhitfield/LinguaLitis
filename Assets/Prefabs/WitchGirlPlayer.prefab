@@ -11,6 +11,14 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 6630487932185560373, guid: a827f83e3c4fb437d91be9b21b13556a, type: 3}
+    - target: {fileID: 1919994523479749158, guid: e95b33a324e3d423c864d3fd119dd26f, type: 3}
+      propertyPath: m_SortingLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1919994523479749158, guid: e95b33a324e3d423c864d3fd119dd26f, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 1483891109
+      objectReference: {fileID: 0}
     - target: {fileID: 2384274047011603619, guid: e95b33a324e3d423c864d3fd119dd26f, type: 3}
       propertyPath: m_Name
       value: PlayerBase
