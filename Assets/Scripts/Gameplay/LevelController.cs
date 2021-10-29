@@ -176,7 +176,8 @@ public class LevelController : UnitySingleton<LevelController>
                 currPlayerG.GetComponent<Animator>().SetTrigger("Attack");
         }
 
-       
+        // TODO: player the attack animation here
+
         // damage the opposite player
         Health oppHealth = oppPlayerG.GetComponent<Health>(); 
         oppHealth.BumpHp(-wordDmgAmt);

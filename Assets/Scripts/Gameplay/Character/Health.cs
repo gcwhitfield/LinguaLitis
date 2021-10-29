@@ -6,16 +6,10 @@ using UnityEngine.UI;
 // Class for a character's health
 public class Health : MonoBehaviour
 {
-	public int maxHp = 50;
-	public int curHp = 50;
+    public int curHp;
+    public int maxHp;
 
-    public Slider healthbar;
-
-    void Start()
-    {
-        healthbar.maxValue = maxHp;
-        healthbar.value = curHp;
-    }
+    public GameObject healthBar;
 
     // void Update()
     // {
@@ -27,8 +21,16 @@ public class Health : MonoBehaviour
     //     }
     // }
 
+    void Start()
+    {
+        this.maxHp = 50;
+        this.curHp = this.maxHp;
+        this.UpdateHealthBar();
+    }
+
     // bumpHp(5) will add 5 to health. bumpHp(-5) will subtract 5 from health
-    public void BumpHp( int healthDelta ) {
+    public void BumpHp(int healthDelta)
+    {
     	curHp += healthDelta;
         
         FMOD.Studio.EventInstance HealthChange;
@@ -38,13 +40,18 @@ public class Health : MonoBehaviour
         HealthChange.start();
         HealthChange.release();
 
-    	if (curHp < 0) {
-    		curHp = 0;
-    	} else if (curHp > maxHp) {
-    		curHp = maxHp;
-    	}
+        if (curHp < 0) {
+            this.curHp = 0;
+        } else if (curHp > maxHp) {
+            this.curHp = maxHp;
+        }
 
-    	healthbar.value = curHp;
+        this.UpdateHealthBar();
+    }
+
+    void UpdateHealthBar()
+    {
+        this.healthBar.GetComponent<HealthBar>().SetHealth((float)curHp / (float)this.maxHp);
     }
 
     public bool IsDead()
