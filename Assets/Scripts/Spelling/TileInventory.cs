@@ -13,7 +13,6 @@ public class TileInventory : MonoBehaviour, ISpellingController
     public Vector3 stagedTilePosition;
     public TextAsset wordList;
     public bool isDisabled = true;
-    public int wordScore = 0;
 
     Lexicon lexicon;
     const int columnCount = 3;
@@ -74,18 +73,17 @@ public class TileInventory : MonoBehaviour, ISpellingController
         LetterStaging.release();
 
         this.PositionTiles();
+    }
 
+    public int ScoreWord()
+    {
         var spelledLetters = new List<string>();
         foreach (GameObject staged in this.stagedTiles) {
             spelledLetters.Add(staged.GetComponent<Tile>().GetLetter());
         }
         var spelledString = string.Join("", spelledLetters);
 
-        var score = this.lexicon.ScoreWord(spelledLetters);
-        if (score >= 0) {
-            wordScore = score;
-            Debug.Log("Score of '" + spelledString + "' is " + this.lexicon.ScoreWord(spelledLetters));
-        }
+        return this.lexicon.ScoreWord(spelledLetters);
     }
 
     private GameObject SearchTileValues(string key) 
