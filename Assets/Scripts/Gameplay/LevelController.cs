@@ -28,6 +28,10 @@ public class LevelController : UnitySingleton<LevelController>
         currPlayer = GameManager.Player.P1;
         OnPlayerBeginTurn();
         this.pauseMenu.SetActive(false);
+        if (SceneTransitionManager.Instance.sceneTransitionAnimator)
+        {
+            SceneTransitionManager.Instance.sceneTransitionAnimator.SetTrigger("Open");
+        }
     }
 
     private void Update()
@@ -148,7 +152,6 @@ public class LevelController : UnitySingleton<LevelController>
         GameObject currPlayerG; // the player whose turn it currently is
         GameObject oppPlayerG; // the opposite players
         int wordDmgAmt = 0;
-
         if (currPlayer == GameManager.Player.P1)
         {
             currPlayerG = player1G;
@@ -172,9 +175,6 @@ public class LevelController : UnitySingleton<LevelController>
                 currPlayerG.GetComponent<Animator>().ResetTrigger("Attack");
                 currPlayerG.GetComponent<Animator>().SetTrigger("Attack");
         }
-
-        // TODO: add damage calculation to word
-        
 
         // TODO: player the attack animation here
 

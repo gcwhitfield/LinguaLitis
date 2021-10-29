@@ -1,25 +1,16 @@
 fileFormatVersion: 2
-guid: 68f7efa51e22d4b54b25267b0fc1da88
+guid: 2fb910252d4b744259affc42ed62aae6
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3310284437274018688
-    second: Bookworm_Witch_Attack_Sprites_0
+      213: 3579793323697262375
+    second: shull-head_0
   - first:
-      213: 2793839417239990121
-    second: Bookworm_Witch_Attack_Sprites_1
+      213: -2342030030205864174
+    second: shull-head_1
   - first:
-      213: -764309915559960480
-    second: Bookworm_Witch_Attack_Sprites_2
-  - first:
-      213: -6174933853267650481
-    second: Bookworm_Witch_Attack_Sprites_3
-  - first:
-      213: -1635190075997236682
-    second: Bookworm_Witch_Attack_Sprites_4
-  - first:
-      213: -8473009431752312955
-    second: Bookworm_Witch_Attack_Sprites_5
+      213: -9060902904302978639
+    second: shull-head_2
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -64,7 +55,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 175
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -109,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Bookworm_Witch_Attack_Sprites_0
+      name: shull-head_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1000
-        height: 1000
+        x: 31
+        y: 27
+        width: 142
+        height: 156
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -123,20 +114,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 083c835382e70fd20800000000000000
-      internalID: 3310284437274018688
+      spriteID: 72f4a44bf0bfda130800000000000000
+      internalID: 3579793323697262375
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bookworm_Witch_Attack_Sprites_1
+      name: shull-head_1
       rect:
         serializedVersion: 2
-        x: 1000
-        y: 0
-        width: 1000
-        height: 1000
+        x: 238
+        y: 25
+        width: 146
+        height: 155
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -144,20 +135,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 96fe218c526b5c620800000000000000
-      internalID: 2793839417239990121
+      spriteID: 217384c98107f7fd0800000000000000
+      internalID: -2342030030205864174
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bookworm_Witch_Attack_Sprites_2
+      name: shull-head_2
       rect:
         serializedVersion: 2
-        x: 2000
-        y: 0
-        width: 1000
-        height: 1000
+        x: 446
+        y: 25
+        width: 149
+        height: 157
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -165,50 +156,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0606db86e20a465f0800000000000000
-      internalID: -764309915559960480
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Bookworm_Witch_Attack_Sprites_3
-      rect:
-        serializedVersion: 2
-        x: 3000
-        y: 0
-        width: 1000
-        height: 1000
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f48927c606a3e4aa0800000000000000
-      internalID: -6174933853267650481
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Bookworm_Witch_Attack_Sprites_4
-      rect:
-        serializedVersion: 2
-        x: 4000
-        y: 0
-        width: 1000
-        height: 1000
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 632d0fb1a43ae49e0800000000000000
-      internalID: -1635190075997236682
+      spriteID: 1b937b4b0d4314280800000000000000
+      internalID: -9060902904302978639
       vertices: []
       indices: 
       edges: []
