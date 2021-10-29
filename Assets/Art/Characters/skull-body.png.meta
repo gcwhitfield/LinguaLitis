@@ -1,25 +1,16 @@
 fileFormatVersion: 2
-guid: 68f7efa51e22d4b54b25267b0fc1da88
+guid: a831cb14c16594637bc2545e7e951a75
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3310284437274018688
-    second: Bookworm_Witch_Attack_Sprites_0
+      213: 4500894115577119512
+    second: skull-body_0
   - first:
-      213: 2793839417239990121
-    second: Bookworm_Witch_Attack_Sprites_1
+      213: -3880447353314994348
+    second: skull-body_1
   - first:
-      213: -764309915559960480
-    second: Bookworm_Witch_Attack_Sprites_2
-  - first:
-      213: -6174933853267650481
-    second: Bookworm_Witch_Attack_Sprites_3
-  - first:
-      213: -1635190075997236682
-    second: Bookworm_Witch_Attack_Sprites_4
-  - first:
-      213: -8473009431752312955
-    second: Bookworm_Witch_Attack_Sprites_5
+      213: 3840330387559579561
+    second: skull-body_2
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -64,12 +55,12 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 175
-  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 203, y: 91, z: 2157, w: 224}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
-  spriteTessellationDetail: -1
+  spriteTessellationDetail: 0
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
@@ -109,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Bookworm_Witch_Attack_Sprites_0
+      name: skull-body_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1000
-        height: 1000
+        x: 208
+        y: 97
+        width: 340
+        height: 354
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -123,20 +114,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 083c835382e70fd20800000000000000
-      internalID: 3310284437274018688
+      spriteID: 813ce92f953667e30800000000000000
+      internalID: 4500894115577119512
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bookworm_Witch_Attack_Sprites_1
+      name: skull-body_1
       rect:
         serializedVersion: 2
-        x: 1000
-        y: 0
-        width: 1000
-        height: 1000
+        x: 1042
+        y: 98
+        width: 452
+        height: 314
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -144,20 +135,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 96fe218c526b5c620800000000000000
-      internalID: 2793839417239990121
+      spriteID: 4571e0011b1e52ac0800000000000000
+      internalID: -3880447353314994348
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bookworm_Witch_Attack_Sprites_2
+      name: skull-body_2
       rect:
         serializedVersion: 2
-        x: 2000
-        y: 0
-        width: 1000
-        height: 1000
+        x: 2020
+        y: 96
+        width: 658
+        height: 329
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -165,55 +156,43 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0606db86e20a465f0800000000000000
-      internalID: -764309915559960480
+      spriteID: 9af70aaf3289b4530800000000000000
+      internalID: 3840330387559579561
       vertices: []
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: Bookworm_Witch_Attack_Sprites_3
-      rect:
-        serializedVersion: 2
-        x: 3000
-        y: 0
-        width: 1000
-        height: 1000
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f48927c606a3e4aa0800000000000000
-      internalID: -6174933853267650481
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Bookworm_Witch_Attack_Sprites_4
-      rect:
-        serializedVersion: 2
-        x: 4000
-        y: 0
-        width: 1000
-        height: 1000
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 632d0fb1a43ae49e0800000000000000
-      internalID: -1635190075997236682
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    outline: []
+    outline:
+    - - {x: 1030.957, y: 86.976746}
+      - {x: 1005.9082, y: 81.70543}
+      - {x: 668.4082, y: -205.5814}
+      - {x: 668.4082, y: -239.84497}
+      - {x: 725.09766, y: -246.43411}
+      - {x: 1074.4629, y: -246.43411}
+      - {x: 1330.2246, y: -85.65891}
+      - {x: 1330.2246, y: 3.9534883}
+      - {x: 1110.0586, y: 86.976746}
+    - - {x: -1015.1367, y: 113.333336}
+      - {x: -1056.0059, y: 81.70543}
+      - {x: -1144.3359, y: -166.04651}
+      - {x: -1144.3359, y: -227.9845}
+      - {x: -1087.6465, y: -245.11629}
+      - {x: -835.83984, y: -245.11629}
+      - {x: -800.24414, y: -235.89148}
+      - {x: -800.24414, y: -150.23256}
+      - {x: -826.6113, y: -51.39535}
+      - {x: -871.43555, y: 112.0155}
+      - {x: -881.9824, y: 113.333336}
+    - - {x: 68.55469, y: 43.488373}
+      - {x: -17.138672, y: 73.798454}
+      - {x: -275.5371, y: 73.798454}
+      - {x: -309.81445, y: 48.75969}
+      - {x: -309.81445, y: -243.79846}
+      - {x: 98.87695, y: -243.79846}
+      - {x: 125.24414, y: -241.1628}
+      - {x: 146.33789, y: -159.45737}
+      - {x: 146.33789, y: -115.968994}
+      - {x: 138.42773, y: -94.88372}
     physicsShape: []
     bones: []
     spriteID: 5e97eb03825dee720800000000000000

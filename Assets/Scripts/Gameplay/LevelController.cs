@@ -28,6 +28,10 @@ public class LevelController : UnitySingleton<LevelController>
         currPlayer = GameManager.Player.P1;
         OnPlayerBeginTurn();
         this.pauseMenu.SetActive(false);
+        if (SceneTransitionManager.Instance.sceneTransitionAnimator)
+        {
+            SceneTransitionManager.Instance.sceneTransitionAnimator.SetTrigger("Open");
+        }
     }
 
     private void Update()
@@ -143,8 +147,8 @@ public class LevelController : UnitySingleton<LevelController>
     {
         GameObject currPlayerG; // the player whose turn it currently is
         GameObject oppPlayerG; // the opposite players
-        int wordDmgAmt;
 
+        int wordDmgAmt = 0;
         if (currPlayer == GameManager.Player.P1)
         {
             currPlayerG = player1G;
