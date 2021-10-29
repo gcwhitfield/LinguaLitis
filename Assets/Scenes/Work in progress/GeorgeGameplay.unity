@@ -1695,6 +1695,10 @@ PrefabInstance:
       propertyPath: healthbar
       value: 
       objectReference: {fileID: 780020706}
+    - target: {fileID: 3601799680263772366, guid: eec41531021c544fab37009a34226764, type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8388572934196938729, guid: eec41531021c544fab37009a34226764, type: 3}
       propertyPath: m_RootOrder
       value: 11
