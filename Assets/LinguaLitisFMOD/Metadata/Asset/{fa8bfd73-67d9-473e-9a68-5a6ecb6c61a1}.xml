@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.01.00">
+	<object class="EncodableAsset" id="{fa8bfd73-67d9-473e-9a68-5a6ecb6c61a1}">
+		<property name="assetPath">
+			<value>SFX/Battle/Attacks/boney m/BMAttack01/</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{effef780-ca89-455f-ae27-d03fbd6a7364}</destination>
+		</relationship>
+	</object>
+</objects>

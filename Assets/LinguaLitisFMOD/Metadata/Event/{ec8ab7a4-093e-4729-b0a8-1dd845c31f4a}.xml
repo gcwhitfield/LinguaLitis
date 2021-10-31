@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.01.00">
 	<object class="Event" id="{ec8ab7a4-093e-4729-b0a8-1dd845c31f4a}">
 		<property name="name">
-			<value>LetterStaging</value>
+			<value>LetterStaging V01</value>
 		</property>
 		<property name="outputFormat">
 			<value>1</value>
