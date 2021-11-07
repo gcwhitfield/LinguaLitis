@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<objects serializationModel="Studio.02.01.00">
+<objects serializationModel="Studio.02.02.00">
 	<object class="Event" id="{78dd2a62-152b-40a6-9552-00c15ffdd618}">
 		<property name="name">
 			<value>HealthChange</value>
@@ -79,9 +79,9 @@
 	</object>
 	<object class="ParameterProxy" id="{89a994a6-36ce-481f-acb1-d267266d8244}">
 		<relationship name="modules">
+			<destination>{257685ef-7a80-4057-ada6-d4df92d74b33}</destination>
 			<destination>{1070cfa9-e8ee-49ee-aae2-3f1e09ac4768}</destination>
 			<destination>{4e5c442e-57ba-4a0c-b170-12c858b5d5db}</destination>
-			<destination>{257685ef-7a80-4057-ada6-d4df92d74b33}</destination>
 			<destination>{ef5af6f0-7586-430f-9f85-3a73b4a29290}</destination>
 		</relationship>
 		<relationship name="preset">
