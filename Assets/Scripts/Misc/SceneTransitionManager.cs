@@ -37,11 +37,12 @@ public class SceneTransitionManager : UnitySingleton<SceneTransitionManager>
             // wait for the clip to complete before transitioning to the next scene
             float animTime = sceneTransitionAnimator.GetCurrentAnimatorClipInfo(0)[0].clip.length;
             float t = 0;
-            while (t < animTime)
+            while (t < animTime + 0.25f) // wait an extra quater-second
             {
                 t += Time.deltaTime;
                 yield return null;
             }
+            
             SceneManager.LoadScene(s);
         }
     }
