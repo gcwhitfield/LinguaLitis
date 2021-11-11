@@ -176,6 +176,9 @@ public class LevelController : UnitySingleton<LevelController>
         // damage the opposite player
         Health oppHealth = oppPlayerG.GetComponent<Health>(); 
         oppHealth.BumpHp(-wordDmgAmt);
+
+        // queue rune effects
+
         if (oppHealth.IsDead())
         {
             OnPlayerDied(oppPlayerG);
