@@ -977,7 +977,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7779251880222764587, guid: 23c0d9ea787d54d2caaf81069275dcf2, type: 3}
       propertyPath: m_SortingLayer
-      value: 1
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 7779251880222764587, guid: 23c0d9ea787d54d2caaf81069275dcf2, type: 3}
       propertyPath: m_SortingLayerID
@@ -989,6 +989,53 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 23c0d9ea787d54d2caaf81069275dcf2, type: 3}
+--- !u!1 &1326361460
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1326361462}
+  - component: {fileID: 1326361461}
+  m_Layer: 0
+  m_Name: RuneController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1326361461
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1326361460}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9659f69ba783949738f9fbe7653ad5f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  P1RuneSequence: 
+  P2RuneSequence: 
+  player1GameObject: {fileID: 564679796}
+  player2GameObject: {fileID: 1991629545}
+--- !u!4 &1326361462
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1326361460}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 345.5, y: 176, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 15
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1367080582
 GameObject:
   m_ObjectHideFlags: 0
@@ -1193,6 +1240,7 @@ MonoBehaviour:
   pauseMenu: {fileID: 1503464487}
   FMOD: {fileID: 1848463911}
   WinGraphicAnimtor: {fileID: 426555932}
+  RuneControllerObject: {fileID: 1326361460}
   _isPaused: 0
   pauseKey: 9
 --- !u!4 &1605532760

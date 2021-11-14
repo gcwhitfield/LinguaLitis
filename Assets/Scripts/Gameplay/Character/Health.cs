@@ -6,8 +6,8 @@ using UnityEngine.UI;
 // Class for a character's health
 public class Health : MonoBehaviour
 {
-    public int curHp;
-    public int maxHp;
+    public float curHp;
+    public float maxHp;
 
     public GameObject healthBar;
 
@@ -23,13 +23,13 @@ public class Health : MonoBehaviour
 
     void Start()
     {
-        this.maxHp = 50;
+        this.maxHp = 50.0F;
         this.curHp = this.maxHp;
         this.UpdateHealthBar();
     }
 
     // bumpHp(5) will add 5 to health. bumpHp(-5) will subtract 5 from health
-    public void BumpHp(int healthDelta)
+    public void BumpHp(float healthDelta)
     {
     	curHp += healthDelta;
         
