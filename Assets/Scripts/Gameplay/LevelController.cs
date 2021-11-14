@@ -14,6 +14,7 @@ public class LevelController : UnitySingleton<LevelController>
     public GameObject pauseMenu;
     public GameObject FMOD;
     public Animator WinGraphicAnimtor;
+    public GameObject RuneControllerObject;
     // while the game is waiting for the player to type a word, this is set to true.
     // Otherwise, set to false
     private bool _waitForWord = false;
@@ -175,7 +176,11 @@ public class LevelController : UnitySingleton<LevelController>
 
         // damage the opposite player
         Health oppHealth = oppPlayerG.GetComponent<Health>(); 
-        oppHealth.BumpHp(-wordDmgAmt);
+        // oppHealth.BumpHp(-wordDmgAmt);
+
+        // queue rune effects
+        RuneControllerObject.GetComponent<RuneController>().Turn(currPlayer, wordDmgAmt);
+
         if (oppHealth.IsDead())
         {
             OnPlayerDied(oppPlayerG);
