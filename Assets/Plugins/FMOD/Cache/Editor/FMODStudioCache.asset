@@ -22,6 +22,28 @@ MonoBehaviour:
   Type: 1
   IsGlobal: 0
   Exists: 1
+--- !u!114 &-7867722199409535276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/LetterStaging V01/WordPower
+  m_EditorClassIdentifier: 
+  Name: WordPower
+  Min: 0
+  Max: 16
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Type: 1
+  IsGlobal: 0
+  Exists: 1
 --- !u!114 &-7448283524003806925
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -59,10 +81,10 @@ MonoBehaviour:
   Path: Assets/LinguaLitisFMOD/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 637718978000000000
+  lastModified: 637725169390000000
   FileSizes:
   - Name: Desktop
-    Value: 1612
+    Value: 1770
   Exists: 1
 --- !u!114 &-7265715209186243546
 MonoBehaviour:
@@ -211,7 +233,7 @@ MonoBehaviour:
   m_Name: event:/Music/Battle
   m_EditorClassIdentifier: 
   Path: event:/Music/Battle
-  guid: 95eb595564aa414db1c158ec9ac9436b
+  guid: 15b361785825c649b2a6b061e73de860
   Banks:
   - {fileID: -2443285621549976924}
   IsStream: 1
@@ -220,7 +242,7 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 0
   MaxDistance: 0
-  Length: 221074
+  Length: 189637
 --- !u!114 &-4209631561769474192
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -346,10 +368,10 @@ MonoBehaviour:
   Path: Assets/LinguaLitisFMOD/Build/Desktop/Battle.bank
   Name: Battle
   StudioPath: bank:/Battle
-  lastModified: 637718977960000000
+  lastModified: 637725169390000000
   FileSizes:
   - Name: Desktop
-    Value: 3620832
+    Value: 6408320
   Exists: 1
 --- !u!114 &-2413430593825237122
 MonoBehaviour:
@@ -397,6 +419,28 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 1116
+--- !u!114 &-1975019080157321900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/HealthChange/healthDelta
+  m_EditorClassIdentifier: 
+  Name: healthDelta
+  Min: -200
+  Max: 200
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Type: 1
+  IsGlobal: 0
+  Exists: 1
 --- !u!114 &-1932346496487114635
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -596,6 +640,29 @@ MonoBehaviour:
   Type: 1
   IsGlobal: 0
   Exists: 1
+--- !u!114 &-647210554117533371
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Music/Old+Unused/Main Menu (tk2)
+  m_EditorClassIdentifier: 
+  Path: event:/Music/Old+Unused/Main Menu (tk2)
+  guid: 4d7d4815b3e15e468914c55890c66934
+  Banks:
+  - {fileID: 2237382151393601525}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 123076
 --- !u!114 &-636802452145089075
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -616,7 +683,7 @@ MonoBehaviour:
   Is3D: 0
   IsOneShot: 1
   Parameters:
-  - {fileID: -9019580837614242639}
+  - {fileID: -7867722199409535276}
   MinDistance: 0
   MaxDistance: 0
   Length: 0
@@ -689,18 +756,67 @@ MonoBehaviour:
   - {fileID: 8556773091545538880}
   - {fileID: 350085870326163299}
   - {fileID: 4982639316008620712}
-  - {fileID: -4868023300402890883}
   - {fileID: -636802452145089075}
   - {fileID: 7841214244855508802}
   - {fileID: 5265482712791359692}
   - {fileID: -866272366030646147}
+  - {fileID: 41832413442470146}
+  - {fileID: 97399676371429378}
+  - {fileID: 5261150985857758931}
+  - {fileID: -647210554117533371}
   EditorParameters: []
   MasterBanks:
   - {fileID: 3353996925350185795}
   StringsBanks:
   - {fileID: -7309435533564481708}
-  stringsBankWriteTime: 637718978000000000
+  stringsBankWriteTime: 637725169390000000
   cacheVersion: 8
+--- !u!114 &41832413442470146
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Battle/TurnAnnounce
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Battle/TurnAnnounce
+  guid: 75e09a0c4d4e164cb19e3e95a89bf20a
+  Banks:
+  - {fileID: -2443285621549976924}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 593
+--- !u!114 &97399676371429378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Music/Old+Unused/Battle (old)
+  m_EditorClassIdentifier: 
+  Path: event:/Music/Old+Unused/Battle (old)
+  guid: 95eb595564aa414db1c158ec9ac9436b
+  Banks:
+  - {fileID: -2443285621549976924}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 221074
 --- !u!114 &350085870326163299
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -783,7 +899,7 @@ MonoBehaviour:
   Path: Assets/LinguaLitisFMOD/Build/Desktop/General UI.bank
   Name: General UI
   StudioPath: bank:/General UI
-  lastModified: 637718977960000000
+  lastModified: 637725169390000000
   FileSizes:
   - Name: Desktop
     Value: 69504
@@ -891,7 +1007,7 @@ MonoBehaviour:
   Path: Assets/LinguaLitisFMOD/Build/Desktop/Main Menu.bank
   Name: Main Menu
   StudioPath: bank:/Main Menu
-  lastModified: 637718978000000000
+  lastModified: 637725169390000000
   FileSizes:
   - Name: Desktop
     Value: 26039616
@@ -911,7 +1027,7 @@ MonoBehaviour:
   Path: Assets/LinguaLitisFMOD/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 637718978000000000
+  lastModified: 637725169390000000
   FileSizes:
   - Name: Desktop
     Value: 1012
@@ -958,10 +1074,33 @@ MonoBehaviour:
   Is3D: 0
   IsOneShot: 1
   Parameters:
-  - {fileID: -6204836064081279252}
+  - {fileID: -1975019080157321900}
   MinDistance: 0
   MaxDistance: 0
   Length: 0
+--- !u!114 &5261150985857758931
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Battle/TileHover
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Battle/TileHover
+  guid: 967c1ddf3dd388499cb7fe68f645e3a8
+  Banks:
+  - {fileID: -2443285621549976924}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 1000
 --- !u!114 &5265482712791359692
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1052,6 +1191,28 @@ MonoBehaviour:
   Type: 1
   IsGlobal: 0
   Exists: 0
+--- !u!114 &6650663856168766002
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/LetterStaging/WordPower
+  m_EditorClassIdentifier: 
+  Name: WordPower
+  Min: 0
+  Max: 16
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Type: 1
+  IsGlobal: 0
+  Exists: 1
 --- !u!114 &6886239622116254558
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1162,7 +1323,7 @@ MonoBehaviour:
   Is3D: 0
   IsOneShot: 1
   Parameters:
-  - {fileID: 8471355811119356444}
+  - {fileID: 6650663856168766002}
   MinDistance: 0
   MaxDistance: 0
   Length: 0
