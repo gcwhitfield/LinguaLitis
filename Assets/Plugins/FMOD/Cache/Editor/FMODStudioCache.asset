@@ -22,6 +22,28 @@ MonoBehaviour:
   Type: 1
   IsGlobal: 0
   Exists: 1
+--- !u!114 &-8267738432921380412
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/JJAttack01/AttackStrength
+  m_EditorClassIdentifier: 
+  Name: AttackStrength
+  Min: 0
+  Max: 5
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Type: 1
+  IsGlobal: 0
+  Exists: 1
 --- !u!114 &-7867722199409535276
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -81,10 +103,10 @@ MonoBehaviour:
   Path: Assets/LinguaLitisFMOD/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 637725169390000000
+  lastModified: 637728543140000000
   FileSizes:
   - Name: Desktop
-    Value: 1770
+    Value: 1912
   Exists: 1
 --- !u!114 &-7265715209186243546
 MonoBehaviour:
@@ -109,6 +131,28 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 0
+--- !u!114 &-7240418287828344301
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/BMAttack01/AttackStage
+  m_EditorClassIdentifier: 
+  Name: AttackStage
+  Min: 0
+  Max: 10
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Type: 1
+  IsGlobal: 0
+  Exists: 1
 --- !u!114 &-6225973826675654776
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -132,6 +176,28 @@ MonoBehaviour:
   IsGlobal: 0
   Exists: 0
 --- !u!114 &-6204836064081279252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/HealthChange/healthDelta
+  m_EditorClassIdentifier: 
+  Name: healthDelta
+  Min: -200
+  Max: 200
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Type: 1
+  IsGlobal: 0
+  Exists: 1
+--- !u!114 &-6040311787832050168
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -368,10 +434,10 @@ MonoBehaviour:
   Path: Assets/LinguaLitisFMOD/Build/Desktop/Battle.bank
   Name: Battle
   StudioPath: bank:/Battle
-  lastModified: 637725169390000000
+  lastModified: 637728543140000000
   FileSizes:
   - Name: Desktop
-    Value: 6408320
+    Value: 6714112
   Exists: 1
 --- !u!114 &-2413430593825237122
 MonoBehaviour:
@@ -419,6 +485,28 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 1116
+--- !u!114 &-1998730867399912399
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/JJAttack01/AttackStage
+  m_EditorClassIdentifier: 
+  Name: AttackStage
+  Min: 0
+  Max: 10
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Type: 1
+  IsGlobal: 0
+  Exists: 1
 --- !u!114 &-1975019080157321900
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -595,6 +683,28 @@ MonoBehaviour:
   Type: 1
   IsGlobal: 0
   Exists: 1
+--- !u!114 &-1033159450163500029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/HealthChange/healthDelta
+  m_EditorClassIdentifier: 
+  Name: healthDelta
+  Min: -200
+  Max: 200
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Type: 1
+  IsGlobal: 0
+  Exists: 1
 --- !u!114 &-866272366030646147
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -683,10 +793,32 @@ MonoBehaviour:
   Is3D: 0
   IsOneShot: 1
   Parameters:
-  - {fileID: -7867722199409535276}
+  - {fileID: 6839488244473995931}
   MinDistance: 0
   MaxDistance: 0
   Length: 0
+--- !u!114 &-633859908065331902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/LetterStaging/WordPower
+  m_EditorClassIdentifier: 
+  Name: WordPower
+  Min: 0
+  Max: 16
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Type: 1
+  IsGlobal: 0
+  Exists: 1
 --- !u!114 &-413692268174188187
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -764,12 +896,15 @@ MonoBehaviour:
   - {fileID: 97399676371429378}
   - {fileID: 5261150985857758931}
   - {fileID: -647210554117533371}
+  - {fileID: 6736695766985857502}
+  - {fileID: 8531911308060278620}
+  - {fileID: 3337703187109689898}
   EditorParameters: []
   MasterBanks:
   - {fileID: 3353996925350185795}
   StringsBanks:
   - {fileID: -7309435533564481708}
-  stringsBankWriteTime: 637725169390000000
+  stringsBankWriteTime: 637728543140000000
   cacheVersion: 8
 --- !u!114 &41832413442470146
 MonoBehaviour:
@@ -817,6 +952,28 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 221074
+--- !u!114 &321402015263177411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/BMAttack01/AttackStrength
+  m_EditorClassIdentifier: 
+  Name: AttackStrength
+  Min: 0
+  Max: 5
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Type: 1
+  IsGlobal: 0
+  Exists: 1
 --- !u!114 &350085870326163299
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -899,7 +1056,7 @@ MonoBehaviour:
   Path: Assets/LinguaLitisFMOD/Build/Desktop/General UI.bank
   Name: General UI
   StudioPath: bank:/General UI
-  lastModified: 637725169390000000
+  lastModified: 637725013280000000
   FileSizes:
   - Name: Desktop
     Value: 69504
@@ -926,6 +1083,28 @@ MonoBehaviour:
   Type: 1
   IsGlobal: 0
   Exists: 0
+--- !u!114 &1351930871401310989
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/JJAttack01/AttackStage
+  m_EditorClassIdentifier: 
+  Name: AttackStage
+  Min: 0
+  Max: 10
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Type: 1
+  IsGlobal: 0
+  Exists: 1
 --- !u!114 &1389426989302209750
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -970,6 +1149,28 @@ MonoBehaviour:
   Type: 1
   IsGlobal: 0
   Exists: 1
+--- !u!114 &1657471775962343800
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/JJAttack01/AttackStrength
+  m_EditorClassIdentifier: 
+  Name: AttackStrength
+  Min: 0
+  Max: 5
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Type: 1
+  IsGlobal: 0
+  Exists: 1
 --- !u!114 &1885333006899789081
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1007,11 +1208,100 @@ MonoBehaviour:
   Path: Assets/LinguaLitisFMOD/Build/Desktop/Main Menu.bank
   Name: Main Menu
   StudioPath: bank:/Main Menu
-  lastModified: 637725169390000000
+  lastModified: 637728532340000000
   FileSizes:
   - Name: Desktop
     Value: 26039616
   Exists: 1
+--- !u!114 &2278630775504706391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/LetterStaging V01/WordPower
+  m_EditorClassIdentifier: 
+  Name: WordPower
+  Min: 0
+  Max: 16
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Type: 1
+  IsGlobal: 0
+  Exists: 1
+--- !u!114 &2446424649010609400
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/LetterStaging/WordPower
+  m_EditorClassIdentifier: 
+  Name: WordPower
+  Min: 0
+  Max: 16
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Type: 1
+  IsGlobal: 0
+  Exists: 1
+--- !u!114 &2962383428884692487
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/BMAttack01/AttackStage
+  m_EditorClassIdentifier: 
+  Name: AttackStage
+  Min: 0
+  Max: 10
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Type: 1
+  IsGlobal: 0
+  Exists: 1
+--- !u!114 &3337703187109689898
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Battle/QuickAttack
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Battle/QuickAttack
+  guid: ca8b5fac38557641a49fdf13a9f17598
+  Banks:
+  - {fileID: -2443285621549976924}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 0
 --- !u!114 &3353996925350185795
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1027,7 +1317,7 @@ MonoBehaviour:
   Path: Assets/LinguaLitisFMOD/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 637725169390000000
+  lastModified: 637725013280000000
   FileSizes:
   - Name: Desktop
     Value: 1012
@@ -1047,6 +1337,50 @@ MonoBehaviour:
   Name: WordPower
   Min: 0
   Max: 15
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Type: 1
+  IsGlobal: 0
+  Exists: 1
+--- !u!114 &4864020805799173879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/BMAttack01/IsPlayerOne
+  m_EditorClassIdentifier: 
+  Name: IsPlayerOne
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Type: 1
+  IsGlobal: 0
+  Exists: 1
+--- !u!114 &4934513161275705284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/BMAttack01/AttackStrength
+  m_EditorClassIdentifier: 
+  Name: AttackStrength
+  Min: 0
+  Max: 5
   Default: 0
   ID:
     data1: 0
@@ -1074,7 +1408,7 @@ MonoBehaviour:
   Is3D: 0
   IsOneShot: 1
   Parameters:
-  - {fileID: -1975019080157321900}
+  - {fileID: -6040311787832050168}
   MinDistance: 0
   MaxDistance: 0
   Length: 0
@@ -1146,6 +1480,72 @@ MonoBehaviour:
   Type: 1
   IsGlobal: 0
   Exists: 0
+--- !u!114 &5976476761910594510
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/JJAttack01/IsPlayerOne
+  m_EditorClassIdentifier: 
+  Name: IsPlayerOne
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Type: 1
+  IsGlobal: 0
+  Exists: 1
+--- !u!114 &6014207805455760483
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/BMAttack01/IsPlayerOne
+  m_EditorClassIdentifier: 
+  Name: IsPlayerOne
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Type: 1
+  IsGlobal: 0
+  Exists: 1
+--- !u!114 &6228019497892316015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/JJAttack01/IsPlayerOne
+  m_EditorClassIdentifier: 
+  Name: IsPlayerOne
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Type: 1
+  IsGlobal: 0
+  Exists: 1
 --- !u!114 &6309809398080687479
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1202,6 +1602,54 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
   m_Name: parameter:/LetterStaging/WordPower
+  m_EditorClassIdentifier: 
+  Name: WordPower
+  Min: 0
+  Max: 16
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Type: 1
+  IsGlobal: 0
+  Exists: 1
+--- !u!114 &6736695766985857502
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Battle/Joan Jett/JJAttack01
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Battle/Joan Jett/JJAttack01
+  guid: 59b5a47e9a1dc849987a0ed1586cb55a
+  Banks:
+  - {fileID: -2443285621549976924}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters:
+  - {fileID: 5976476761910594510}
+  - {fileID: -8267738432921380412}
+  - {fileID: 1351930871401310989}
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 0
+--- !u!114 &6839488244473995931
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/LetterStaging V01/WordPower
   m_EditorClassIdentifier: 
   Name: WordPower
   Min: 0
@@ -1303,6 +1751,32 @@ MonoBehaviour:
   Type: 1
   IsGlobal: 0
   Exists: 1
+--- !u!114 &8531911308060278620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Battle/Boney M/BMAttack01
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Battle/Boney M/BMAttack01
+  guid: e29b73196dd0f841b66f5dc064c6acb4
+  Banks:
+  - {fileID: -2443285621549976924}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters:
+  - {fileID: -7240418287828344301}
+  - {fileID: 4934513161275705284}
+  - {fileID: 6014207805455760483}
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 0
 --- !u!114 &8556773091545538880
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1323,7 +1797,7 @@ MonoBehaviour:
   Is3D: 0
   IsOneShot: 1
   Parameters:
-  - {fileID: 6650663856168766002}
+  - {fileID: 2446424649010609400}
   MinDistance: 0
   MaxDistance: 0
   Length: 0
