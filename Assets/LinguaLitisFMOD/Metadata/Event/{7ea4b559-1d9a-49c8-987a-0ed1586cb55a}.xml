@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<objects serializationModel="Studio.02.02.00">
+<objects serializationModel="Studio.02.01.00">
 	<object class="Event" id="{7ea4b559-1d9a-49c8-987a-0ed1586cb55a}">
 		<property name="name">
 			<value>JJAttack01</value>
@@ -36,6 +36,9 @@
 			<destination>{809caf7a-bff5-4157-8bbd-b1543fd28e40}</destination>
 			<destination>{ecc07e6f-8bae-4e4d-8d84-a215d99ce393}</destination>
 			<destination>{df8a26a5-ce73-4db0-a271-8f42dcc5086a}</destination>
+		</relationship>
+		<relationship name="banks">
+			<destination>{dbe90f25-ba49-47b3-9fe2-987172133716}</destination>
 		</relationship>
 	</object>
 	<object class="EventMixer" id="{9d6ca1a0-e09b-4d8f-8fda-406c86de3e56}">
