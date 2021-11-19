@@ -53,18 +53,71 @@ public class RuneController : MonoBehaviour
         return;
     }
 
+    public void SoundEffectController(int player, float healthDelta, int effect) {
+
+        FMOD.Studio.EventInstance HealthChange;
+        HealthChange = FMODUnity.RuntimeManager.CreateInstance("event:/SFX/Battle/HealthChange");
+        HealthChange.setParameterByName("healthDelta", healthDelta);
+        HealthChange.setParameterByName("player", player + 1);
+        HealthChange.setParameterByName("effect", effect);
+        HealthChange.start();
+        HealthChange.release();
+    }
+
     // for dealing damage in future turns
     // Note: DelayedDamage[0] will be called immediately this turn
-    public void inflictDelayedDamage()
+    public IEnumerator inflictDelayedDamage(int caster, int effect1)
     {
+        if (caster == 0) {
 
-        health1.BumpHp(P1DelayedDamage[0]);
-        P1DelayedDamage.RemoveAt(0);
-        P1DelayedDamage.Add(0);
+            float damage1 = P2DelayedDamage[0];
+            health2.BumpHp(damage1);
+            P2DelayedDamage.RemoveAt(0);
+            P2DelayedDamage.Add(0);
+            if (damage1 != 0) {
+                SoundEffectController(caster, damage1, effect1);
+                yield return new WaitForSeconds(0.6F);
+            }
+            float damage2 = P1DelayedDamage[0];
+            health1.BumpHp(damage2);
+            P1DelayedDamage.RemoveAt(0);
+            P1DelayedDamage.Add(0);
+            if (damage2 != 0) {
+                int effect2 = 0;
+                if (damage2 < 0) 
+                    effect2 = 1;
+                else
+                    effect2 = 3;
+                
+                SoundEffectController(caster, damage2, effect2);
+                yield return new WaitForSeconds(0.2F);
+            }
+        }
+        else if (caster == 1) {
 
-        health2.BumpHp(P2DelayedDamage[0]);
-        P2DelayedDamage.RemoveAt(0);
-        P2DelayedDamage.Add(0);
+            float damage1 = P1DelayedDamage[0];
+            health1.BumpHp(damage1);
+            P1DelayedDamage.RemoveAt(0);
+            P1DelayedDamage.Add(0);
+            if (damage1 != 0) {
+                SoundEffectController(caster, damage1, effect1);
+                yield return new WaitForSeconds(0.6F);
+            }
+            float damage2 = P2DelayedDamage[0];
+            health2.BumpHp(damage2);
+            P2DelayedDamage.RemoveAt(0);
+            P2DelayedDamage.Add(0);
+            if (damage2 != 0) {
+                int effect2 = 0;
+                if (damage2 < 0) 
+                    effect2 = 1;
+                else
+                    effect2 = 3;
+                
+                SoundEffectController(caster, damage2, effect2);
+                yield return new WaitForSeconds(0.2F);
+            }
+        }
 
     }
 
@@ -83,7 +136,7 @@ public class RuneController : MonoBehaviour
         }
 
         int attackType = Effect(player, wordDmgAmt);
-        inflictDelayedDamage();
+        StartCoroutine(inflictDelayedDamage(player, attackType));
         UpdateRuneIcons();
 
         return attackType;
