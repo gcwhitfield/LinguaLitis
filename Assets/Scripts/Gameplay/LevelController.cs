@@ -13,6 +13,8 @@ public class LevelController : UnitySingleton<LevelController>
     public GameObject player2Inventory;
     public GameObject pauseMenu;
     public GameObject FMOD;
+    public GameObject RuneIcon1;
+    public GameObject RuneIcon2;
     public Animator WinGraphicAnimtor;
     public GameObject RuneControllerObject;
     // while the game is waiting for the player to type a word, this is set to true.
@@ -20,9 +22,9 @@ public class LevelController : UnitySingleton<LevelController>
     private bool _waitForWord = false;
     public bool _isPaused = false;
     public KeyCode pauseKey;
-    private KeyCode[] validKeys = {KeyCode.A, KeyCode.B, KeyCode.C, KeyCode.D, KeyCode.E, KeyCode.F, KeyCode.G, KeyCode.H, 
-    KeyCode.I, KeyCode.J, KeyCode.K, KeyCode.L, KeyCode.M, KeyCode.N, KeyCode.O, KeyCode.P, KeyCode.Q, KeyCode.R, KeyCode.S, 
-    KeyCode.T, KeyCode.U, KeyCode.V, KeyCode.W, KeyCode.X, KeyCode.Y, KeyCode.Z, KeyCode.Delete, KeyCode.Backspace, KeyCode.Space, KeyCode.Return};
+    private KeyCode[] validKeys = {KeyCode.A, KeyCode.B, KeyCode.C, KeyCode.D, KeyCode.E, KeyCode.F, KeyCode.G, KeyCode.H, KeyCode.I, 
+    KeyCode.J, KeyCode.K, KeyCode.L, KeyCode.M, KeyCode.N, KeyCode.O, KeyCode.P, KeyCode.Q, KeyCode.R, KeyCode.S, KeyCode.T, KeyCode.U, 
+    KeyCode.V, KeyCode.W, KeyCode.X, KeyCode.Y, KeyCode.Z, KeyCode.Delete, KeyCode.Backspace, KeyCode.Space, KeyCode.Return};
 
     private void Start()
     {
@@ -74,8 +76,10 @@ public class LevelController : UnitySingleton<LevelController>
     {
         if (this.currPlayer == GameManager.Player.P1) {
             this.player1Inventory.GetComponent<TileInventory>().isDisabled = true;
+            RuneIcon1.SetActive(false);
         } else {
             this.player2Inventory.GetComponent<TileInventory>().isDisabled = true;
+            RuneIcon2.SetActive(false);
         }
     }
 
@@ -83,8 +87,10 @@ public class LevelController : UnitySingleton<LevelController>
     {
         if (this.currPlayer == GameManager.Player.P1) {
             this.player1Inventory.GetComponent<TileInventory>().isDisabled = false;
+            RuneIcon1.SetActive(true);
         } else {
             this.player2Inventory.GetComponent<TileInventory>().isDisabled = false;
+            RuneIcon2.SetActive(true);
         }
     }
 
