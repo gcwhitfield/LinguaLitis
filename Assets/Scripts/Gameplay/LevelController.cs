@@ -13,6 +13,8 @@ public class LevelController : UnitySingleton<LevelController>
     public GameObject player2Inventory;
     public GameObject pauseMenu;
     public GameObject FMOD;
+    public GameObject RuneIcon1;
+    public GameObject RuneIcon2;
     public Animator WinGraphicAnimtor;
     public GameObject RuneControllerObject;
     // while the game is waiting for the player to type a word, this is set to true.
@@ -74,8 +76,10 @@ public class LevelController : UnitySingleton<LevelController>
     {
         if (this.currPlayer == GameManager.Player.P1) {
             this.player1Inventory.GetComponent<TileInventory>().isDisabled = true;
+            RuneIcon1.SetActive(false);
         } else {
             this.player2Inventory.GetComponent<TileInventory>().isDisabled = true;
+            RuneIcon2.SetActive(false);
         }
     }
 
@@ -83,8 +87,10 @@ public class LevelController : UnitySingleton<LevelController>
     {
         if (this.currPlayer == GameManager.Player.P1) {
             this.player1Inventory.GetComponent<TileInventory>().isDisabled = false;
+            RuneIcon1.SetActive(true);
         } else {
             this.player2Inventory.GetComponent<TileInventory>().isDisabled = false;
+            RuneIcon2.SetActive(true);
         }
     }
 

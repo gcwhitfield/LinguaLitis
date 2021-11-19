@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class RuneController : MonoBehaviour
 {
@@ -11,6 +13,15 @@ public class RuneController : MonoBehaviour
 
     public List<int> P1RuneSequence;
     public List<int> P2RuneSequence;
+
+    public GameObject RuneIcon1;
+    public GameObject RuneIcon2;
+
+    public Texture fist;
+    public Texture heal;
+    public Texture quick;
+    public Texture poison;
+    private Texture[] texturelist;
 
     // public GameManager.Player currPlayer { get; private set; }
     GameManager.Player P1 = GameManager.Player.P1;
@@ -36,12 +47,15 @@ public class RuneController : MonoBehaviour
         DelayedDamageArray[0] = P1DelayedDamage;
         DelayedDamageArray[1] = P2DelayedDamage;
 
-
         this.P1RuneSequence = new List<int>();
         this.P2RuneSequence = new List<int>();
+        P1RuneSequence.Add(0);
+        P2RuneSequence.Add(0);
+
+        texturelist = new Texture[4] {fist, poison, quick, heal};
 
         // generate random rune sequence
-        for(int i = 0; i < 6; i++) {
+        for(int i = 0; i < 5; i++) {
             P1RuneSequence.Add(Random.Range(0, 5));
             P2RuneSequence.Add(Random.Range(0, 5));
         }
@@ -50,6 +64,16 @@ public class RuneController : MonoBehaviour
 
     // for updating visual rune indicator icons
     public void UpdateRuneIcons() {
+        int icon1 = P1RuneSequence[0];
+        if (icon1 > 3)
+            icon1 = 0;
+
+        int icon2 = P2RuneSequence[0];
+        if (icon2 > 3)
+            icon2 = 0;
+
+        RuneIcon1.GetComponent<RawImage>().texture = texturelist[icon1];
+        RuneIcon2.GetComponent<RawImage>().texture = texturelist[icon2];
         return;
     }
 
