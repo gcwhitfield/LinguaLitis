@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4866529733242241849}
   - component: {fileID: 5622148466997474371}
+  - component: {fileID: 4840118243406706168}
   m_Layer: 5
   m_Name: OptionsScreen
   m_TagString: Untagged
@@ -50,6 +51,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4357592952316712037}
   m_CullTransparentMesh: 1
+--- !u!114 &4840118243406706168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4357592952316712037}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddfb389e47efc4b45a3a9da427d21287, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7089223094164485860
 GameObject:
   m_ObjectHideFlags: 0
@@ -497,6 +510,46 @@ PrefabInstance:
     - target: {fileID: 6979627211809825929, guid: a8a321ae9c34c4d7c8414623455397ed, type: 3}
       propertyPath: m_AnchorMin.x
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8567930559547955225, guid: a8a321ae9c34c4d7c8414623455397ed, type: 3}
+      propertyPath: m_Value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8567930559547955225, guid: a8a321ae9c34c4d7c8414623455397ed, type: 3}
+      propertyPath: m_MaxValue
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8567930559547955225, guid: a8a321ae9c34c4d7c8414623455397ed, type: 3}
+      propertyPath: m_MinValue
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8567930559547955225, guid: a8a321ae9c34c4d7c8414623455397ed, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8567930559547955225, guid: a8a321ae9c34c4d7c8414623455397ed, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8567930559547955225, guid: a8a321ae9c34c4d7c8414623455397ed, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 4840118243406706168}
+    - target: {fileID: 8567930559547955225, guid: a8a321ae9c34c4d7c8414623455397ed, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8567930559547955225, guid: a8a321ae9c34c4d7c8414623455397ed, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: MusicVolumeSliderChanged
+      objectReference: {fileID: 0}
+    - target: {fileID: 8567930559547955225, guid: a8a321ae9c34c4d7c8414623455397ed, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: OptionsMenu, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8567930559547955225, guid: a8a321ae9c34c4d7c8414623455397ed, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 9167015620101815030, guid: a8a321ae9c34c4d7c8414623455397ed, type: 3}
       propertyPath: m_Pivot.x
