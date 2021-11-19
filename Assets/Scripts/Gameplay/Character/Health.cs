@@ -32,13 +32,7 @@ public class Health : MonoBehaviour
     public void BumpHp(float healthDelta)
     {
     	curHp += healthDelta;
-        
-        FMOD.Studio.EventInstance HealthChange;
-        HealthChange = FMODUnity.RuntimeManager.CreateInstance("event:/SFX/Battle/HealthChange");
         Debug.Log("Health Delta is " + healthDelta);
-        HealthChange.setParameterByName("healthDelta", healthDelta);
-        HealthChange.start();
-        HealthChange.release();
 
         if (curHp < 0) {
             this.curHp = 0;
