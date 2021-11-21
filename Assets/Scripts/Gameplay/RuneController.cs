@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class RuneController : MonoBehaviour
 {
@@ -11,6 +13,16 @@ public class RuneController : MonoBehaviour
 
     public List<int> P1RuneSequence;
     public List<int> P2RuneSequence;
+
+    public GameObject[] RuneIcon1;
+    public GameObject[] RuneIcon2;
+
+    public Texture slash;
+    public Texture fist;
+    public Texture heal;
+    public Texture quick;
+    public Texture poison;
+    private Texture[] texturelist;
 
     // public GameManager.Player currPlayer { get; private set; }
     GameManager.Player P1 = GameManager.Player.P1;
@@ -36,35 +48,127 @@ public class RuneController : MonoBehaviour
         DelayedDamageArray[0] = P1DelayedDamage;
         DelayedDamageArray[1] = P2DelayedDamage;
 
-
         this.P1RuneSequence = new List<int>();
         this.P2RuneSequence = new List<int>();
+        P1RuneSequence.Add(0);
+        P2RuneSequence.Add(0);
+
+        texturelist = new Texture[6] {fist, poison, quick, heal, fist, fist};
 
         // generate random rune sequence
-        for(int i = 0; i < 6; i++) {
+        for(int i = 0; i < 5; i++) {
             P1RuneSequence.Add(Random.Range(0, 5));
             P2RuneSequence.Add(Random.Range(0, 5));
         }
 
+        RuneIcon1[0].GetComponent<RawImage>().texture = texturelist[P1RuneSequence[0]];
+        RuneIcon1[1].GetComponent<RawImage>().texture = texturelist[P1RuneSequence[1]];
+        RuneIcon1[2].GetComponent<RawImage>().texture = texturelist[P1RuneSequence[2]];
+        RuneIcon2[0].GetComponent<RawImage>().texture = texturelist[P2RuneSequence[0]];
+        RuneIcon2[1].GetComponent<RawImage>().texture = texturelist[P2RuneSequence[1]];
+        RuneIcon2[2].GetComponent<RawImage>().texture = texturelist[P2RuneSequence[2]];
     }
 
     // for updating visual rune indicator icons
-    public void UpdateRuneIcons() {
-        return;
+    public IEnumerator UpdateRuneIcons(int player) {
+        Debug.Log("Started icon change");
+        yield return new WaitForSeconds(0.2F);
+        if (player == 0) {
+            for (float pixels = 50; pixels > 25; pixels -= 5) {
+                RuneIcon1[0].GetComponent<RectTransform>().sizeDelta = new Vector2(pixels, pixels);
+                yield return new WaitForSeconds(0.005F);
+            }
+            for (float pixels = 26; pixels < 75; pixels += 5) {
+                RuneIcon1[0].GetComponent<RectTransform>().sizeDelta = new Vector2(pixels, pixels);
+                yield return new WaitForSeconds(0.005F);
+            }
+            RuneIcon1[0].GetComponent<RectTransform>().sizeDelta = new Vector2(50, 50);
+            RuneIcon1[0].GetComponent<RawImage>().texture = texturelist[P1RuneSequence[0]];
+            RuneIcon1[1].GetComponent<RawImage>().texture = texturelist[P1RuneSequence[1]];
+            RuneIcon1[2].GetComponent<RawImage>().texture = texturelist[P1RuneSequence[2]];
+        }
+        if (player == 1) {
+            for (float pixels = 50; pixels > 25; pixels -= 5) {
+                RuneIcon2[0].GetComponent<RectTransform>().sizeDelta = new Vector2(pixels, pixels);
+                yield return new WaitForSeconds(0.005F);
+            }
+            for (float pixels = 26; pixels < 75; pixels += 5) {
+                RuneIcon2[0].GetComponent<RectTransform>().sizeDelta = new Vector2(pixels, pixels);
+                yield return new WaitForSeconds(0.005F);
+            }
+            RuneIcon2[0].GetComponent<RectTransform>().sizeDelta = new Vector2(50, 50);
+            RuneIcon2[0].GetComponent<RawImage>().texture = texturelist[P2RuneSequence[0]];
+            RuneIcon2[1].GetComponent<RawImage>().texture = texturelist[P2RuneSequence[1]];
+            RuneIcon2[2].GetComponent<RawImage>().texture = texturelist[P2RuneSequence[2]];
+        }
+    }
+
+    public void SoundEffectController(int player, float healthDelta, int effect) {
+
+        FMOD.Studio.EventInstance HealthChange;
+        HealthChange = FMODUnity.RuntimeManager.CreateInstance("event:/SFX/Battle/HealthChange");
+        HealthChange.setParameterByName("healthDelta", healthDelta);
+        HealthChange.setParameterByName("player", player + 1);
+        HealthChange.setParameterByName("effect", effect);
+        HealthChange.start();
+        HealthChange.release();
     }
 
     // for dealing damage in future turns
     // Note: DelayedDamage[0] will be called immediately this turn
-    public void inflictDelayedDamage()
+    public IEnumerator inflictDelayedDamage(int caster, int effect1)
     {
+        StartCoroutine(UpdateRuneIcons(caster));
+        if (caster == 0) {
 
-        health1.BumpHp(P1DelayedDamage[0]);
-        P1DelayedDamage.RemoveAt(0);
-        P1DelayedDamage.Add(0);
+            float damage1 = P2DelayedDamage[0];
+            health2.BumpHp(damage1);
+            P2DelayedDamage.RemoveAt(0);
+            P2DelayedDamage.Add(0);
+            if (damage1 != 0) {
+                SoundEffectController(caster, damage1, effect1);
+                yield return new WaitForSeconds(0.6F);
+            }
+            float damage2 = P1DelayedDamage[0];
+            health1.BumpHp(damage2);
+            P1DelayedDamage.RemoveAt(0);
+            P1DelayedDamage.Add(0);
+            if (damage2 != 0) {
+                int effect2 = 0;
+                if (damage2 < 0) 
+                    effect2 = 1;
+                else
+                    effect2 = 3;
+                
+                SoundEffectController(caster, damage2, effect2);
+                yield return new WaitForSeconds(0.2F);
+            }
+        }
+        else if (caster == 1) {
 
-        health2.BumpHp(P2DelayedDamage[0]);
-        P2DelayedDamage.RemoveAt(0);
-        P2DelayedDamage.Add(0);
+            float damage1 = P1DelayedDamage[0];
+            health1.BumpHp(damage1);
+            P1DelayedDamage.RemoveAt(0);
+            P1DelayedDamage.Add(0);
+            if (damage1 != 0) {
+                SoundEffectController(caster, damage1, effect1);
+                yield return new WaitForSeconds(0.6F);
+            }
+            float damage2 = P2DelayedDamage[0];
+            health2.BumpHp(damage2);
+            P2DelayedDamage.RemoveAt(0);
+            P2DelayedDamage.Add(0);
+            if (damage2 != 0) {
+                int effect2 = 0;
+                if (damage2 < 0) 
+                    effect2 = 1;
+                else
+                    effect2 = 3;
+                
+                SoundEffectController(caster, damage2, effect2);
+                yield return new WaitForSeconds(0.2F);
+            }
+        }
 
     }
 
@@ -83,8 +187,7 @@ public class RuneController : MonoBehaviour
         }
 
         int attackType = Effect(player, wordDmgAmt);
-        inflictDelayedDamage();
-        UpdateRuneIcons();
+        StartCoroutine(inflictDelayedDamage(player, attackType));
 
         return attackType;
     }
