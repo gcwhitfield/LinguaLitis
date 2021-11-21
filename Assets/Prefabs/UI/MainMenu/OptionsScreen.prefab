@@ -173,6 +173,34 @@ PrefabInstance:
       propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8567930559547955225, guid: a8a321ae9c34c4d7c8414623455397ed, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8567930559547955225, guid: a8a321ae9c34c4d7c8414623455397ed, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8567930559547955225, guid: a8a321ae9c34c4d7c8414623455397ed, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 4840118243406706168}
+    - target: {fileID: 8567930559547955225, guid: a8a321ae9c34c4d7c8414623455397ed, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8567930559547955225, guid: a8a321ae9c34c4d7c8414623455397ed, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: MasterVolumeSliderChanged
+      objectReference: {fileID: 0}
+    - target: {fileID: 8567930559547955225, guid: a8a321ae9c34c4d7c8414623455397ed, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: OptionsMenu, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8567930559547955225, guid: a8a321ae9c34c4d7c8414623455397ed, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 9167015620101815030, guid: a8a321ae9c34c4d7c8414623455397ed, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -448,6 +476,34 @@ PrefabInstance:
     - target: {fileID: 6317770677525971974, guid: dcab04bb0e7684643b311e9ef3d3d865, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6808762745658369769, guid: dcab04bb0e7684643b311e9ef3d3d865, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6808762745658369769, guid: dcab04bb0e7684643b311e9ef3d3d865, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6808762745658369769, guid: dcab04bb0e7684643b311e9ef3d3d865, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 4840118243406706168}
+    - target: {fileID: 6808762745658369769, guid: dcab04bb0e7684643b311e9ef3d3d865, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6808762745658369769, guid: dcab04bb0e7684643b311e9ef3d3d865, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SFXVolumeSliderChanged
+      objectReference: {fileID: 0}
+    - target: {fileID: 6808762745658369769, guid: dcab04bb0e7684643b311e9ef3d3d865, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: OptionsMenu, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6808762745658369769, guid: dcab04bb0e7684643b311e9ef3d3d865, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 8444947530246234412, guid: dcab04bb0e7684643b311e9ef3d3d865, type: 3}
       propertyPath: m_Name
