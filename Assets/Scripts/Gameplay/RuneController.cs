@@ -107,7 +107,8 @@ public class RuneController : MonoBehaviour
 
         FMOD.Studio.EventInstance HealthChange;
         HealthChange = FMODUnity.RuntimeManager.CreateInstance("event:/SFX/Battle/HealthChange");
-        HealthChange.setParameterByName("healthDelta", healthDelta);
+        //HealthChange.setParameterByName("healthDelta", healthDelta);
+        HealthChange.setParameterByName("healthDelta", -1);
         HealthChange.setParameterByName("player", player + 1);
         HealthChange.setParameterByName("effect", effect);
         HealthChange.start();
