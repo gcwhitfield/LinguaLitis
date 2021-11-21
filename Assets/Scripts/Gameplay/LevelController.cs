@@ -76,10 +76,8 @@ public class LevelController : UnitySingleton<LevelController>
     {
         if (this.currPlayer == GameManager.Player.P1) {
             this.player1Inventory.GetComponent<TileInventory>().isDisabled = true;
-            RuneIcon1.SetActive(false);
         } else {
             this.player2Inventory.GetComponent<TileInventory>().isDisabled = true;
-            RuneIcon2.SetActive(false);
         }
     }
 
@@ -87,10 +85,8 @@ public class LevelController : UnitySingleton<LevelController>
     {
         if (this.currPlayer == GameManager.Player.P1) {
             this.player1Inventory.GetComponent<TileInventory>().isDisabled = false;
-            RuneIcon1.SetActive(true);
         } else {
             this.player2Inventory.GetComponent<TileInventory>().isDisabled = false;
-            RuneIcon2.SetActive(true);
         }
     }
 
