@@ -14,9 +14,10 @@ public class RuneController : MonoBehaviour
     public List<int> P1RuneSequence;
     public List<int> P2RuneSequence;
 
-    public GameObject RuneIcon1;
-    public GameObject RuneIcon2;
+    public GameObject[] RuneIcon1;
+    public GameObject[] RuneIcon2;
 
+    public Texture slash;
     public Texture fist;
     public Texture heal;
     public Texture quick;
@@ -52,7 +53,7 @@ public class RuneController : MonoBehaviour
         P1RuneSequence.Add(0);
         P2RuneSequence.Add(0);
 
-        texturelist = new Texture[4] {fist, poison, quick, heal};
+        texturelist = new Texture[6] {fist, poison, quick, heal, fist, fist};
 
         // generate random rune sequence
         for(int i = 0; i < 5; i++) {
@@ -60,21 +61,46 @@ public class RuneController : MonoBehaviour
             P2RuneSequence.Add(Random.Range(0, 5));
         }
 
+        RuneIcon1[0].GetComponent<RawImage>().texture = texturelist[P1RuneSequence[0]];
+        RuneIcon1[1].GetComponent<RawImage>().texture = texturelist[P1RuneSequence[1]];
+        RuneIcon1[2].GetComponent<RawImage>().texture = texturelist[P1RuneSequence[2]];
+        RuneIcon2[0].GetComponent<RawImage>().texture = texturelist[P2RuneSequence[0]];
+        RuneIcon2[1].GetComponent<RawImage>().texture = texturelist[P2RuneSequence[1]];
+        RuneIcon2[2].GetComponent<RawImage>().texture = texturelist[P2RuneSequence[2]];
     }
 
     // for updating visual rune indicator icons
-    public void UpdateRuneIcons() {
-        int icon1 = P1RuneSequence[0];
-        if (icon1 > 3)
-            icon1 = 0;
-
-        int icon2 = P2RuneSequence[0];
-        if (icon2 > 3)
-            icon2 = 0;
-
-        RuneIcon1.GetComponent<RawImage>().texture = texturelist[icon1];
-        RuneIcon2.GetComponent<RawImage>().texture = texturelist[icon2];
-        return;
+    public IEnumerator UpdateRuneIcons(int player) {
+        Debug.Log("Started icon change");
+        yield return new WaitForSeconds(0.2F);
+        if (player == 0) {
+            for (float pixels = 50; pixels > 25; pixels -= 5) {
+                RuneIcon1[0].GetComponent<RectTransform>().sizeDelta = new Vector2(pixels, pixels);
+                yield return new WaitForSeconds(0.005F);
+            }
+            for (float pixels = 26; pixels < 75; pixels += 5) {
+                RuneIcon1[0].GetComponent<RectTransform>().sizeDelta = new Vector2(pixels, pixels);
+                yield return new WaitForSeconds(0.005F);
+            }
+            RuneIcon1[0].GetComponent<RectTransform>().sizeDelta = new Vector2(50, 50);
+            RuneIcon1[0].GetComponent<RawImage>().texture = texturelist[P1RuneSequence[0]];
+            RuneIcon1[1].GetComponent<RawImage>().texture = texturelist[P1RuneSequence[1]];
+            RuneIcon1[2].GetComponent<RawImage>().texture = texturelist[P1RuneSequence[2]];
+        }
+        if (player == 1) {
+            for (float pixels = 50; pixels > 25; pixels -= 5) {
+                RuneIcon2[0].GetComponent<RectTransform>().sizeDelta = new Vector2(pixels, pixels);
+                yield return new WaitForSeconds(0.005F);
+            }
+            for (float pixels = 26; pixels < 75; pixels += 5) {
+                RuneIcon2[0].GetComponent<RectTransform>().sizeDelta = new Vector2(pixels, pixels);
+                yield return new WaitForSeconds(0.005F);
+            }
+            RuneIcon2[0].GetComponent<RectTransform>().sizeDelta = new Vector2(50, 50);
+            RuneIcon2[0].GetComponent<RawImage>().texture = texturelist[P2RuneSequence[0]];
+            RuneIcon2[1].GetComponent<RawImage>().texture = texturelist[P2RuneSequence[1]];
+            RuneIcon2[2].GetComponent<RawImage>().texture = texturelist[P2RuneSequence[2]];
+        }
     }
 
     public void SoundEffectController(int player, float healthDelta, int effect) {
@@ -92,6 +118,7 @@ public class RuneController : MonoBehaviour
     // Note: DelayedDamage[0] will be called immediately this turn
     public IEnumerator inflictDelayedDamage(int caster, int effect1)
     {
+        StartCoroutine(UpdateRuneIcons(caster));
         if (caster == 0) {
 
             float damage1 = P2DelayedDamage[0];
@@ -161,7 +188,6 @@ public class RuneController : MonoBehaviour
 
         int attackType = Effect(player, wordDmgAmt);
         StartCoroutine(inflictDelayedDamage(player, attackType));
-        UpdateRuneIcons();
 
         return attackType;
     }
