@@ -16,15 +16,15 @@ public class OptionsMenu : UnitySingleton<OptionsMenu>
 
     public void MasterVolumeSliderChanged(float amt)
     {
-        SetBusVolume("bus:/Master", amt);
+        SetBusVolume("bus:/", amt);
     }
 
     private void SetBusVolume(string busPath, float amt)
     {
-        Debug.Log(20 * Mathf.Log10(amt));
         FMOD.Studio.Bus bus = FMODUnity.RuntimeManager.GetBus(busPath);
-        if (amt == 0)
+        if (Mathf.Approximately(amt, 0))
         {
+            bus.setVolume(0);
             // turn off the volume
         }
         else if (amt < 0.0f || amt > 1.0f)
@@ -32,9 +32,8 @@ public class OptionsMenu : UnitySingleton<OptionsMenu>
             Debug.LogWarning("Input to MusicVolumeSliderChanged should be between 0 and 1");
         }
         else
-        {
-            //bus.setVolume(20 * Mathf.Log10(amt));
-            bus.setVolume(amt);
+        {  
+            bus.setVolume(amt); // bus.setlvolume is LINEAR
         }
     }
 }
