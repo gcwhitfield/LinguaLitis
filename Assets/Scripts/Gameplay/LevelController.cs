@@ -172,9 +172,6 @@ public class LevelController : UnitySingleton<LevelController>
         Animator currPlayerAnimator;
         Animator oppPlayerAnimator;
 
-
-        OnPlayerDied(player1G);
-
         int wordDmgAmt = 0;
         if (currPlayer == GameManager.Player.P1)
         {
