@@ -386,9 +386,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46828d9ad05d3469a95a395bf7757461, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHp: 50
   curHp: 50
-  healthbar: {fileID: 2084844021}
+  maxHp: 50
+  healthBar: {fileID: 0}
 --- !u!212 &1058432370
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -658,3 +658,60 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bar: {fileID: 2084844020}
   characterHealth: {fileID: 1058432369}
+--- !u!1001 &3535792017100478555
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1906292460593256224, guid: da52dda0b079b48a394e2f950aa0db4c, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1906292460593256224, guid: da52dda0b079b48a394e2f950aa0db4c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.4031793
+      objectReference: {fileID: 0}
+    - target: {fileID: 1906292460593256224, guid: da52dda0b079b48a394e2f950aa0db4c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.094972
+      objectReference: {fileID: 0}
+    - target: {fileID: 1906292460593256224, guid: da52dda0b079b48a394e2f950aa0db4c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -18.138496
+      objectReference: {fileID: 0}
+    - target: {fileID: 1906292460593256224, guid: da52dda0b079b48a394e2f950aa0db4c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1906292460593256224, guid: da52dda0b079b48a394e2f950aa0db4c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1906292460593256224, guid: da52dda0b079b48a394e2f950aa0db4c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1906292460593256224, guid: da52dda0b079b48a394e2f950aa0db4c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1906292460593256224, guid: da52dda0b079b48a394e2f950aa0db4c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1906292460593256224, guid: da52dda0b079b48a394e2f950aa0db4c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1906292460593256224, guid: da52dda0b079b48a394e2f950aa0db4c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7989922062159016898, guid: da52dda0b079b48a394e2f950aa0db4c, type: 3}
+      propertyPath: m_Name
+      value: Witch
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: da52dda0b079b48a394e2f950aa0db4c, type: 3}
