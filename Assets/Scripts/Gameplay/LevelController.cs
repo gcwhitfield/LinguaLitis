@@ -28,6 +28,14 @@ public class LevelController : UnitySingleton<LevelController>
     KeyCode.J, KeyCode.K, KeyCode.L, KeyCode.M, KeyCode.N, KeyCode.O, KeyCode.P, KeyCode.Q, KeyCode.R, KeyCode.S, KeyCode.T, KeyCode.U, 
     KeyCode.V, KeyCode.W, KeyCode.X, KeyCode.Y, KeyCode.Z, KeyCode.Delete, KeyCode.Backspace, KeyCode.Space, KeyCode.Return};
 
+    public enum GameState
+    {
+        PLAYING,
+        WIN
+    };
+
+    public GameState state { get; private set; }
+
     private void Start()
     {
         currPlayer = GameManager.Player.P1;
@@ -37,12 +45,16 @@ public class LevelController : UnitySingleton<LevelController>
         {
             SceneTransitionManager.Instance.sceneTransitionAnimator.SetTrigger("Open");
         }
+        state = GameState.PLAYING;
     }
 
     private void Update()
     {
-        this.PauseHandler();
-        this.TypingHandler();
+        if (state == GameState.PLAYING)
+        {
+            this.PauseHandler();
+            this.TypingHandler();
+        }
     }
 
     public void OnPlayerEndTurn()
@@ -71,14 +83,19 @@ public class LevelController : UnitySingleton<LevelController>
         if (WinGraphicAnimtor)
         {
             WinGraphicAnimtor.SetTrigger("Show");
-            this.FMOD.GetComponent<FMODMusicBattle>().Pause();
-            FMOD.Studio.EventInstance evt;
-            evt = FMODUnity.RuntimeManager.CreateInstance("event:/Music/Victory");
-            evt.start();
-            evt.release();
         }
         else
+        {
             Debug.LogWarning("WinGraphicAnimtor of LevelController is equal to NULL. Did you forget to set it?");
+        }
+        // play the win sound
+        this.FMOD.GetComponent<FMODMusicBattle>().Pause();
+        FMOD.Studio.EventInstance evt;
+        evt = FMODUnity.RuntimeManager.CreateInstance("event:/Music/Victory");
+        evt.start();
+        evt.release();
+
+        state = GameState.WIN;
     }
 
     public void DisablePlayerControl()
