@@ -28,6 +28,14 @@ public class TutorialController : UnitySingleton<TutorialController>
         screens[currScreenIndex].SetActive(true);
     }
 
+    void PlayPageFlipSound()
+    {
+        FMOD.Studio.EventInstance evt;
+        evt = FMODUnity.RuntimeManager.CreateInstance("event:/SFX/UI/PageFlip");
+        evt.start();
+        evt.release();
+    }
+
     void Update()
     {
         // listen for inputs from player. increment or decrement current screen based on keyboard input
@@ -37,6 +45,9 @@ public class TutorialController : UnitySingleton<TutorialController>
             if (currScreenIndex >= screens.Length)
             {
                 currScreenIndex = screens.Length - 1;
+            } else // only play the page flip if we are advancing to a valid screen
+            {
+                PlayPageFlipSound();
             }
             ShowScreen();
         }
@@ -46,6 +57,9 @@ public class TutorialController : UnitySingleton<TutorialController>
             if (currScreenIndex < 0)
             {
                 currScreenIndex = 0;
+            } else // only play the page flip if we are advancing to a valid screen
+            {
+                PlayPageFlipSound();
             }
             ShowScreen();
         }
