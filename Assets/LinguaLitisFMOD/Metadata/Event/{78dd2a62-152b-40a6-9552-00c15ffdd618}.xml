@@ -179,9 +179,7 @@
 		<property name="length">
 			<value>199</value>
 		</property>
-		<property name="name">
-			<value>ray healing (sf6)</value>
-		</property>
+		<property name="name" />
 		<relationship name="modulators">
 			<destination>{e0bc7f6c-9ffe-4813-b3eb-748f1f94ff2b}</destination>
 		</relationship>
