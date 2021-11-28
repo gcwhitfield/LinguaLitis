@@ -69,7 +69,14 @@ public class LevelController : UnitySingleton<LevelController>
 
         // play the win animation
         if (WinGraphicAnimtor)
+        {
             WinGraphicAnimtor.SetTrigger("Show");
+            this.FMOD.GetComponent<FMODMusicBattle>().Pause();
+            FMOD.Studio.EventInstance evt;
+            evt = FMODUnity.RuntimeManager.CreateInstance("event:/Music/Victory");
+            evt.start();
+            evt.release();
+        }
         else
             Debug.LogWarning("WinGraphicAnimtor of LevelController is equal to NULL. Did you forget to set it?");
     }
@@ -92,23 +99,33 @@ public class LevelController : UnitySingleton<LevelController>
         }
     }
 
+    void UnPause()
+    {
+        Time.timeScale = 1;
+        this._isPaused = false;
+        this.pauseMenu.SetActive(false);
+        this.FMOD.GetComponent<FMODMusicBattle>().Resume();
+        EnablePlayerControl();
+    }
+
+    void Pause()
+    {
+        Time.timeScale = 0;
+        this._isPaused = true;
+        this.pauseMenu.SetActive(true);
+        this.FMOD.GetComponent<FMODMusicBattle>().Pause();
+        DisablePlayerControl();
+    }
+
     void PauseHandler()
     {
         if (this._isPaused) {
                 if (Input.GetKeyDown(this.pauseKey)) {
-                Time.timeScale = 1;
-                this._isPaused = false;
-                this.pauseMenu.SetActive(false);
-                this.FMOD.GetComponent<FMODMusicBattle>().Resume();
-                EnablePlayerControl();
+                UnPause();
             }
         } else {
             if (Input.GetKeyDown(this.pauseKey)) {
-                Time.timeScale = 0;
-                this._isPaused = true;
-                this.pauseMenu.SetActive(true);
-                this.FMOD.GetComponent<FMODMusicBattle>().Pause();
-                DisablePlayerControl();
+                Pause();
             }
         }
     }

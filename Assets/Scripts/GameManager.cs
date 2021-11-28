@@ -8,7 +8,7 @@ public class GameManager : UnitySingletonPersistant<GameManager>
 
     }
 
-    public void QuitGame()
+    public static void QuitGame()
     {
         Application.Quit();
     }
