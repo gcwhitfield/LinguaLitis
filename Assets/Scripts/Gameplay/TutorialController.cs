@@ -45,8 +45,7 @@ public class TutorialController : UnitySingleton<TutorialController>
             if (currScreenIndex >= screens.Length)
             {
                 currScreenIndex = screens.Length - 1;
-            }
-            else
+            } else // only play the page flip if we are advancing to a valid screen
             {
                 PlayPageFlipSound();
             }
@@ -58,9 +57,11 @@ public class TutorialController : UnitySingleton<TutorialController>
             if (currScreenIndex < 0)
             {
                 currScreenIndex = 0;
+            } else // only play the page flip if we are advancing to a valid screen
+            {
+                PlayPageFlipSound();
             }
             ShowScreen();
-            PlayPageFlipSound();
         }
         if (Input.GetKeyDown(KeyCode.Return))
         {
