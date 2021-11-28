@@ -588,6 +588,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &494496920 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 8737016597543903729, guid: eec41531021c544fab37009a34226764, type: 3}
+  m_PrefabInstance: {fileID: 341346098}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &564679796 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 148878579033462565, guid: eec41531021c544fab37009a34226764, type: 3}
@@ -1757,6 +1762,8 @@ MonoBehaviour:
   turnNumber: 1
   player1G: {fileID: 564679796}
   player2G: {fileID: 1991629545}
+  player1Animator: {fileID: 494496920}
+  player2Animator: {fileID: 1991629546}
   player1Inventory: {fileID: 1153861553}
   player2Inventory: {fileID: 596256336}
   pauseMenu: {fileID: 1503464487}
@@ -1952,6 +1959,11 @@ Transform:
 --- !u!1 &1991629545 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2981181249250295819, guid: 23c0d9ea787d54d2caaf81069275dcf2, type: 3}
+  m_PrefabInstance: {fileID: 1315823049}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1991629546 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 2701042989591617266, guid: 23c0d9ea787d54d2caaf81069275dcf2, type: 3}
   m_PrefabInstance: {fileID: 1315823049}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &2041919375

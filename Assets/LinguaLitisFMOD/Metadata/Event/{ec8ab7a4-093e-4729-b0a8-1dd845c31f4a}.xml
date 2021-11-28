@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<objects serializationModel="Studio.02.02.00">
+<objects serializationModel="Studio.02.01.00">
 	<object class="Event" id="{ec8ab7a4-093e-4729-b0a8-1dd845c31f4a}">
 		<property name="name">
 			<value>LetterStaging V01</value>
@@ -56,7 +56,7 @@
 			<destination>{2022532f-63ac-4836-9740-014ecda40de9}</destination>
 		</relationship>
 		<relationship name="output">
-			<destination>{365b57f8-c228-4fd0-960f-b31d082afdc8}</destination>
+			<destination>{0ceab3d6-256f-4136-ab73-24de89d14928}</destination>
 		</relationship>
 	</object>
 	<object class="EventAutomatableProperties" id="{94912399-d246-443b-81ca-8174db6ab3a2}" />

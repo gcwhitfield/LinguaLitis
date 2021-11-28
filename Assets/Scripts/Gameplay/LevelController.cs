@@ -9,6 +9,8 @@ public class LevelController : UnitySingleton<LevelController>
     public GameManager.Player currPlayer { get; private set; }
     public GameObject player1G;
     public GameObject player2G;
+    public Animator player1Animator;
+    public Animator player2Animator;
     public GameObject player1Inventory;
     public GameObject player2Inventory;
     public GameObject pauseMenu;
@@ -150,18 +152,24 @@ public class LevelController : UnitySingleton<LevelController>
     {
         GameObject currPlayerG; // the player whose turn it currently is
         GameObject oppPlayerG; // the opposite players
+        Animator currPlayerAnimator;
+        Animator oppPlayerAnimator;
 
         int wordDmgAmt = 0;
         if (currPlayer == GameManager.Player.P1)
         {
             currPlayerG = player1G;
+            currPlayerAnimator = player1Animator;
             oppPlayerG = player2G;
+            oppPlayerAnimator = player2Animator;
             wordDmgAmt = player1Inventory.GetComponent<TileInventory>().ScoreWord();
         }
         else
         {
             currPlayerG = player2G;
+            currPlayerAnimator = player2Animator;
             oppPlayerG = player1G;
+            oppPlayerAnimator = player1Animator;
             wordDmgAmt = player2Inventory.GetComponent<TileInventory>().ScoreWord();
         }
 
@@ -173,8 +181,8 @@ public class LevelController : UnitySingleton<LevelController>
         }
 
         //Triggers attack animation on successful attack
-        currPlayerG.GetComponent<Animator>().ResetTrigger("Attack");
-        currPlayerG.GetComponent<Animator>().SetTrigger("Attack");
+        currPlayerAnimator.ResetTrigger("Attack");
+        currPlayerAnimator.SetTrigger("Attack");
 
         // damage the opposite player
         Health oppHealth = oppPlayerG.GetComponent<Health>(); 
