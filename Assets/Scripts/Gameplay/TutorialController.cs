@@ -15,7 +15,7 @@ public class TutorialController : UnitySingleton<TutorialController>
         {
             SceneTransitionManager.Instance.sceneTransitionAnimator.SetTrigger("Open");
         }
-        screens[currScreenIndex].SetActive(true);
+        ShowScreen();
     }
 
     // show the currently active tutorial screen
@@ -34,14 +34,22 @@ public class TutorialController : UnitySingleton<TutorialController>
         if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.W))
         {
             currScreenIndex++;
+            if (currScreenIndex >= screens.Length)
+            {
+                currScreenIndex = screens.Length - 1;
+            }
             ShowScreen();
         }
         else if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A))
         {
             currScreenIndex--;
+            if (currScreenIndex < 0)
+            {
+                currScreenIndex = 0;
+            }
             ShowScreen();
         }
-        if (Input.GetKeyDown(KeyCode.KeypadEnter))
+        if (Input.GetKeyDown(KeyCode.Return))
         {
             SceneTransitionManager.Instance.TransitionToScene(nextScene);
         }
