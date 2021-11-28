@@ -417,6 +417,7 @@
 	</object>
 	<object class="MixerBusEffectChain" id="{c5523a5b-5810-430d-973e-b937082cc067}">
 		<relationship name="effects">
+			<destination>{ad30cc17-49f3-4b64-9bf0-e3c027214d55}</destination>
 			<destination>{8d2d7b0a-edc4-4826-bf21-ce51b562c50f}</destination>
 		</relationship>
 	</object>
@@ -518,6 +519,11 @@
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{7af2c134-c7a5-4794-8d8e-e2d8b925aa55}" />
+	<object class="LimiterEffect" id="{ad30cc17-49f3-4b64-9bf0-e3c027214d55}">
+		<property name="boost">
+			<value>3.29999995</value>
+		</property>
+	</object>
 	<object class="MixerBusFader" id="{8d2d7b0a-edc4-4826-bf21-ce51b562c50f}" />
 	<object class="SFXReverbEffect" id="{3e5e3673-9d4c-424d-b144-d8a741bd69bb}">
 		<property name="decayTime">

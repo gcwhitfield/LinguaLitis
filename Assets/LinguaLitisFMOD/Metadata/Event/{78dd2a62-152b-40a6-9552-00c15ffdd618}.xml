@@ -231,8 +231,11 @@
 		<property name="attackTime">
 			<value>0</value>
 		</property>
+		<property name="holdTime">
+			<value>980</value>
+		</property>
 		<property name="decayTime">
-			<value>2200</value>
+			<value>1600</value>
 		</property>
 		<property name="decayShape">
 			<value>-0.312405944</value>
