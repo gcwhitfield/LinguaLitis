@@ -108,9 +108,6 @@
 		</relationship>
 	</object>
 	<object class="EventMixerGroup" id="{2d65bcd5-4360-45b8-aa96-e8a9f8e004c5}">
-		<property name="volume">
-			<value>-5.5</value>
-		</property>
 		<property name="name">
 			<value>Fight Main</value>
 		</property>
@@ -179,9 +176,15 @@
 	<object class="MixerBusEffectChain" id="{7e34c8b6-b6fd-49e9-ac8a-71a4bcd23020}">
 		<relationship name="effects">
 			<destination>{acb5c24c-e625-442d-a481-7fe32e547a37}</destination>
+			<destination>{661f8ff4-ae02-4d58-9158-126f9f0e44c5}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{d1e5c29c-5988-49eb-9a07-1fe57f52d335}" />
 	<object class="MixerBusFader" id="{b3d9fad6-2599-4bc8-b129-1c9ab867ecac}" />
 	<object class="MixerBusFader" id="{acb5c24c-e625-442d-a481-7fe32e547a37}" />
+	<object class="LimiterEffect" id="{661f8ff4-ae02-4d58-9158-126f9f0e44c5}">
+		<property name="linkChannels">
+			<value>false</value>
+		</property>
+	</object>
 </objects>
