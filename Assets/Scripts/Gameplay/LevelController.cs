@@ -62,6 +62,14 @@ public class LevelController : UnitySingleton<LevelController>
             print("Player 2 has died!");
         }
 
+        // No more fun allowed >:D
+        // This makes sure that players can't still spell words after the game
+        // has ended.  Since the win screen covers up the tiles, you can't click
+        // them to activate them but it is still possible using the keyboard and
+        // perceptible from sound effects.
+        this.player1Inventory.GetComponent<TileInventory>().isDisabled = true;
+        this.player2Inventory.GetComponent<TileInventory>().isDisabled = true;
+
         // play the win animation
         if (WinGraphicAnimtor)
             WinGraphicAnimtor.SetTrigger("Show");
