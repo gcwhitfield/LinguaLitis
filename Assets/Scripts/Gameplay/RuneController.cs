@@ -280,7 +280,7 @@ public class RuneController : MonoBehaviour
             DelayedDamageArray[opponent][0] -= wordDmgAmt * multiplier;
             DelayedDamageArray[opponent][1] += wordDmgAmt * (multiplier - 1 + penalty);
 
-            StatusIndicatorShock[opponent] = 2;
+            StatusIndicatorShock[opponent] = 1;
         }
         else if (effect == 3) {
             // heal: configurable
