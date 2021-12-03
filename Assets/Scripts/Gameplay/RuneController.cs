@@ -14,6 +14,10 @@ public class RuneController : MonoBehaviour
     public List<int> P1RuneSequence;
     public List<int> P2RuneSequence;
 
+    private List<int> StatusIndicatorPoison;
+    private List<int> StatusIndicatorShock;
+    private List<int> StatusIndicatorHeal;
+
     public GameObject[] RuneIcon1;
     public GameObject[] RuneIcon2;
 
@@ -23,6 +27,7 @@ public class RuneController : MonoBehaviour
     public Texture quick;
     public Texture poison;
     private Texture[] texturelist;
+
 
     // public GameManager.Player currPlayer { get; private set; }
     GameManager.Player P1 = GameManager.Player.P1;
@@ -47,6 +52,10 @@ public class RuneController : MonoBehaviour
         DelayedDamageArray = new List<float>[2];
         DelayedDamageArray[0] = P1DelayedDamage;
         DelayedDamageArray[1] = P2DelayedDamage;
+        
+        StatusIndicatorPoison = new List<int>() {0, 0};
+        StatusIndicatorShock = new List<int>() {0, 0};
+        StatusIndicatorHeal = new List<int>() {0, 0};
 
         this.P1RuneSequence = new List<int>();
         this.P2RuneSequence = new List<int>();
@@ -71,7 +80,6 @@ public class RuneController : MonoBehaviour
 
     // for updating visual rune indicator icons
     public IEnumerator UpdateRuneIcons(int player) {
-        Debug.Log("Started icon change");
         yield return new WaitForSeconds(0.2F);
         if (player == 0) {
             for (float pixels = 50; pixels > 25; pixels -= 5) {
@@ -101,6 +109,53 @@ public class RuneController : MonoBehaviour
             RuneIcon2[1].GetComponent<RawImage>().texture = texturelist[P2RuneSequence[1]];
             RuneIcon2[2].GetComponent<RawImage>().texture = texturelist[P2RuneSequence[2]];
         }
+
+        if (StatusIndicatorPoison[0] > 0) {
+            RuneIcon1[3].SetActive(true);
+            StatusIndicatorPoison[0] -= 1;
+        }
+        else {
+            RuneIcon1[3].SetActive(false);
+        }
+        if (StatusIndicatorPoison[1] > 0) {
+            RuneIcon2[3].SetActive(true);
+            StatusIndicatorPoison[0] -= 1;
+        }
+        else {
+            RuneIcon2[3].SetActive(false);
+        }
+
+        if (StatusIndicatorShock[0] > 0) {
+            RuneIcon1[4].SetActive(true);
+            StatusIndicatorPoison[0] -= 1;
+        }
+        else {
+            RuneIcon1[4].SetActive(false);
+        }
+        if (StatusIndicatorShock[1] > 0) {
+            RuneIcon2[4].SetActive(true);
+            StatusIndicatorPoison[1] -= 1;
+        }
+        else {
+            RuneIcon2[4].SetActive(false);
+        }
+
+        if (StatusIndicatorHeal[0] > 0) {
+            RuneIcon1[5].SetActive(true);
+            StatusIndicatorHeal[0] -= 1;
+        }
+        else {
+            RuneIcon1[5].SetActive(false);
+        }
+        if (StatusIndicatorHeal[1] > 0) {
+            RuneIcon2[5].SetActive(true);
+            StatusIndicatorHeal[1] -= 1;
+        }
+        else {
+            RuneIcon2[5].SetActive(false);
+        }
+
+
     }
 
     public void SoundEffectController(int player, float healthDelta, int effect) {
@@ -215,21 +270,25 @@ public class RuneController : MonoBehaviour
             for (int i = 0; i < turns; i++) {
                 DelayedDamageArray[opponent][i] -= wordDmgAmt * multiplier / turns;
             }
-
+            StatusIndicatorPoison[opponent] = 6;
         }
         else if (effect == 2) {
             // fast attack: configurable
-            float multiplier = 2F;
-            float penalty = 0.2F; // from original damage amt
+            float multiplier = 1.75F;
+            float penalty = 0.0F; // from original damage amt
             
             DelayedDamageArray[opponent][0] -= wordDmgAmt * multiplier;
             DelayedDamageArray[opponent][1] += wordDmgAmt * (multiplier - 1 + penalty);
+
+            StatusIndicatorShock[opponent] = 1;
         }
         else if (effect == 3) {
             // heal: configurable
             float multiplier = 1.0F;
 
             DelayedDamageArray[caster][0] += wordDmgAmt * multiplier;
+
+            StatusIndicatorHeal[caster] = 1;
 
         } else {
             // normal attack

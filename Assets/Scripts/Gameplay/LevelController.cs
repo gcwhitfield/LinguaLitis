@@ -223,7 +223,8 @@ public class LevelController : UnitySingleton<LevelController>
         // oppHealth.BumpHp(-wordDmgAmt);
 
         // queue rune effects
-        RuneControllerObject.GetComponent<RuneController>().Turn(currPlayer, wordDmgAmt);
+        // multiplied by 2
+        RuneControllerObject.GetComponent<RuneController>().Turn(currPlayer, 2 * wordDmgAmt);
 
         if (oppHealth.IsDead())
         {
