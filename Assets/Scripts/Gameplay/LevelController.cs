@@ -9,19 +9,32 @@ public class LevelController : UnitySingleton<LevelController>
     public GameManager.Player currPlayer { get; private set; }
     public GameObject player1G;
     public GameObject player2G;
+    public Animator player1Animator;
+    public Animator player2Animator;
     public GameObject player1Inventory;
     public GameObject player2Inventory;
     public GameObject pauseMenu;
     public GameObject FMOD;
+    public GameObject RuneIcon1;
+    public GameObject RuneIcon2;
     public Animator WinGraphicAnimtor;
+    public GameObject RuneControllerObject;
     // while the game is waiting for the player to type a word, this is set to true.
     // Otherwise, set to false
     private bool _waitForWord = false;
     public bool _isPaused = false;
     public KeyCode pauseKey;
-    private KeyCode[] validKeys = {KeyCode.A, KeyCode.B, KeyCode.C, KeyCode.D, KeyCode.E, KeyCode.F, KeyCode.G, KeyCode.H, 
-    KeyCode.I, KeyCode.J, KeyCode.K, KeyCode.L, KeyCode.M, KeyCode.N, KeyCode.O, KeyCode.P, KeyCode.Q, KeyCode.R, KeyCode.S, 
-    KeyCode.T, KeyCode.U, KeyCode.V, KeyCode.W, KeyCode.X, KeyCode.Y, KeyCode.Z, KeyCode.Delete, KeyCode.Backspace, KeyCode.Space, KeyCode.Return};
+    private KeyCode[] validKeys = {KeyCode.A, KeyCode.B, KeyCode.C, KeyCode.D, KeyCode.E, KeyCode.F, KeyCode.G, KeyCode.H, KeyCode.I, 
+    KeyCode.J, KeyCode.K, KeyCode.L, KeyCode.M, KeyCode.N, KeyCode.O, KeyCode.P, KeyCode.Q, KeyCode.R, KeyCode.S, KeyCode.T, KeyCode.U, 
+    KeyCode.V, KeyCode.W, KeyCode.X, KeyCode.Y, KeyCode.Z, KeyCode.Delete, KeyCode.Backspace, KeyCode.Space, KeyCode.Return};
+
+    public enum GameState
+    {
+        PLAYING,
+        WIN
+    };
+
+    public GameState state { get; private set; }
 
     private void Start()
     {
@@ -32,12 +45,16 @@ public class LevelController : UnitySingleton<LevelController>
         {
             SceneTransitionManager.Instance.sceneTransitionAnimator.SetTrigger("Open");
         }
+        state = GameState.PLAYING;
     }
 
     private void Update()
     {
-        this.PauseHandler();
-        this.TypingHandler();
+        if (state == GameState.PLAYING)
+        {
+            this.PauseHandler();
+            this.TypingHandler();
+        }
     }
 
     public void OnPlayerEndTurn()
@@ -72,9 +89,21 @@ public class LevelController : UnitySingleton<LevelController>
 
         // play the win animation
         if (WinGraphicAnimtor)
+        {
             WinGraphicAnimtor.SetTrigger("Show");
+        }
         else
+        {
             Debug.LogWarning("WinGraphicAnimtor of LevelController is equal to NULL. Did you forget to set it?");
+        }
+        // play the win sound
+        this.FMOD.GetComponent<FMODMusicBattle>().Pause();
+        FMOD.Studio.EventInstance evt;
+        evt = FMODUnity.RuntimeManager.CreateInstance("event:/Music/Victory");
+        evt.start();
+        evt.release();
+
+        state = GameState.WIN;
     }
 
     public void DisablePlayerControl()
@@ -95,23 +124,33 @@ public class LevelController : UnitySingleton<LevelController>
         }
     }
 
+    void UnPause()
+    {
+        Time.timeScale = 1;
+        this._isPaused = false;
+        this.pauseMenu.SetActive(false);
+        this.FMOD.GetComponent<FMODMusicBattle>().Resume();
+        EnablePlayerControl();
+    }
+
+    void Pause()
+    {
+        Time.timeScale = 0;
+        this._isPaused = true;
+        this.pauseMenu.SetActive(true);
+        this.FMOD.GetComponent<FMODMusicBattle>().Pause();
+        DisablePlayerControl();
+    }
+
     void PauseHandler()
     {
         if (this._isPaused) {
                 if (Input.GetKeyDown(this.pauseKey)) {
-                Time.timeScale = 1;
-                this._isPaused = false;
-                this.pauseMenu.SetActive(false);
-                this.FMOD.GetComponent<FMODMusicBattle>().Resume();
-                EnablePlayerControl();
+                UnPause();
             }
         } else {
             if (Input.GetKeyDown(this.pauseKey)) {
-                Time.timeScale = 0;
-                this._isPaused = true;
-                this.pauseMenu.SetActive(true);
-                this.FMOD.GetComponent<FMODMusicBattle>().Pause();
-                DisablePlayerControl();
+                Pause();
             }
         }
     }
@@ -155,18 +194,24 @@ public class LevelController : UnitySingleton<LevelController>
     {
         GameObject currPlayerG; // the player whose turn it currently is
         GameObject oppPlayerG; // the opposite players
+        Animator currPlayerAnimator;
+        Animator oppPlayerAnimator;
 
         int wordDmgAmt = 0;
         if (currPlayer == GameManager.Player.P1)
         {
             currPlayerG = player1G;
+            currPlayerAnimator = player1Animator;
             oppPlayerG = player2G;
+            oppPlayerAnimator = player2Animator;
             wordDmgAmt = player1Inventory.GetComponent<TileInventory>().ScoreWord();
         }
         else
         {
             currPlayerG = player2G;
+            currPlayerAnimator = player2Animator;
             oppPlayerG = player1G;
+            oppPlayerAnimator = player1Animator;
             wordDmgAmt = player2Inventory.GetComponent<TileInventory>().ScoreWord();
         }
 
@@ -178,12 +223,17 @@ public class LevelController : UnitySingleton<LevelController>
         }
 
         //Triggers attack animation on successful attack
-        currPlayerG.GetComponent<Animator>().ResetTrigger("Attack");
-        currPlayerG.GetComponent<Animator>().SetTrigger("Attack");
+        currPlayerAnimator.ResetTrigger("Attack");
+        currPlayerAnimator.SetTrigger("Attack");
 
         // damage the opposite player
         Health oppHealth = oppPlayerG.GetComponent<Health>(); 
-        oppHealth.BumpHp(-wordDmgAmt);
+        // oppHealth.BumpHp(-wordDmgAmt);
+
+        // queue rune effects
+        // multiplied by 2
+        RuneControllerObject.GetComponent<RuneController>().Turn(currPlayer, 2 * wordDmgAmt);
+
         if (oppHealth.IsDead())
         {
             OnPlayerDied(oppPlayerG);

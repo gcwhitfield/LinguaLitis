@@ -6,24 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Work in progress/Zhichun.unity
-    guid: e3696f9f7cde24457bd1cabb878b49dc
-  - enabled: 1
-    path: Assets/Scenes/Gameplay.unity
-    guid: d5b4b1ab7c5cb429aa80c3343bfa5b20
-  - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: 48c6d59134f044f1bb0d87480c2c3288
   - enabled: 1
-    path: Assets/Scenes/Win.unity
-    guid: 468cec2e3f5b54a10a1bab0c0dbf26d7
-  - enabled: 1
-    path: Assets/Scenes/Work in progress/GeorgeMainMenu.unity
-    guid: cb09e3ea37513498a921e43045e1f73e
-  - enabled: 1
-    path: Assets/Scenes/Work in progress/GeorgeGameplay.unity
-    guid: d9597075e41164389919ffda321d5371
-  - enabled: 1
     path: Assets/Scenes/Tutorial.unity
     guid: 6e76762f752cc4c028ddf717009c38ed
+  - enabled: 1
+    path: Assets/Scenes/Gameplay.unity
+    guid: d5b4b1ab7c5cb429aa80c3343bfa5b20
   m_configObjects: {}

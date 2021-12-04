@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<objects serializationModel="Studio.02.02.00">
+<objects serializationModel="Studio.02.01.00">
 	<object class="Event" id="{15487d4d-e1b3-465e-8914-c55890c66934}">
 		<property name="name">
 			<value>Main Menu (tk2)</value>
@@ -8,7 +8,7 @@
 			<value>1</value>
 		</property>
 		<relationship name="folder">
-			<destination>{32838510-2894-485e-81fb-0c594bfb253f}</destination>
+			<destination>{bb7deada-3b1d-4075-9fb3-152e51e04a2d}</destination>
 		</relationship>
 		<relationship name="mixer">
 			<destination>{29d1b3c1-0cc6-49c5-9410-17464ca3abb4}</destination>
@@ -53,7 +53,7 @@
 			<destination>{f913c550-4e11-4828-818e-75871d532616}</destination>
 		</relationship>
 		<relationship name="output">
-			<destination>{365b57f8-c228-4fd0-960f-b31d082afdc8}</destination>
+			<destination>{05ce84a9-83fb-4972-bc47-d5bf82ed6c7e}</destination>
 		</relationship>
 	</object>
 	<object class="EventAutomatableProperties" id="{3e7bdada-a444-4f54-82e0-42c59f26e2c4}">
