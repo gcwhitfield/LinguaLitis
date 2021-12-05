@@ -42,6 +42,7 @@ public class RuneController : MonoBehaviour
 
     private Health health1;
     private Health health2;
+    public GameObject LevelController;
 
     private void Start()
     {
@@ -218,8 +219,12 @@ public class RuneController : MonoBehaviour
                 health2.BumpHp(damage1);
                 if (damage1 < 0 && ShakeEnabled)
                     CameraToShake.GetComponent<CameraShake>().shakeDuration = 0.1F;
-                    CameraToShake.GetComponent<CameraShake>().shakeAmount = 0.1F + damage1/100F;
+                    CameraToShake.GetComponent<CameraShake>().shakeAmount = 0.1F + damage1/70F;
                 yield return new WaitForSeconds(0.5F);
+                if (health2.IsDead())
+                {
+                    LevelController.GetComponent<LevelController>().OnPlayerDied(player2GameObject);
+                }
 
             }
             float damage2 = P1DelayedDamage[0];
@@ -235,6 +240,10 @@ public class RuneController : MonoBehaviour
                 SoundEffectController(opponent, damage2, effect2);
                 yield return new WaitForSeconds(0.2F);
                 health1.BumpHp(damage2);
+                if (health1.IsDead())
+                {
+                    LevelController.GetComponent<LevelController>().OnPlayerDied(player1GameObject);
+                }
             }
         }
         else if (caster == 1) {
@@ -248,8 +257,12 @@ public class RuneController : MonoBehaviour
                 health1.BumpHp(damage1);
                 if (damage1 < 0 && ShakeEnabled)
                     CameraToShake.GetComponent<CameraShake>().shakeDuration = 0.1F;
-                    CameraToShake.GetComponent<CameraShake>().shakeAmount = 0.1F + damage1/100F;
+                    CameraToShake.GetComponent<CameraShake>().shakeAmount = 0.1F + damage1/70F;
                 yield return new WaitForSeconds(0.5F);
+                if (health1.IsDead())
+                {
+                    LevelController.GetComponent<LevelController>().OnPlayerDied(player1GameObject);
+                }
             }
             float damage2 = P2DelayedDamage[0];
             P2DelayedDamage.RemoveAt(0);
@@ -264,6 +277,10 @@ public class RuneController : MonoBehaviour
                 SoundEffectController(opponent, damage2, effect2);
                 yield return new WaitForSeconds(0.2F);
                 health2.BumpHp(damage2);
+                if (health2.IsDead())
+                {
+                    LevelController.GetComponent<LevelController>().OnPlayerDied(player2GameObject);
+                }
             }
         }
 
@@ -315,8 +332,8 @@ public class RuneController : MonoBehaviour
         }
         else if (effect == 2) {
             // fast attack: configurable
-            float multiplier = 1.75F;
-            float penalty = 0.0F; // from original damage amt
+            float multiplier = 1.5F;
+            float penalty = 0.1F; // from original damage amt
             
             DelayedDamageArray[opponent][0] -= wordDmgAmt * multiplier;
             DelayedDamageArray[opponent][1] += wordDmgAmt * (multiplier - 1 + penalty);
