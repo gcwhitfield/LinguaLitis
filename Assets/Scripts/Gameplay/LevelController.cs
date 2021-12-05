@@ -224,8 +224,10 @@ public class LevelController : UnitySingleton<LevelController>
         }
 
         //Triggers attack animation on successful attack
-        currPlayerAnimator.ResetTrigger("Attack");
-        currPlayerAnimator.SetTrigger("Attack");
+        if (wordDmgAmt > 0) {
+            currPlayerAnimator.ResetTrigger("Attack");
+            currPlayerAnimator.SetTrigger("Attack");
+        }
 
         // damage the opposite player
         Health oppHealth = oppPlayerG.GetComponent<Health>(); 
