@@ -180,11 +180,13 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Lingua Litis is a turn-based game.
+  m_text: 'Lingua Litis is a
+
+    one-on-one, turn-based spelling game.
 
 
-    The players take turns casting
-    spells at each other.'
+    dont
+    be a loser'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2c08e440339cd4f02881cbe0c01efac7, type: 2}
   m_sharedMaterial: {fileID: 3725502790557593758, guid: 2c08e440339cd4f02881cbe0c01efac7, type: 2}
@@ -225,7 +227,7 @@ MonoBehaviour:
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
-  m_paragraphSpacing: 0
+  m_paragraphSpacing: 36
   m_charWidthMaxAdj: 0
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
@@ -318,7 +320,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: When you are ready, press ENTER to begin the game.
+  m_text: When you're ready, press ENTER to begin the game.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2c08e440339cd4f02881cbe0c01efac7, type: 2}
   m_sharedMaterial: {fileID: 3725502790557593758, guid: 2c08e440339cd4f02881cbe0c01efac7, type: 2}
@@ -359,7 +361,7 @@ MonoBehaviour:
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
-  m_paragraphSpacing: 0
+  m_paragraphSpacing: 36
   m_charWidthMaxAdj: 0
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
@@ -932,7 +934,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &469577942
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1154,7 +1156,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &648243682
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1502,8 +1504,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Each spell will have an effect, which is shown with the RUNE. Each player
-    can see their active RUNE and the RUNES for the next 2 turns.
+  m_text: 'Your spell''s effect is determined by your current RUNE.
+
+    Your active
+    RUNE and the two upcoming RUNES are shown next to your tiles.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2c08e440339cd4f02881cbe0c01efac7, type: 2}
   m_sharedMaterial: {fileID: 3725502790557593758, guid: 2c08e440339cd4f02881cbe0c01efac7, type: 2}
@@ -1544,7 +1548,7 @@ MonoBehaviour:
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
-  m_paragraphSpacing: 0
+  m_paragraphSpacing: 36
   m_charWidthMaxAdj: 0
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
@@ -1851,7 +1855,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Deals 1.5x damage to opponent. Heals opponent by 0.6x on the next turn.
+  m_text: 'AUDAX:
+
+    1.5x damage;
+
+    heals opponent by 0.6x on the next turn.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2c08e440339cd4f02881cbe0c01efac7, type: 2}
   m_sharedMaterial: {fileID: 3725502790557593758, guid: 2c08e440339cd4f02881cbe0c01efac7, type: 2}
@@ -1878,10 +1886,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 23.95
-  m_fontSizeBase: 23.9
+  m_fontSize: 24
+  m_fontSizeBase: 24
   m_fontWeight: 400
-  m_enableAutoSizing: 1
+  m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -1985,7 +1993,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Heals 1x health to self.
+  m_text: 'MEDITATIO:
+
+    1x self-healing
+
+    (no damage).'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2c08e440339cd4f02881cbe0c01efac7, type: 2}
   m_sharedMaterial: {fileID: 3725502790557593758, guid: 2c08e440339cd4f02881cbe0c01efac7, type: 2}
@@ -2012,10 +2024,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 27.7
-  m_fontSizeBase: 23.9
+  m_fontSize: 24
+  m_fontSizeBase: 24
   m_fontWeight: 400
-  m_enableAutoSizing: 1
+  m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -2096,9 +2108,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 13, y: 117}
-  m_SizeDelta: {x: 218.6118, y: 50}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -118.00592, y: 133.69998}
+  m_SizeDelta: {x: 218.61182, y: 50}
+  m_Pivot: {x: 0, y: 1}
 --- !u!114 &1538259762
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2153,14 +2165,14 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
-  m_paragraphSpacing: 0
+  m_paragraphSpacing: 36
   m_charWidthMaxAdj: 0
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
@@ -2328,7 +2340,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: The goal of the game is to deplete your opponent's health bar
+  m_text: Deplete your opponent's health bar to claim victory!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2c08e440339cd4f02881cbe0c01efac7, type: 2}
   m_sharedMaterial: {fileID: 3725502790557593758, guid: 2c08e440339cd4f02881cbe0c01efac7, type: 2}
@@ -2355,7 +2367,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 38.8
+  m_fontSize: 40.35
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -2369,7 +2381,7 @@ MonoBehaviour:
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
-  m_paragraphSpacing: 0
+  m_paragraphSpacing: 36
   m_charWidthMaxAdj: 0
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
@@ -2472,7 +2484,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Deals 1x damage to opponent.
+  m_text: 'BRUTUS:
+
+    1x damage.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2c08e440339cd4f02881cbe0c01efac7, type: 2}
   m_sharedMaterial: {fileID: 3725502790557593758, guid: 2c08e440339cd4f02881cbe0c01efac7, type: 2}
@@ -2499,10 +2513,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 27.7
-  m_fontSizeBase: 23.9
+  m_fontSize: 24
+  m_fontSizeBase: 24
   m_fontWeight: 400
-  m_enableAutoSizing: 1
+  m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -2606,7 +2620,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Deals 0.25x damage per turn to opponent over 6 turns.
+  m_text: 'VENENUM:
+
+    0.25x damage over the next six turns.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2c08e440339cd4f02881cbe0c01efac7, type: 2}
   m_sharedMaterial: {fileID: 3725502790557593758, guid: 2c08e440339cd4f02881cbe0c01efac7, type: 2}
@@ -2633,10 +2649,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 25.05
-  m_fontSizeBase: 23.9
+  m_fontSize: 24
+  m_fontSizeBase: 24
   m_fontWeight: 400
-  m_enableAutoSizing: 1
+  m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -3150,8 +3166,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "To cast spells: \n1) Spell a word using letters from the letter bank\n2)
-    Press ENTER or hit the SUBMIT button"
+  m_text: 'On your turn, cast a SPELL by spelling a word with your given tiles.
+
+    Hit
+    the SUBMIT button (or press ENTER) to confirm your word and attack!'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2c08e440339cd4f02881cbe0c01efac7, type: 2}
   m_sharedMaterial: {fileID: 3725502790557593758, guid: 2c08e440339cd4f02881cbe0c01efac7, type: 2}
@@ -3192,7 +3210,7 @@ MonoBehaviour:
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
-  m_paragraphSpacing: 0
+  m_paragraphSpacing: 36
   m_charWidthMaxAdj: 0
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
@@ -3214,7 +3232,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -549.14685, y: 0, z: 201.19322, w: -154.12318}
+  m_margin: {x: -549.14685, y: 0, z: 221.20195, w: -154.12318}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
