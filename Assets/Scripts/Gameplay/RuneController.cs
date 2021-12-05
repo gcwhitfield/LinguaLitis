@@ -203,6 +203,7 @@ public class RuneController : MonoBehaviour
     // Note: DelayedDamage[0] will be called immediately this turn
     public IEnumerator inflictDelayedDamage(int caster, int effect1)
     {
+        int opponent = (caster + 1) % 2;
         StartCoroutine(UpdateRuneIcons(caster));
         if (caster == 0) {
 
@@ -225,7 +226,7 @@ public class RuneController : MonoBehaviour
                 else
                     effect2 = 3;
                 
-                SoundEffectController(caster, damage2, effect2);
+                SoundEffectController(opponent, damage2, effect2);
                 yield return new WaitForSeconds(0.2F);
             }
         }
@@ -250,7 +251,7 @@ public class RuneController : MonoBehaviour
                 else
                     effect2 = 3;
                 
-                SoundEffectController(caster, damage2, effect2);
+                SoundEffectController(opponent, damage2, effect2);
                 yield return new WaitForSeconds(0.2F);
             }
         }
