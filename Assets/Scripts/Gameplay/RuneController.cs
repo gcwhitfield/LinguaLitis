@@ -127,14 +127,14 @@ public class RuneController : MonoBehaviour
 
         if (StatusIndicatorShock[0] > 0) {
             RuneIcon1[4].SetActive(true);
-            StatusIndicatorPoison[0] -= 1;
+            StatusIndicatorShock[0] -= 1;
         }
         else {
             RuneIcon1[4].SetActive(false);
         }
         if (StatusIndicatorShock[1] > 0) {
             RuneIcon2[4].SetActive(true);
-            StatusIndicatorPoison[1] -= 1;
+            StatusIndicatorShock[1] -= 1;
         }
         else {
             RuneIcon2[4].SetActive(false);
