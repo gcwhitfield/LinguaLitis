@@ -28,6 +28,8 @@ public class RuneController : MonoBehaviour
     public Texture poison;
     private Texture[] texturelist;
 
+    public GameObject CameraToShake;
+    private bool ShakeEnabled = true;
 
     // public GameManager.Player currPlayer { get; private set; }
     GameManager.Player P1 = GameManager.Player.P1;
@@ -214,6 +216,9 @@ public class RuneController : MonoBehaviour
                 SoundEffectController(caster, damage1, effect1);
                 yield return new WaitForSeconds(0.5F);
                 health2.BumpHp(damage1);
+                if (damage1 < 0 && ShakeEnabled)
+                    CameraToShake.GetComponent<CameraShake>().shakeDuration = 0.1F;
+                    CameraToShake.GetComponent<CameraShake>().shakeAmount = 0.1F + damage1/100F;
                 yield return new WaitForSeconds(0.5F);
 
             }
@@ -241,6 +246,9 @@ public class RuneController : MonoBehaviour
                 SoundEffectController(caster, damage1, effect1);
                 yield return new WaitForSeconds(0.5F);
                 health1.BumpHp(damage1);
+                if (damage1 < 0 && ShakeEnabled)
+                    CameraToShake.GetComponent<CameraShake>().shakeDuration = 0.1F;
+                    CameraToShake.GetComponent<CameraShake>().shakeAmount = 0.1F + damage1/100F;
                 yield return new WaitForSeconds(0.5F);
             }
             float damage2 = P2DelayedDamage[0];
