@@ -122,7 +122,7 @@ public class RuneController : MonoBehaviour
         }
         if (StatusIndicatorPoison[1] > 0) {
             RuneIcon2[3].SetActive(true);
-            StatusIndicatorPoison[0] -= 1;
+            StatusIndicatorPoison[1] -= 1;
         }
         else {
             RuneIcon2[3].SetActive(false);
