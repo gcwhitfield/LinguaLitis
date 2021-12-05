@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public interface ISpellingController
 {
@@ -10,6 +11,7 @@ public interface ISpellingController
 public class TileInventory : MonoBehaviour, ISpellingController
 {
     public GameObject tilePrefab;
+    public GameObject submitButtonText;
     public Vector3 stagedTilePosition;
     public TextAsset wordList;
     public bool isDisabled = true;
@@ -153,6 +155,16 @@ public class TileInventory : MonoBehaviour, ISpellingController
             GameObject tile = this.stagedTiles[i];
             tile.GetComponent<Tile>().Position(position);
         }
+
+
+        int score = ScoreWord();
+        string text = "Submit";
+        if (score == 0) {
+            text = "Pass";
+        } else if (score == -1) {
+            text = ". . .";
+        }
+        submitButtonText.GetComponent<TextMeshProUGUI>().SetText(text);
     }
 
     public void ScrambleTiles()
