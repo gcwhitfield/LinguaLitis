@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public interface ISpellingController
 {
@@ -10,6 +11,7 @@ public interface ISpellingController
 public class TileInventory : MonoBehaviour, ISpellingController
 {
     public GameObject tilePrefab;
+    public GameObject submitButtonText;
     public Vector3 stagedTilePosition;
     public TextAsset wordList;
     public bool isDisabled = true;
@@ -39,7 +41,24 @@ public class TileInventory : MonoBehaviour, ISpellingController
         foreach (GameObject tile in this.tileTable) {
             tile.GetComponent<Tile>().animable = true;
         }
-        
+    }
+
+    public void RenewAllTiles()
+    {
+        foreach (GameObject tile in this.tileTable) {
+            Destroy(tile);
+        }
+
+        for (int y = 0; y < TileInventory.columnCount; ++y) {
+            for (int x = 0; x < TileInventory.rowCount; ++x) {
+                var tile = Instantiate(this.tilePrefab, Vector3.zero, Quaternion.identity);
+                tile.transform.SetParent(this.gameObject.transform);
+                tile.GetComponent<Tile>().Initialize(this, lexicon.GetRandomLetter());
+                this.tileTable[y, x] = tile;
+            }
+        }
+
+        this.PositionTiles();
     }
 
     public void ActivateTile(GameObject tile)
@@ -82,6 +101,8 @@ public class TileInventory : MonoBehaviour, ISpellingController
             spelledLetters.Add(staged.GetComponent<Tile>().GetLetter());
         }
         var spelledString = string.Join("", spelledLetters);
+
+        if (spelledLetters.Count == 0) { return 0; }
 
         return this.lexicon.ScoreWord(spelledLetters);
     }
@@ -134,6 +155,16 @@ public class TileInventory : MonoBehaviour, ISpellingController
             GameObject tile = this.stagedTiles[i];
             tile.GetComponent<Tile>().Position(position);
         }
+
+
+        int score = ScoreWord();
+        string text = "Submit";
+        if (score == 0) {
+            text = "Pass";
+        } else if (score == -1) {
+            text = ". . .";
+        }
+        submitButtonText.GetComponent<TextMeshProUGUI>().SetText(text);
     }
 
     public void ScrambleTiles()
@@ -177,7 +208,5 @@ public class TileInventory : MonoBehaviour, ISpellingController
             // PositionTiles();
             ScrambleTiles();
     }
-
-
 
 }

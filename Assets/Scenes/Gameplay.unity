@@ -1276,6 +1276,10 @@ PrefabInstance:
       propertyPath: wordList
       value: 
       objectReference: {fileID: 4900000, guid: a1b5e3fed4c53cc42a2c0e8c4ed27d3e, type: 3}
+    - target: {fileID: 4443912452209125616, guid: e226916d010594db6ad7ab5b026e3ca0, type: 3}
+      propertyPath: submitButtonText
+      value: 
+      objectReference: {fileID: 1276683348}
     - target: {fileID: 4443912452209125618, guid: e226916d010594db6ad7ab5b026e3ca0, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -1349,6 +1353,10 @@ PrefabInstance:
       propertyPath: wordList
       value: 
       objectReference: {fileID: 4900000, guid: a1b5e3fed4c53cc42a2c0e8c4ed27d3e, type: 3}
+    - target: {fileID: 4443912452209125616, guid: e226916d010594db6ad7ab5b026e3ca0, type: 3}
+      propertyPath: submitButtonText
+      value: 
+      objectReference: {fileID: 1276683348}
     - target: {fileID: 4443912452209125618, guid: e226916d010594db6ad7ab5b026e3ca0, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -1489,6 +1497,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1229944819}
   m_CullTransparentMesh: 1
+--- !u!1 &1276683348 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5289570870415139097, guid: 147659d38891d495b90c1e307a178ce5, type: 3}
+  m_PrefabInstance: {fileID: 716276787}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1367080582
 GameObject:
   m_ObjectHideFlags: 0
