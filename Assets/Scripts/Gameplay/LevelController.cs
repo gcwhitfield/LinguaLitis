@@ -28,6 +28,14 @@ public class LevelController : UnitySingleton<LevelController>
     KeyCode.J, KeyCode.K, KeyCode.L, KeyCode.M, KeyCode.N, KeyCode.O, KeyCode.P, KeyCode.Q, KeyCode.R, KeyCode.S, KeyCode.T, KeyCode.U, 
     KeyCode.V, KeyCode.W, KeyCode.X, KeyCode.Y, KeyCode.Z, KeyCode.Delete, KeyCode.Backspace, KeyCode.Space, KeyCode.Return};
 
+    public enum GameState
+    {
+        PLAYING,
+        WIN
+    };
+
+    public GameState state { get; private set; }
+
     private void Start()
     {
         currPlayer = GameManager.Player.P1;
@@ -37,12 +45,16 @@ public class LevelController : UnitySingleton<LevelController>
         {
             SceneTransitionManager.Instance.sceneTransitionAnimator.SetTrigger("Open");
         }
+        state = GameState.PLAYING;
     }
 
     private void Update()
     {
-        this.PauseHandler();
-        this.TypingHandler();
+        if (state == GameState.PLAYING)
+        {
+            this.PauseHandler();
+            this.TypingHandler();
+        }
     }
 
     public void OnPlayerEndTurn()
@@ -67,18 +79,31 @@ public class LevelController : UnitySingleton<LevelController>
             print("Player 2 has died!");
         }
 
+        // No more fun allowed >:D
+        // This makes sure that players can't still spell words after the game
+        // has ended.  Since the win screen covers up the tiles, you can't click
+        // them to activate them but it is still possible using the keyboard and
+        // perceptible from sound effects.
+        this.player1Inventory.GetComponent<TileInventory>().isDisabled = true;
+        this.player2Inventory.GetComponent<TileInventory>().isDisabled = true;
+
         // play the win animation
         if (WinGraphicAnimtor)
         {
             WinGraphicAnimtor.SetTrigger("Show");
-            this.FMOD.GetComponent<FMODMusicBattle>().Pause();
-            FMOD.Studio.EventInstance evt;
-            evt = FMODUnity.RuntimeManager.CreateInstance("event:/Music/Victory");
-            evt.start();
-            evt.release();
         }
         else
+        {
             Debug.LogWarning("WinGraphicAnimtor of LevelController is equal to NULL. Did you forget to set it?");
+        }
+        // play the win sound
+        this.FMOD.GetComponent<FMODMusicBattle>().Pause();
+        FMOD.Studio.EventInstance evt;
+        evt = FMODUnity.RuntimeManager.CreateInstance("event:/Music/Victory");
+        evt.start();
+        evt.release();
+
+        state = GameState.WIN;
     }
 
     public void DisablePlayerControl()
@@ -172,14 +197,14 @@ public class LevelController : UnitySingleton<LevelController>
         Animator currPlayerAnimator;
         Animator oppPlayerAnimator;
 
-        int wordDmgAmt = 0;
+        GameObject activePlayerInventory;
         if (currPlayer == GameManager.Player.P1)
         {
             currPlayerG = player1G;
             currPlayerAnimator = player1Animator;
             oppPlayerG = player2G;
             oppPlayerAnimator = player2Animator;
-            wordDmgAmt = player1Inventory.GetComponent<TileInventory>().ScoreWord();
+            activePlayerInventory = player1Inventory;
         }
         else
         {
@@ -187,8 +212,9 @@ public class LevelController : UnitySingleton<LevelController>
             currPlayerAnimator = player2Animator;
             oppPlayerG = player1G;
             oppPlayerAnimator = player1Animator;
-            wordDmgAmt = player2Inventory.GetComponent<TileInventory>().ScoreWord();
+            activePlayerInventory = player2Inventory;
         }
+        int wordDmgAmt = activePlayerInventory.GetComponent<TileInventory>().ScoreWord();
 
         // If no valid word was spelled, then don't do anything at all.  Player must try again.
         if (wordDmgAmt == -1) {
@@ -198,15 +224,18 @@ public class LevelController : UnitySingleton<LevelController>
         }
 
         //Triggers attack animation on successful attack
-        currPlayerAnimator.ResetTrigger("Attack");
-        currPlayerAnimator.SetTrigger("Attack");
+        if (wordDmgAmt > 0) {
+            currPlayerAnimator.ResetTrigger("Attack");
+            currPlayerAnimator.SetTrigger("Attack");
+        }
 
         // damage the opposite player
         Health oppHealth = oppPlayerG.GetComponent<Health>(); 
         // oppHealth.BumpHp(-wordDmgAmt);
 
         // queue rune effects
-        RuneControllerObject.GetComponent<RuneController>().Turn(currPlayer, wordDmgAmt);
+        // multiplied by 2
+        RuneControllerObject.GetComponent<RuneController>().Turn(currPlayer, 2 * wordDmgAmt);
 
         if (oppHealth.IsDead())
         {
@@ -215,14 +244,10 @@ public class LevelController : UnitySingleton<LevelController>
         }
 
         // Clearing the tiles
-        if (currPlayer == GameManager.Player.P1)
-        {
-            player1Inventory.GetComponent<TileInventory>().ClearTiles();
+        if (wordDmgAmt == 0) {
+            activePlayerInventory.GetComponent<TileInventory>().RenewAllTiles();
         }
-        else
-        {
-            player2Inventory.GetComponent<TileInventory>().ClearTiles();
-        }
+        activePlayerInventory.GetComponent<TileInventory>().ClearTiles();
 
         _waitForWord = false;
         ChangeTurn();
