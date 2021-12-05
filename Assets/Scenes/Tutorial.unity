@@ -1851,7 +1851,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Deals 1.75x damage to opponent. Heals opponent by 1x on the next turn.
+  m_text: Deals 1.5x damage to opponent. Heals opponent by 0.6x on the next turn.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2c08e440339cd4f02881cbe0c01efac7, type: 2}
   m_sharedMaterial: {fileID: 3725502790557593758, guid: 2c08e440339cd4f02881cbe0c01efac7, type: 2}
