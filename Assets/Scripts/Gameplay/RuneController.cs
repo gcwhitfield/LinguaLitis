@@ -290,6 +290,8 @@ public class RuneController : MonoBehaviour
     public int Turn(GameManager.Player Caster, int wordDmgAmt)
     {
         int player = -1;
+        if (wordDmgAmt == 0)
+            return 0;
         if (Caster == P1) {
             player = 0;
         }
