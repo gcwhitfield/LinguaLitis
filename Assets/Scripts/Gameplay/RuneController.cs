@@ -28,6 +28,8 @@ public class RuneController : MonoBehaviour
     public Texture poison;
     private Texture[] texturelist;
 
+    public GameObject CameraToShake;
+    private bool ShakeEnabled = true;
 
     // public GameManager.Player currPlayer { get; private set; }
     GameManager.Player P1 = GameManager.Player.P1;
@@ -40,6 +42,7 @@ public class RuneController : MonoBehaviour
 
     private Health health1;
     private Health health2;
+    public GameObject LevelController;
 
     private void Start()
     {
@@ -127,14 +130,14 @@ public class RuneController : MonoBehaviour
 
         if (StatusIndicatorShock[0] > 0) {
             RuneIcon1[4].SetActive(true);
-            StatusIndicatorPoison[0] -= 1;
+            StatusIndicatorShock[0] -= 1;
         }
         else {
             RuneIcon1[4].SetActive(false);
         }
         if (StatusIndicatorShock[1] > 0) {
             RuneIcon2[4].SetActive(true);
-            StatusIndicatorPoison[1] -= 1;
+            StatusIndicatorShock[1] -= 1;
         }
         else {
             RuneIcon2[4].SetActive(false);
@@ -160,69 +163,124 @@ public class RuneController : MonoBehaviour
 
     public void SoundEffectController(int player, float healthDelta, int effect) {
 
-        FMOD.Studio.EventInstance HealthChange;
-        HealthChange = FMODUnity.RuntimeManager.CreateInstance("event:/SFX/Battle/HealthChange");
-        //HealthChange.setParameterByName("healthDelta", healthDelta);
-        HealthChange.setParameterByName("healthDelta", -1);
-        HealthChange.setParameterByName("player", player + 1);
-        HealthChange.setParameterByName("effect", effect);
-        HealthChange.start();
-        HealthChange.release();
+        if (effect == 1) {
+            FMOD.Studio.EventInstance PoisonSubsequent;
+            PoisonSubsequent = FMODUnity.RuntimeManager.CreateInstance("event:/SFX/Battle/PoisonFirst");
+            PoisonSubsequent.setParameterByName("healthDelta", healthDelta);
+            PoisonSubsequent.setParameterByName("player", player + 1);
+            PoisonSubsequent.setParameterByName("effect", effect);
+            PoisonSubsequent.start();
+            PoisonSubsequent.release(); }
+        else if (effect == 2) {
+            FMOD.Studio.EventInstance QuickAttack;
+            QuickAttack = FMODUnity.RuntimeManager.CreateInstance("event:/SFX/Battle/QuickAttack");
+            QuickAttack.setParameterByName("healthDelta", healthDelta);
+            QuickAttack.setParameterByName("player", player + 1);
+            QuickAttack.setParameterByName("effect", effect);
+            QuickAttack.start();
+            QuickAttack.release();
+        } else if (effect == 3) {
+            FMOD.Studio.EventInstance HealthChange;
+            HealthChange = FMODUnity.RuntimeManager.CreateInstance("event:/SFX/Battle/HealthChange");
+            //HealthChange.setParameterByName("healthDelta", healthDelta);
+            HealthChange.setParameterByName("healthDelta", healthDelta);
+            HealthChange.setParameterByName("player", player + 1);
+            HealthChange.setParameterByName("effect", effect);
+            HealthChange.start();
+            HealthChange.release();
+        } else {
+            FMOD.Studio.EventInstance HealthChange;
+            HealthChange = FMODUnity.RuntimeManager.CreateInstance("event:/SFX/Battle/HealthChange");
+            //HealthChange.setParameterByName("healthDelta", healthDelta);
+            HealthChange.setParameterByName("healthDelta", -1);
+            HealthChange.setParameterByName("player", player + 1);
+            HealthChange.setParameterByName("effect", effect);
+            HealthChange.start();
+            HealthChange.release();
+        }
+        
+
     }
 
     // for dealing damage in future turns
     // Note: DelayedDamage[0] will be called immediately this turn
     public IEnumerator inflictDelayedDamage(int caster, int effect1)
     {
+        int opponent = (caster + 1) % 2;
         StartCoroutine(UpdateRuneIcons(caster));
         if (caster == 0) {
 
             float damage1 = P2DelayedDamage[0];
-            health2.BumpHp(damage1);
             P2DelayedDamage.RemoveAt(0);
             P2DelayedDamage.Add(0);
             if (damage1 != 0) {
                 SoundEffectController(caster, damage1, effect1);
-                yield return new WaitForSeconds(0.6F);
+                yield return new WaitForSeconds(0.5F);
+                health2.BumpHp(damage1);
+                if (damage1 < 0 && ShakeEnabled)
+                    CameraToShake.GetComponent<CameraShake>().shakeDuration = 0.1F;
+                    CameraToShake.GetComponent<CameraShake>().shakeAmount = 0.1F + damage1/70F;
+                yield return new WaitForSeconds(0.5F);
+                if (health2.IsDead())
+                {
+                    LevelController.GetComponent<LevelController>().OnPlayerDied(player2GameObject);
+                }
+
             }
             float damage2 = P1DelayedDamage[0];
-            health1.BumpHp(damage2);
             P1DelayedDamage.RemoveAt(0);
             P1DelayedDamage.Add(0);
             if (damage2 != 0) {
                 int effect2 = 0;
                 if (damage2 < 0) 
-                    effect2 = 1;
+                    effect2 = 0;
                 else
                     effect2 = 3;
                 
-                SoundEffectController(caster, damage2, effect2);
+                SoundEffectController(opponent, damage2, effect2);
                 yield return new WaitForSeconds(0.2F);
+                health1.BumpHp(damage2);
+                if (health1.IsDead())
+                {
+                    LevelController.GetComponent<LevelController>().OnPlayerDied(player1GameObject);
+                }
             }
         }
         else if (caster == 1) {
 
             float damage1 = P1DelayedDamage[0];
-            health1.BumpHp(damage1);
             P1DelayedDamage.RemoveAt(0);
             P1DelayedDamage.Add(0);
             if (damage1 != 0) {
                 SoundEffectController(caster, damage1, effect1);
-                yield return new WaitForSeconds(0.6F);
+                yield return new WaitForSeconds(0.5F);
+                health1.BumpHp(damage1);
+                if (damage1 < 0 && ShakeEnabled)
+                    CameraToShake.GetComponent<CameraShake>().shakeDuration = 0.1F;
+                    CameraToShake.GetComponent<CameraShake>().shakeAmount = 0.1F + damage1/70F;
+                yield return new WaitForSeconds(0.5F);
+                if (health1.IsDead())
+                {
+                    LevelController.GetComponent<LevelController>().OnPlayerDied(player1GameObject);
+                }
             }
             float damage2 = P2DelayedDamage[0];
-            health2.BumpHp(damage2);
             P2DelayedDamage.RemoveAt(0);
             P2DelayedDamage.Add(0);
             if (damage2 != 0) {
                 int effect2 = 0;
                 if (damage2 < 0) 
-                    effect2 = 1;
+                    effect2 = 0;
                 else
                     effect2 = 3;
                 
-                SoundEffectController(caster, damage2, effect2);
+                SoundEffectController(opponent, damage2, effect2);
                 yield return new WaitForSeconds(0.2F);
+                health2.BumpHp(damage2);
+                if (health2.IsDead())
+                {
+                    LevelController.GetComponent<LevelController>().OnPlayerDied(player2GameObject);
+                }
             }
         }
 
@@ -232,6 +290,8 @@ public class RuneController : MonoBehaviour
     public int Turn(GameManager.Player Caster, int wordDmgAmt)
     {
         int player = -1;
+        if (wordDmgAmt == 0)
+            return 0;
         if (Caster == P1) {
             player = 0;
         }
@@ -274,8 +334,8 @@ public class RuneController : MonoBehaviour
         }
         else if (effect == 2) {
             // fast attack: configurable
-            float multiplier = 1.75F;
-            float penalty = 0.0F; // from original damage amt
+            float multiplier = 1.5F;
+            float penalty = 0.1F; // from original damage amt
             
             DelayedDamageArray[opponent][0] -= wordDmgAmt * multiplier;
             DelayedDamageArray[opponent][1] += wordDmgAmt * (multiplier - 1 + penalty);

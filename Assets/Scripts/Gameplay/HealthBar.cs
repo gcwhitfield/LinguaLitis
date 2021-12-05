@@ -20,7 +20,7 @@ public class HealthBar : MonoBehaviour
 
     public void SetHealth(float proportion)
     {
-        var healthBarWidth = 3.0625f;
+        var healthBarWidth = 3.209279f; // 3.0625f;
         var dir = this.flipped ? Vector3.right : Vector3.left;
         this.mask.transform.position = this.maskInitialPosition + dir * (1.0f - proportion) * healthBarWidth;
     }

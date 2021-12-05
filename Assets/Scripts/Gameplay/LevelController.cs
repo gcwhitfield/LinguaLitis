@@ -19,6 +19,7 @@ public class LevelController : UnitySingleton<LevelController>
     public GameObject RuneIcon2;
     public Animator WinGraphicAnimtor;
     public GameObject RuneControllerObject;
+    public GameObject turnIndicator;
     // while the game is waiting for the player to type a word, this is set to true.
     // Otherwise, set to false
     private bool _waitForWord = false;
@@ -78,6 +79,14 @@ public class LevelController : UnitySingleton<LevelController>
         {
             print("Player 2 has died!");
         }
+
+        // No more fun allowed >:D
+        // This makes sure that players can't still spell words after the game
+        // has ended.  Since the win screen covers up the tiles, you can't click
+        // them to activate them but it is still possible using the keyboard and
+        // perceptible from sound effects.
+        this.player1Inventory.GetComponent<TileInventory>().isDisabled = true;
+        this.player2Inventory.GetComponent<TileInventory>().isDisabled = true;
 
         // play the win animation
         if (WinGraphicAnimtor)
@@ -189,14 +198,14 @@ public class LevelController : UnitySingleton<LevelController>
         Animator currPlayerAnimator;
         Animator oppPlayerAnimator;
 
-        int wordDmgAmt = 0;
+        GameObject activePlayerInventory;
         if (currPlayer == GameManager.Player.P1)
         {
             currPlayerG = player1G;
             currPlayerAnimator = player1Animator;
             oppPlayerG = player2G;
             oppPlayerAnimator = player2Animator;
-            wordDmgAmt = player1Inventory.GetComponent<TileInventory>().ScoreWord();
+            activePlayerInventory = player1Inventory;
         }
         else
         {
@@ -204,8 +213,9 @@ public class LevelController : UnitySingleton<LevelController>
             currPlayerAnimator = player2Animator;
             oppPlayerG = player1G;
             oppPlayerAnimator = player1Animator;
-            wordDmgAmt = player2Inventory.GetComponent<TileInventory>().ScoreWord();
+            activePlayerInventory = player2Inventory;
         }
+        int wordDmgAmt = activePlayerInventory.GetComponent<TileInventory>().ScoreWord();
 
         // If no valid word was spelled, then don't do anything at all.  Player must try again.
         if (wordDmgAmt == -1) {
@@ -215,8 +225,10 @@ public class LevelController : UnitySingleton<LevelController>
         }
 
         //Triggers attack animation on successful attack
-        currPlayerAnimator.ResetTrigger("Attack");
-        currPlayerAnimator.SetTrigger("Attack");
+        if (wordDmgAmt > 0) {
+            currPlayerAnimator.ResetTrigger("Attack");
+            currPlayerAnimator.SetTrigger("Attack");
+        }
 
         // damage the opposite player
         Health oppHealth = oppPlayerG.GetComponent<Health>(); 
@@ -233,14 +245,10 @@ public class LevelController : UnitySingleton<LevelController>
         }
 
         // Clearing the tiles
-        if (currPlayer == GameManager.Player.P1)
-        {
-            player1Inventory.GetComponent<TileInventory>().ClearTiles();
+        if (wordDmgAmt == 0) {
+            activePlayerInventory.GetComponent<TileInventory>().RenewAllTiles();
         }
-        else
-        {
-            player2Inventory.GetComponent<TileInventory>().ClearTiles();
-        }
+        activePlayerInventory.GetComponent<TileInventory>().ClearTiles();
 
         _waitForWord = false;
         ChangeTurn();
@@ -251,8 +259,13 @@ public class LevelController : UnitySingleton<LevelController>
         this.turnNumber += 1;
         OnPlayerEndTurn();
 
-        if (currPlayer == GameManager.Player.P1) currPlayer = GameManager.Player.P2;
-        else currPlayer = GameManager.Player.P1;
+        if (currPlayer == GameManager.Player.P1) {
+            currPlayer = GameManager.Player.P2;
+            turnIndicator.GetComponent<TurnIndicator>().SetPlayer(false);
+        } else {
+            currPlayer = GameManager.Player.P1;
+            turnIndicator.GetComponent<TurnIndicator>().SetPlayer(true);
+        }
 
         OnPlayerBeginTurn();
     }
