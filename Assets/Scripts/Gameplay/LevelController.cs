@@ -19,6 +19,7 @@ public class LevelController : UnitySingleton<LevelController>
     public GameObject RuneIcon2;
     public Animator WinGraphicAnimtor;
     public GameObject RuneControllerObject;
+    public GameObject turnIndicator;
     // while the game is waiting for the player to type a word, this is set to true.
     // Otherwise, set to false
     private bool _waitForWord = false;
@@ -258,8 +259,13 @@ public class LevelController : UnitySingleton<LevelController>
         this.turnNumber += 1;
         OnPlayerEndTurn();
 
-        if (currPlayer == GameManager.Player.P1) currPlayer = GameManager.Player.P2;
-        else currPlayer = GameManager.Player.P1;
+        if (currPlayer == GameManager.Player.P1) {
+            currPlayer = GameManager.Player.P2;
+            turnIndicator.GetComponent<TurnIndicator>().SetPlayer(false);
+        } else {
+            currPlayer = GameManager.Player.P1;
+            turnIndicator.GetComponent<TurnIndicator>().SetPlayer(true);
+        }
 
         OnPlayerBeginTurn();
     }
