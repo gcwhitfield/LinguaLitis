@@ -2203,6 +2203,7 @@ MonoBehaviour:
   CameraToShake: {fileID: 308220160}
   player1GameObject: {fileID: 564679796}
   player2GameObject: {fileID: 1494269136}
+  LevelController: {fileID: 1605532758}
 --- !u!4 &1559568784
 Transform:
   m_ObjectHideFlags: 0
