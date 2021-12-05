@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.01.00">
 	<object class="Event" id="{ac5f8bca-5538-4176-a49f-df13a9f17598}">
 		<property name="name">
-			<value>QuickAttack</value>
+			<value>QuickAttack V01</value>
 		</property>
 		<property name="outputFormat">
 			<value>1</value>
