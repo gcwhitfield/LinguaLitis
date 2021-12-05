@@ -219,7 +219,7 @@ public class RuneController : MonoBehaviour
                 health2.BumpHp(damage1);
                 if (damage1 < 0 && ShakeEnabled)
                     CameraToShake.GetComponent<CameraShake>().shakeDuration = 0.1F;
-                    CameraToShake.GetComponent<CameraShake>().shakeAmount = 0.1F + damage1/70F;
+                    CameraToShake.GetComponent<CameraShake>().shakeAmount = damage1/70F;
                 yield return new WaitForSeconds(0.5F);
                 if (health2.IsDead())
                 {
