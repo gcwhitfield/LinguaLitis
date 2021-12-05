@@ -70,9 +70,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: 1948676753
+  m_SortingLayer: -1
+  m_SortingOrder: 3
   m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
   m_Color: {r: 0.6698113, g: 0.48340157, b: 0.48340157, a: 0}
   m_FlipX: 0
@@ -97,6 +97,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tilePrefab: {fileID: 8241657807343246512, guid: bd3e360138dd83f458cc7c5736dab70e, type: 3}
+  submitButtonText: {fileID: 0}
   stagedTilePosition: {x: 0, y: 2, z: 0}
   wordList: {fileID: 0}
   isDisabled: 1
