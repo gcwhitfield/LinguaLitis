@@ -160,14 +160,43 @@ public class RuneController : MonoBehaviour
 
     public void SoundEffectController(int player, float healthDelta, int effect) {
 
-        FMOD.Studio.EventInstance HealthChange;
-        HealthChange = FMODUnity.RuntimeManager.CreateInstance("event:/SFX/Battle/HealthChange");
-        //HealthChange.setParameterByName("healthDelta", healthDelta);
-        HealthChange.setParameterByName("healthDelta", -1);
-        HealthChange.setParameterByName("player", player + 1);
-        HealthChange.setParameterByName("effect", effect);
-        HealthChange.start();
-        HealthChange.release();
+        if (effect == 1) {
+            FMOD.Studio.EventInstance PoisonSubsequent;
+            PoisonSubsequent = FMODUnity.RuntimeManager.CreateInstance("event:/SFX/Battle/PoisonFirst");
+            PoisonSubsequent.setParameterByName("healthDelta", healthDelta);
+            PoisonSubsequent.setParameterByName("player", player + 1);
+            PoisonSubsequent.setParameterByName("effect", effect);
+            PoisonSubsequent.start();
+            PoisonSubsequent.release(); }
+        else if (effect == 2) {
+            FMOD.Studio.EventInstance QuickAttack;
+            QuickAttack = FMODUnity.RuntimeManager.CreateInstance("event:/SFX/Battle/QuickAttack");
+            QuickAttack.setParameterByName("healthDelta", healthDelta);
+            QuickAttack.setParameterByName("player", player + 1);
+            QuickAttack.setParameterByName("effect", effect);
+            QuickAttack.start();
+            QuickAttack.release();
+        } else if (effect == 3) {
+            FMOD.Studio.EventInstance HealthChange;
+            HealthChange = FMODUnity.RuntimeManager.CreateInstance("event:/SFX/Battle/HealthChange");
+            //HealthChange.setParameterByName("healthDelta", healthDelta);
+            HealthChange.setParameterByName("healthDelta", healthDelta);
+            HealthChange.setParameterByName("player", player + 1);
+            HealthChange.setParameterByName("effect", effect);
+            HealthChange.start();
+            HealthChange.release();
+        } else {
+            FMOD.Studio.EventInstance HealthChange;
+            HealthChange = FMODUnity.RuntimeManager.CreateInstance("event:/SFX/Battle/HealthChange");
+            //HealthChange.setParameterByName("healthDelta", healthDelta);
+            HealthChange.setParameterByName("healthDelta", -1);
+            HealthChange.setParameterByName("player", player + 1);
+            HealthChange.setParameterByName("effect", effect);
+            HealthChange.start();
+            HealthChange.release();
+        }
+        
+
     }
 
     // for dealing damage in future turns
@@ -183,7 +212,7 @@ public class RuneController : MonoBehaviour
             P2DelayedDamage.Add(0);
             if (damage1 != 0) {
                 SoundEffectController(caster, damage1, effect1);
-                yield return new WaitForSeconds(0.6F);
+                yield return new WaitForSeconds(1F);
             }
             float damage2 = P1DelayedDamage[0];
             health1.BumpHp(damage2);
@@ -192,7 +221,7 @@ public class RuneController : MonoBehaviour
             if (damage2 != 0) {
                 int effect2 = 0;
                 if (damage2 < 0) 
-                    effect2 = 1;
+                    effect2 = 0;
                 else
                     effect2 = 3;
                 
@@ -208,7 +237,7 @@ public class RuneController : MonoBehaviour
             P1DelayedDamage.Add(0);
             if (damage1 != 0) {
                 SoundEffectController(caster, damage1, effect1);
-                yield return new WaitForSeconds(0.6F);
+                yield return new WaitForSeconds(1F);
             }
             float damage2 = P2DelayedDamage[0];
             health2.BumpHp(damage2);
@@ -217,7 +246,7 @@ public class RuneController : MonoBehaviour
             if (damage2 != 0) {
                 int effect2 = 0;
                 if (damage2 < 0) 
-                    effect2 = 1;
+                    effect2 = 0;
                 else
                     effect2 = 3;
                 
