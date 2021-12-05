@@ -122,7 +122,7 @@ public class RuneController : MonoBehaviour
         }
         if (StatusIndicatorPoison[1] > 0) {
             RuneIcon2[3].SetActive(true);
-            StatusIndicatorPoison[0] -= 1;
+            StatusIndicatorPoison[1] -= 1;
         }
         else {
             RuneIcon2[3].SetActive(false);
@@ -174,9 +174,9 @@ public class RuneController : MonoBehaviour
         else if (effect == 2) {
             FMOD.Studio.EventInstance QuickAttack;
             QuickAttack = FMODUnity.RuntimeManager.CreateInstance("event:/SFX/Battle/QuickAttack");
-            QuickAttack.setParameterByName("healthDelta", healthDelta);
-            QuickAttack.setParameterByName("player", player + 1);
-            QuickAttack.setParameterByName("effect", effect);
+            QuickAttack.setParameterByName("healthDelta", -1);
+            QuickAttack.setParameterByName("player", 1);
+            QuickAttack.setParameterByName("effect", 2);
             QuickAttack.start();
             QuickAttack.release();
         } else if (effect == 3) {
@@ -219,7 +219,7 @@ public class RuneController : MonoBehaviour
                 health2.BumpHp(damage1);
                 if (damage1 < 0 && ShakeEnabled)
                     CameraToShake.GetComponent<CameraShake>().shakeDuration = 0.1F;
-                    CameraToShake.GetComponent<CameraShake>().shakeAmount = 0.1F + damage1/70F;
+                    CameraToShake.GetComponent<CameraShake>().shakeAmount = damage1/70F;
                 yield return new WaitForSeconds(0.5F);
                 if (health2.IsDead())
                 {
@@ -290,8 +290,7 @@ public class RuneController : MonoBehaviour
     public int Turn(GameManager.Player Caster, int wordDmgAmt)
     {
         int player = -1;
-        if (wordDmgAmt == 0)
-            return 0;
+        int attackType;
         if (Caster == P1) {
             player = 0;
         }
@@ -302,7 +301,7 @@ public class RuneController : MonoBehaviour
             return -1;
         }
 
-        int attackType = Effect(player, wordDmgAmt);
+        attackType = Effect(player, wordDmgAmt);
         StartCoroutine(inflictDelayedDamage(player, attackType));
 
         return attackType;
@@ -321,16 +320,20 @@ public class RuneController : MonoBehaviour
             P2RuneSequence.RemoveAt(0);
             P2RuneSequence.Add(Random.Range(0, 4));
         }
-        Debug.Log("Effect number:" + effect.ToString());
+        if (wordDmgAmt == 0) {
+            return 0;
+        }
         if (effect == 1) {
             // damage over time attack: configurable
             float multiplier = 1.5F;
-            int turns = 4;
+            float initial = 0.5F;
+            int turns = 5;
 
-            for (int i = 0; i < turns; i++) {
-                DelayedDamageArray[opponent][i] -= wordDmgAmt * multiplier / turns;
+            DelayedDamageArray[opponent][0] -= initial * wordDmgAmt;
+            for (int i = 1; i < turns; i++) {
+                DelayedDamageArray[opponent][i] -= wordDmgAmt * (multiplier - initial) / turns;
             }
-            StatusIndicatorPoison[opponent] = 6;
+            StatusIndicatorPoison[opponent] = 4;
         }
         else if (effect == 2) {
             // fast attack: configurable

@@ -965,6 +965,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 868396864}
     m_Modifications:
+    - target: {fileID: 5289570870415139103, guid: 147659d38891d495b90c1e307a178ce5, type: 3}
+      propertyPath: m_fontSize
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 5289570870415139103, guid: 147659d38891d495b90c1e307a178ce5, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 6de1f2cf41dd14cb1a99c8c5f6641da1, type: 2}
+    - target: {fileID: 5289570870415139103, guid: 147659d38891d495b90c1e307a178ce5, type: 3}
+      propertyPath: m_fontStyle
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5289570870415139103, guid: 147659d38891d495b90c1e307a178ce5, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 5289570870415139103, guid: 147659d38891d495b90c1e307a178ce5, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 5695606264651009659, guid: 6de1f2cf41dd14cb1a99c8c5f6641da1, type: 2}
     - target: {fileID: 5289570870468225472, guid: 147659d38891d495b90c1e307a178ce5, type: 3}
       propertyPath: m_Name
       value: SubmitWordButton
