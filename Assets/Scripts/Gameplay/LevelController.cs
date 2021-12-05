@@ -197,14 +197,14 @@ public class LevelController : UnitySingleton<LevelController>
         Animator currPlayerAnimator;
         Animator oppPlayerAnimator;
 
-        int wordDmgAmt = 0;
+        GameObject activePlayerInventory;
         if (currPlayer == GameManager.Player.P1)
         {
             currPlayerG = player1G;
             currPlayerAnimator = player1Animator;
             oppPlayerG = player2G;
             oppPlayerAnimator = player2Animator;
-            wordDmgAmt = player1Inventory.GetComponent<TileInventory>().ScoreWord();
+            activePlayerInventory = player1Inventory;
         }
         else
         {
@@ -212,8 +212,9 @@ public class LevelController : UnitySingleton<LevelController>
             currPlayerAnimator = player2Animator;
             oppPlayerG = player1G;
             oppPlayerAnimator = player1Animator;
-            wordDmgAmt = player2Inventory.GetComponent<TileInventory>().ScoreWord();
+            activePlayerInventory = player2Inventory;
         }
+        int wordDmgAmt = activePlayerInventory.GetComponent<TileInventory>().ScoreWord();
 
         // If no valid word was spelled, then don't do anything at all.  Player must try again.
         if (wordDmgAmt == -1) {
@@ -241,14 +242,10 @@ public class LevelController : UnitySingleton<LevelController>
         }
 
         // Clearing the tiles
-        if (currPlayer == GameManager.Player.P1)
-        {
-            player1Inventory.GetComponent<TileInventory>().ClearTiles();
+        if (wordDmgAmt == 0) {
+            activePlayerInventory.GetComponent<TileInventory>().RenewAllTiles();
         }
-        else
-        {
-            player2Inventory.GetComponent<TileInventory>().ClearTiles();
-        }
+        activePlayerInventory.GetComponent<TileInventory>().ClearTiles();
 
         _waitForWord = false;
         ChangeTurn();
