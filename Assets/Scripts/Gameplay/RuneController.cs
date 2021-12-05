@@ -208,15 +208,16 @@ public class RuneController : MonoBehaviour
         if (caster == 0) {
 
             float damage1 = P2DelayedDamage[0];
-            health2.BumpHp(damage1);
             P2DelayedDamage.RemoveAt(0);
             P2DelayedDamage.Add(0);
             if (damage1 != 0) {
                 SoundEffectController(caster, damage1, effect1);
-                yield return new WaitForSeconds(1F);
+                yield return new WaitForSeconds(0.5F);
+                health2.BumpHp(damage1);
+                yield return new WaitForSeconds(0.5F);
+
             }
             float damage2 = P1DelayedDamage[0];
-            health1.BumpHp(damage2);
             P1DelayedDamage.RemoveAt(0);
             P1DelayedDamage.Add(0);
             if (damage2 != 0) {
@@ -228,20 +229,21 @@ public class RuneController : MonoBehaviour
                 
                 SoundEffectController(opponent, damage2, effect2);
                 yield return new WaitForSeconds(0.2F);
+                health1.BumpHp(damage2);
             }
         }
         else if (caster == 1) {
 
             float damage1 = P1DelayedDamage[0];
-            health1.BumpHp(damage1);
             P1DelayedDamage.RemoveAt(0);
             P1DelayedDamage.Add(0);
             if (damage1 != 0) {
                 SoundEffectController(caster, damage1, effect1);
-                yield return new WaitForSeconds(1F);
+                yield return new WaitForSeconds(0.5F);
+                health1.BumpHp(damage1);
+                yield return new WaitForSeconds(0.5F);
             }
             float damage2 = P2DelayedDamage[0];
-            health2.BumpHp(damage2);
             P2DelayedDamage.RemoveAt(0);
             P2DelayedDamage.Add(0);
             if (damage2 != 0) {
@@ -253,6 +255,7 @@ public class RuneController : MonoBehaviour
                 
                 SoundEffectController(opponent, damage2, effect2);
                 yield return new WaitForSeconds(0.2F);
+                health2.BumpHp(damage2);
             }
         }
 
