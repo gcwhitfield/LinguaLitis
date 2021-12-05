@@ -2624,6 +2624,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 777728267145293593, guid: f09a1562663c1436da5587f7fc65d0fd, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 777728267280026029, guid: f09a1562663c1436da5587f7fc65d0fd, type: 3}
       propertyPath: m_MaskAlphaCutoff
       value: 1
@@ -2635,6 +2639,10 @@ PrefabInstance:
     - target: {fileID: 777728267280026030, guid: f09a1562663c1436da5587f7fc65d0fd, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.7374
+      objectReference: {fileID: 0}
+    - target: {fileID: 777728267280026031, guid: f09a1562663c1436da5587f7fc65d0fd, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 777728268396992476, guid: f09a1562663c1436da5587f7fc65d0fd, type: 3}
       propertyPath: m_RootOrder
@@ -2683,6 +2691,10 @@ PrefabInstance:
     - target: {fileID: 777728268396992477, guid: f09a1562663c1436da5587f7fc65d0fd, type: 3}
       propertyPath: m_Name
       value: P2HealthBar
+      objectReference: {fileID: 0}
+    - target: {fileID: 777728269031239658, guid: f09a1562663c1436da5587f7fc65d0fd, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8305686437094985048, guid: f09a1562663c1436da5587f7fc65d0fd, type: 3}
       propertyPath: m_LocalPosition.x
