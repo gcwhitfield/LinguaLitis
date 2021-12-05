@@ -174,9 +174,9 @@ public class RuneController : MonoBehaviour
         else if (effect == 2) {
             FMOD.Studio.EventInstance QuickAttack;
             QuickAttack = FMODUnity.RuntimeManager.CreateInstance("event:/SFX/Battle/QuickAttack");
-            QuickAttack.setParameterByName("healthDelta", healthDelta);
-            QuickAttack.setParameterByName("player", player + 1);
-            QuickAttack.setParameterByName("effect", effect);
+            QuickAttack.setParameterByName("healthDelta", -1);
+            QuickAttack.setParameterByName("player", 1);
+            QuickAttack.setParameterByName("effect", 2);
             QuickAttack.start();
             QuickAttack.release();
         } else if (effect == 3) {
