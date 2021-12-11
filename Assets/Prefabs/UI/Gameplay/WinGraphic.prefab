@@ -174,8 +174,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 10}
-  m_SizeDelta: {x: 0, y: 98.5342}
+  m_AnchoredPosition: {x: 0, y: 3.4517975}
+  m_SizeDelta: {x: 0, y: 164.016}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5913488991305999076
 CanvasRenderer:
@@ -477,7 +477,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9135450717460837639, guid: 1cc90f1faa92e4321a8a1175dcd4691f, type: 3}
       propertyPath: m_Name
-      value: MainMenuButton
+      value: RestartButton
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1cc90f1faa92e4321a8a1175dcd4691f, type: 3}
@@ -595,7 +595,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9135450717460837639, guid: 1cc90f1faa92e4321a8a1175dcd4691f, type: 3}
       propertyPath: m_Name
-      value: MainMenuButton (1)
+      value: MainMenuButton
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1cc90f1faa92e4321a8a1175dcd4691f, type: 3}
@@ -713,7 +713,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9135450717460837639, guid: 1cc90f1faa92e4321a8a1175dcd4691f, type: 3}
       propertyPath: m_Name
-      value: MainMenuButton (2)
+      value: QuitButton
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1cc90f1faa92e4321a8a1175dcd4691f, type: 3}
