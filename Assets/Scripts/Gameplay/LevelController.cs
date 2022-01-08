@@ -107,7 +107,7 @@ public class LevelController : UnitySingleton<LevelController>
         state = GameState.WIN;
     }
 
-    public void DisablePlayerControl()
+    void DisablePlayerControl()
     {
         if (this.currPlayer == GameManager.Player.P1) {
             this.player1Inventory.GetComponent<TileInventory>().isDisabled = true;
@@ -116,7 +116,7 @@ public class LevelController : UnitySingleton<LevelController>
         }
     }
 
-    public void EnablePlayerControl()
+    void EnablePlayerControl()
     {
         if (this.currPlayer == GameManager.Player.P1) {
             this.player1Inventory.GetComponent<TileInventory>().isDisabled = false;
@@ -125,7 +125,8 @@ public class LevelController : UnitySingleton<LevelController>
         }
     }
 
-    void UnPause()
+    // called from PauseHandler and from the OptionsButton event system
+    public void UnPause()
     {
         Time.timeScale = 1;
         this._isPaused = false;
@@ -133,7 +134,6 @@ public class LevelController : UnitySingleton<LevelController>
         this.FMOD.GetComponent<FMODMusicBattle>().Resume();
         EnablePlayerControl();
     }
-
     void Pause()
     {
         Time.timeScale = 0;
@@ -143,6 +143,7 @@ public class LevelController : UnitySingleton<LevelController>
         DisablePlayerControl();
     }
 
+    // called from inside of Update
     void PauseHandler()
     {
         if (this._isPaused) {
@@ -190,7 +191,7 @@ public class LevelController : UnitySingleton<LevelController>
             yield return null;
     }
 
-    // called when the player submits their word
+    // called when the player submits their word. Called by the SubmitButton event system
     public void SubmitWord()
     {
         GameObject currPlayerG; // the player whose turn it currently is
@@ -254,7 +255,7 @@ public class LevelController : UnitySingleton<LevelController>
         ChangeTurn();
     }
 
-    public void ChangeTurn()
+    void ChangeTurn()
     {
         this.turnNumber += 1;
         OnPlayerEndTurn();
